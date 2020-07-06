@@ -3,7 +3,7 @@
 ![](https://res.cloudinary.com/briezh/image/upload/v1539805526/spaceneedle_ga_sea_ykjk40.jpg)
 
 
-Welcome to GA Seattle! This is the notes repository for our Software Engineering Immersive (formerly known as Web Development Immersive). You can view the content in a more searchable/friendly format on [Gitbook](https://gawdiseattle.gitbooks.io/wdi/)!
+Welcome to GA Seattle! This is the notes repository for our Software Engineering Immersive (formerly known as Web Development Immersive). You can view the content in a more searchable/friendly format on [Gitbook](https://tmdarneille.gitbook.io/sei-ga-sea/)!
 
 ![GA Logo](./_assets/ga_cog.png)
 
@@ -31,7 +31,7 @@ This is totally optional. If you choose to do this, please update every 3-6 mont
 * Recommended process:
   * Make changes in your forked repository (use a separate branch)
   * Create a pull request and be sure to be very explicit about the changes you've made
-  * Ask someone on the WDI team to look at your pull request
+  * Ask someone on the SEI team to look at your pull request
 
 ## Schedule
 
@@ -39,18 +39,13 @@ Notes below are organized by topic, but they are unordered. This is because we m
 
 Something to know is that some of the lessons here are more historical and haven't been used in at least a couple years. For example, the Ruby lessons and the lessons in unit 1 that delve deeper into the guts of ES5 syntax like prototypal inheritance. We've elected to skip that in favor of teaching OOP during the Python unit.
 
+### Origin of this gitbook
+
+This is a second version of the working notes for the local SEI (formerly WDI) class held in person at the Seattle campus. Due to the changing nature of course delivery format in response to COVID-19, this course is only offered remotely at this time, and the student pool spans multiple campuses. This version of the notes is tailored for the SEI 713, offered remotely through the Seattle campus. It will be a working set of documents as SEI instructors continually adapt this originally campus-driven curriculum for the new demands of work-from-home life. The idea is to front-load each day with lessons in the morning, leaving the majority of the afternoon for flexibe workshop/lab time to accomodate screen-lecture attention spans and the unique demands that families and individuals face during a global pandemic and social unrest over racial injustice.
+
 ### Future Directions
 
-We are considering:
-
-* Dropping jQuery or doing a much lighter version than we are currently.
-* Dropping AJAX and replacing it with Fetch for APIs 
-* Dropping AJAX and replacing it with Method Override for RESTful routing
-* Adding a lesson on Django REST framework
-* Enhancing Django material in general
-* Rewriting portions of the Node/Express unit for more fine grained lessonslabs as opposed to a few very long code-alongs.
-
-
+TBD
 
 ### Connected Classroom Alteration (Fall 2018)
 
@@ -93,7 +88,7 @@ Additionally, much of the original Python material (locally) was developed at th
 ### Prework
 
 * [GA Dash](https://dash.generalassemb.ly/)
-* [WDI Fundamentals](http://fundamentals.generalassemb.ly/)
+*  **TODO: IS THIS STILL A THING??** [Fundamentals](http://fundamentals.generalassemb.ly/)
 * [FreeCodeCamp](http://www.freecodecamp.com/)
 
 ### Unit: Front End Development
