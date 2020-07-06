@@ -14,7 +14,7 @@ This is totally optional. If you choose to do this, please update every 3-6 mont
 * Fork this repository
 * Clone your fork to your development machine
 * Setup a remote for your fork
-  * On your terminal, run `git remote add upstream git@github.com:WDI-SEA/notes.git`
+  * On your terminal, run `git remote add upstream git@github.com:TaylorDarneille/SEI713.git`
 * Install the Gitbook CLI tool by running `npm install -g gitbook-cli`
 * Preview the Gitbook by running `gitbook serve`
 
