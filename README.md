@@ -88,7 +88,7 @@ Additionally, much of the original Python material (locally) was developed at th
 ### Prework
 
 * [GA Dash](https://dash.generalassemb.ly/)
-*  **TODO: IS THIS STILL A THING??** [Fundamentals](http://fundamentals.generalassemb.ly/)
+* [SEI Prework](https://generalassembly.atlassian.net/wiki/spaces/CONSPRO/pages/838796740/SEI+Pre-Work+Changelog+Q1+2020)
 * [FreeCodeCamp](http://www.freecodecamp.com/)
 
 ### Unit: Front End Development
