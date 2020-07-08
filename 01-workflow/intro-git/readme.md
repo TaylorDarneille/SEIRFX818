@@ -10,7 +10,7 @@
 * Distinguish between git and GitHub
 
 ## What is GitHub?
-History/workflow using version control + the github platform here: [https://docs.google.com/presentation/d/1O885SvVPn1GW6SBnckDcVN3e533mDa31hQ-Y_QE9vQU/edit?usp=sharing](https://docs.google.com/presentation/d/1hmykydaN6dbLW7vnaHTLBU-PcdxQ8wZYoWDYm11wwxs/edit?usp=sharing)
+History/workflow using version control + the github platform [here](https://docs.google.com/presentation/d/1O885SvVPn1GW6SBnckDcVN3e533mDa31hQ-Y_QE9vQU/edit?usp=sharing)
 
 ## Motivation
 
