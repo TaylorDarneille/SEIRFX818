@@ -30,11 +30,9 @@ Oh my ZSH?!!! We will be tricking out commandline with another shell. A shell is
 
 We'll be using a shell and configuration package called [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh)
 
-To install open iTerm and run
+Visit the [iTerm website] for install instructions. Open iTerm and run the command listed on the site.
 
-```
-curl -L http://install.ohmyz.sh | sh
-```
+If it prompts you to change your default shell to zsh, select yes! When it asks you for your password, enter your computer user password (it wont show up, but iTerm is keeping track of your keystrokes).
 
 Restart Terminal, and you should see a brand new and colorful command prompt.
 
