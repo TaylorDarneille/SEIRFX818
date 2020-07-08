@@ -17,6 +17,27 @@ We will be using slack to communicate throughout the course. You should've recei
 
 [Download Slack](https://slack.com/downloads)
 
+## iTerm
+
+iTerm is a tricked out version of the Terminal app that is the default command line interface for Mac. It will help with the visuals of the command line navigation, especially with ohmyZSH.
+
+[Download here](https://www.iterm2.com/)
+
+
+## Install Oh My ZSH
+
+Oh my ZSH?!!! We will be tricking out commandline with another shell. A shell is an interface into our computer, and we will be using a lot to run commands.
+
+We'll be using a shell and configuration package called [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+To install open iTerm and run
+
+```
+curl -L http://install.ohmyz.sh | sh
+```
+
+Restart Terminal, and you should see a brand new and colorful command prompt.
+
 ## Homebrew
 
 Homebrew is a package manager that we will use to install various command line tools in our class.
@@ -66,20 +87,6 @@ You might find your self having to re-authenticate GIT every time you work on yo
 
 * [Github Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys/)
 
-
-## Install Oh My ZSH
-
-Oh my ZSH?!!! We will be tricking out commandline with another shell. A shell is an interface into our computer, and we will be using a lot to run commands.
-
-We'll be using a shell and configuration package called [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh)
-
-To install, we will run
-
-```
-curl -L http://install.ohmyz.sh | sh
-```
-
-Restart Terminal, and you should see a brand new and colorful command prompt.
 
 ## Install VS Code
 
