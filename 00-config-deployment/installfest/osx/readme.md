@@ -1,5 +1,5 @@
 # SEI Seattle Install Fest
-
+---
 # PART 1
 
 For the first portion of the class, we'll be working exclusively inside of the browser and Node. We'll be installing the following tools.
@@ -81,9 +81,7 @@ curl -L http://install.ohmyz.sh | sh
 
 Restart Terminal, and you should see a brand new and colorful command prompt.
 
-# Code Editor Options
-
-### VS Code
+## Install VS Code
 
 Currently the most popular editor according to developer polls. This is Microsoft's free version of Visual Studio.
 
@@ -97,7 +95,7 @@ export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 Save this file and then fully restart your terminal window (quit and restart.)
 
---
+---
 
 # Part 2
 
@@ -195,7 +193,9 @@ Type `which psql` at which point should display
 We'll be using **Postico**. Install here:
 
 https://eggerapps.at/postico/
---
+
+---
+
 # Part 3
 
 ## Installing MongoDB (Updated 11/2019)
@@ -247,6 +247,10 @@ We'll be using **RoboMongo**. Install here:
 
 https://robomongo.org/
 
+---
+
+# Part 4
+
 ## Installing Python 3
 
 Brew is also used to install Python 3. (Python 2 is already installed on your Mac.) To install Python 3 without errors, we first need to create a couple directories and change them to be owned by us:
@@ -283,9 +287,6 @@ pip3 install ipython
 ```
 
 iPython makes it easy to write python code in your terminal. We may not use it a huge amount but it is handy to have around.
-
-
-# Archive Resources from Previous Curriculum
 
 ## Installing Django
 
