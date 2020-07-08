@@ -40,11 +40,7 @@ Restart Terminal, and you should see a brand new and colorful command prompt.
 
 Homebrew is a package manager that we will use to install various command line tools in our class.
 
-Open up terminal, and paste the following command to install Homebrew. You might be prompted to install XCode Command Line Tools during the install process.
-
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+Visit the [homebrew website](https://brew.sh/) for install instructions.
 
 You may be prompted to installed XCode command line tools. When prompted, click and install through that, and you're homebrew installation will continue.
 
