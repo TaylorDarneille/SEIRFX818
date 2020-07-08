@@ -1,16 +1,15 @@
 # SEI Seattle Install Fest
 
+# PART 1
+
 For the first portion of the class, we'll be working exclusively inside of the browser and Node. We'll be installing the following tools.
 
 * Slack
 * Homebrew
-* Git
-* Node
-* Oh my ZSH
 * iTerm
-* Postgres.app
-* Ruby
-* Rails
+* Oh my ZSH
+* VS Code
+* Git
 
 ## Slack
 
@@ -67,27 +66,6 @@ You might find your self having to re-authenticate GIT every time you work on yo
 
 * [Github Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys/)
 
-## Node
-
-To install Node
-```
-brew install node
-```
-
-Verify the installation afterwards by running
-
-```
-node -v
-npm -v
-```
-
-The above should display without any errors.
-
-To finish up your installation, run this command to allow for global installations of npm tools.
-
-```
-sudo chown -R $USER /usr/local/lib
-```
 
 ## Install Oh My ZSH
 
@@ -119,34 +97,31 @@ export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 Save this file and then fully restart your terminal window (quit and restart.)
 
+--
 
-### Sublime Text 3
+# Part 2
 
-A very popular shareware code editor with a vast library of extensions. It will nag you to purchase it every fourth time you save a file.
+## Node
 
-Download and install version 3 from [http://www.sublimetext.com/3](http://www.sublimetext.com/3)
-
-It is a pretty typical installation for an app, but we need to add a shortcut so we can load sublime from the Terminal.
-
+To install Node
 ```
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+brew install node
 ```
 
-Restart terminal, and you should be able to open a folder to edit by typing `subl .`
-
-### Atom
-
-Atom boasts tighter integration with Git and Github as well as being open source (which means no purchase nags.)
-
-Download and install Atom from [here](https://atom.io/)
-
-For a command line shortcut, run this:
+Verify the installation afterwards by running
 
 ```
-ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
+node -v
+npm -v
 ```
 
-Now you can open a folder from your terminal by typing: `atom .`
+The above should display without any errors.
+
+To finish up your installation, run this command to allow for global installations of npm tools.
+
+```
+sudo chown -R $USER /usr/local/lib
+```
 
 ## Postgres
 
@@ -220,6 +195,8 @@ Type `which psql` at which point should display
 We'll be using **Postico**. Install here:
 
 https://eggerapps.at/postico/
+--
+# Part 3
 
 ## Installing MongoDB (Updated 11/2019)
 
@@ -317,103 +294,3 @@ We will also use `pip3` to install Django, a robust back-end server for Python. 
 ```
 pip3 install Django
 ```
-
-## Installing Ruby on Rails
-
-### Install rbenv
-rbenv lets us change ruby verions on the fly, useful for working with diffrent versions.
-
-```
-brew update
-brew install rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-source ~/.zshrc
-
-sudo chown -R $USER ~/.rbenv
-```
-
-### Configuring rbenv
-__Note: new versions of Ruby and Rails are released regularly. Check with your instructor whether the versions listed below is appropriate__
-
-```
-brew update
-
-brew install ruby-build
-
-rbenv install 2.4.1
-rbenv global 2.4.1
-```
-
-### Install Rails
-
-```
-echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-```
-
-Restart your terminal. The command above will install gems without documentation (which can take up time when installing Rails)
-
-```
-sudo gem update
-sudo gem install rails
-```
-You may need to press "yes" for various entries
-
-## Verify your installation
-
-Make sure to restart your terminal and then run each of these commands. Finally call someone over to validate your installation is correct.
-
-```
-rails -v
-ruby -v
-
-which ruby
-which rails
-which bundle
-which gem
-
-node -v
-npm -v
-
-git --version
-psql --version
-subl -v (or atom -v)
-
-```
-
-### Overwriting an existing Ruby installation
-
-You may already have an old version of Ruby installed. In this case, it may be easiest to update your Ruby version with [RVM - Ruby Version Manager](https://rvm.io/rvm/install#basic-install). The stable option will install RVM with the latest stable (tested and approved) version of Ruby.
-
-```
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-```
-
-### RVM Cheat Sheet
-Now that you have RVM, some useful commands it can perform:
-
-```
-rvm list known
-```
-
-This lists all known versions of Ruby 
-
-```
-rvm install X.X
-```
-
-Install version X.X of Ruby (where you replace the X's with the appropriate version number you would like to install).
-
-```
-rvm use X.X
-```
-
-If you have multiple versions of Ruby, you must tell your computer which one to use as the primary or default version.
-
-```
-rvm use X.X --default
-```
-
-This does the same as the above command, but additionally sets this version of Ruby as the default for any new shells you might use.
-
-Refer to [RVM documentation](https://rvm.io/) for any further RVM questions.
