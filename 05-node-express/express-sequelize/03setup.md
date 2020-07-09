@@ -1,13 +1,12 @@
 # Setup
 
-## Setup part 1 - getting the sequelize-cli tool (you only have to do this once)
+## Setup part 1 - getting the sequelize-cli tool \(you only have to do this once\)
 
 We need install a generator so we can use sequelize. Much like our other terminal apps, we will only install this once.
 
-```
+```text
 npm install -g sequelize-cli
 ```
-
 
 ### Setup part 2 - starting a new node project
 
@@ -15,7 +14,7 @@ Let's build our first app using Sequelize! First we need to create a node app an
 
 Create a new folder and add an index.js and .gitignore and initialize the repository
 
-```
+```text
 mkdir userapp
 cd userapp
 npm init
@@ -23,23 +22,22 @@ touch index.js
 echo "node_modules" >> .gitignore
 ```
 
-Add/save dependencies (sequelize needs pg for Postgres)
+Add/save dependencies \(sequelize needs pg for Postgres\)
 
-```
+```text
 npm install express ejs pg sequelize
 ```
 
 Create a database and initialize a sequelize project
 
-```
+```text
 createdb userapp
 sequelize init
 ```
 
 #### For your historical reference...
 
-**WARNING (2017) Edited (2018):**
-At one point, sequelize-cli, sequelize, and pg modules were not playing nicely with each other. Luckily, this issue (for version Sequelize 4) has been resolved and we can resume using the current versions of both. In the future, be mindful that many modules you use are maintained by individual third parties and issues like this may come up! 
+**WARNING \(2017\) Edited \(2018\):** At one point, sequelize-cli, sequelize, and pg modules were not playing nicely with each other. Luckily, this issue \(for version Sequelize 4\) has been resolved and we can resume using the current versions of both. In the future, be mindful that many modules you use are maintained by individual third parties and issues like this may come up!
 
 If you used to use Sequelize 3, keep in mind that Sequelize 4 has breaking changes! If you need to upgrade your app, refer to these [docs](http://docs.sequelizejs.com/manual/tutorial/upgrade-to-v4.html#breaking-changes), which guide you in the update process.
 
@@ -49,13 +47,13 @@ In sublime we should now see a bunch of new folders. We now have config, migrati
 
 Let's start in the config folder and open up the config.json file. This file contains information about the database we are using as well as how to connect.
 
-We have three settings, one for development (what we will use now), test (for testing our code), and production (when we deploy our app on AWS/Heroku).
+We have three settings, one for development \(what we will use now\), test \(for testing our code\), and production \(when we deploy our app on AWS/Heroku\).
 
 Let's change the config.json so it looks like this.
 
 **config/config.json**
 
-```js
+```javascript
 {
   "development": {
     "database": "userapp_development",
@@ -83,7 +81,7 @@ Once this is complete, let's move to the models folder.
 
 ## Creating a model and a matching migration
 
-In order to create a model, we start with `sequelize model:create` and then specify the name of the model using the `--name` flag. Make sure your models are **always** singular (table name in plural, model name in singular). After passing in the `--name` flag followed by the name of your model, you can then add an `--attributes` flag and pass in data about your model. Generating the model also generates a corresponding migration. You only need to do this once for your model.
+In order to create a model, we start with `sequelize model:create` and then specify the name of the model using the `--name` flag. Make sure your models are **always** singular \(table name in plural, model name in singular\). After passing in the `--name` flag followed by the name of your model, you can then add an `--attributes` flag and pass in data about your model. Generating the model also generates a corresponding migration. You only need to do this once for your model.
 
 ```bash
 sequelize model:create --name user --attributes firstName:string,lastName:string,age:integer,email:string
@@ -93,12 +91,11 @@ If you want to make changes to your model after generating it - all you have to 
 
 > Make sure you do **not** have any spaces between each of the attributes and their data types. Convention matters!
 
-
 This will generate the following migration
 
 **migrations/\*-create-user.js**
 
-```js
+```javascript
 "use strict";
 module.exports = {
   up: function(migration, DataTypes, done) {
@@ -140,7 +137,8 @@ module.exports = {
 And a corresponding model:
 
 **models/user.js**
-```js
+
+```javascript
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
@@ -163,18 +161,19 @@ module.exports = function(sequelize, DataTypes) {
 
 ## What is this "associate" thing in my model?
 
-In this function, we specify any relations/associations (one to one, one to many or many to many) between our models (hasMany or belongsTo). We'll discuss this more, but always remember, the association goes in the model and the foreign keys go in the migration.
+In this function, we specify any relations/associations \(one to one, one to many or many to many\) between our models \(hasMany or belongsTo\). We'll discuss this more, but always remember, the association goes in the model and the foreign keys go in the migration.
 
 ## Running the migration
 
 To run the migration, use the following command.
 
-```
+```text
 sequelize db:migrate
 ```
 
 If you need to undo the last migration, this command will undo the last migration that was applied to the database.
 
-```
+```text
 sequelize db:migrate:undo
 ```
+

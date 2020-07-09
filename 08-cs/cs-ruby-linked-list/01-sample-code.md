@@ -1,6 +1,7 @@
-# Sample Node and LinkedList Class
+# Sample Code
 
 ## Example Usage
+
 Use these classes to create lists like this:
 
 ```ruby
@@ -14,6 +15,7 @@ puts list.to_s
 ```
 
 ## Sample Classes
+
 ```ruby
 class Node
   attr_accessor :data, :next
@@ -60,3 +62,4 @@ class LinkedList
   end
 end
 ```
+

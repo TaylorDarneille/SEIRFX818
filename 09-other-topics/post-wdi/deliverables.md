@@ -1,4 +1,4 @@
-#Deliverables
+# Deliverables -&gt; Portfolio
 
 Many of your WDI deliverables can be redone/polished and shown on your portfolio. For your convenience, here is a list. Note that this may include deliverables that you haven't done, based on the scope of the cohort.
 
@@ -6,7 +6,7 @@ Many of your WDI deliverables can be redone/polished and shown on your portfolio
 * [Temperature Converter](https://github.com/WDI-SEA/temperature-converter-dom)
 * [jQuery Random Quote Generator](https://github.com/WDI-SEA/random-quote-jquery)
 * [jQuery/AJAX Reddit Slideshow](https://github.com/WDI-SEA/ajax-reddit-slideshow)
-* [Express Movie App (OMDB)](https://github.com/WDI-SEA/express-apis-omdb)
+* [Express Movie App \(OMDB\)](https://github.com/WDI-SEA/express-apis-omdb)
 * [Express Daily Planet](https://github.com/WDI-SEA/express-daily-planet)
 * [Express Pokedex](https://github.com/WDI-SEA/express-pokedex)
 * [Express Link Shortener](https://github.com/WDI-SEA/link-shortener)
@@ -26,3 +26,4 @@ Many of your WDI deliverables can be redone/polished and shown on your portfolio
 * [React Yearbook](https://github.com/WDI-SEA/react-yearbook)
 
 You may have done additional projects, such as hackathons, that would be suitable portfolio candidates. Any projects prior to or after WDI would also be great.
+

@@ -1,52 +1,49 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Unidirectional Data Flow
+# Lifting State
 
+## ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Unidirectional Data Flow
 
-### Learning Objectives
-*After this lesson, you will be able to:*
-- Define unidirectional flow
-- Diagram data in a component hierarchy
+#### Learning Objectives
 
+_After this lesson, you will be able to:_
 
-## What is Unidirectional Data Flow?
+* Define unidirectional flow
+* Diagram data in a component hierarchy
+
+### What is Unidirectional Data Flow?
 
 Let's start with [a video explaining this concept.](https://generalassembly.wistia.com/medias/v2uenqkgwk).
 
 In React applications, data usually flows from the top down. Why do we care? How does this apply?
 
-When several components in a view need to share `state`, you lift, or **hoist**, the `state` so that it's available to all the components that need it. Define the state in the highest component you can, so that you can pass it to any components which will need it.
-Let's look at a search filter as an example. This app will have two basic components - one that displays a list of data, and one that captures user input to filter the data.
+When several components in a view need to share `state`, you lift, or **hoist**, the `state` so that it's available to all the components that need it. Define the state in the highest component you can, so that you can pass it to any components which will need it. Let's look at a search filter as an example. This app will have two basic components - one that displays a list of data, and one that captures user input to filter the data.
 
-## I do: Build a fruit filter
+### I do: Build a fruit filter
 
 Our data will be simple - a list of fruits. The app will end up looking something like this:
 
-![Fruit filter app](./assets/filter-example.png)
+![Fruit filter app](../../.gitbook/assets/filter-example.png)
 
 When building a React app, it's important to take time to define the app's structure before you start writing code. I'm going to define the **components** and the **state** I need before I write the code.
 
-### Components
+#### Components
 
-This app needs two components:
-  1. A list component to display the list of fruit. This component needs one piece of data: the array of fruits to display.
-  2. An input to capture the filter value from the user. This component needs one piece of data: the current value of the filter.
+This app needs two components: 1. A list component to display the list of fruit. This component needs one piece of data: the array of fruits to display. 2. An input to capture the filter value from the user. This component needs one piece of data: the current value of the filter.
 
-### State
+#### State
 
-This app needs to keep track of changes in two items:
-  1. The filtered list of fruits
-  2. The value of the filter
+This app needs to keep track of changes in two items: 1. The filtered list of fruits 2. The value of the filter
 
-### Component hierarchy
+#### Component hierarchy
 
-I have two sibling components (components at the same level of the tree/app) that need to be aware of each other's data. Specifically, the list component needs to only show the fruits that match the filter value. So I need to get data from one sibling to another. Something like this:
+I have two sibling components \(components at the same level of the tree/app\) that need to be aware of each other's data. Specifically, the list component needs to only show the fruits that match the filter value. So I need to get data from one sibling to another. Something like this:
 
-![basic data flow needed](./assets/fruit-filter-data.png)
+![basic data flow needed](../../.gitbook/assets/fruit-filter-data.png)
 
 How to achieve this, though? Using unidrectional data flow, of course! If I create a container component to hold both the filter value and the filtered list, I can hoist the `state` to the container so it's available to all the children. It will then be simple to display the `state` in the child components. The data will flow like this:
 
-![unidirectional approach](./assets/fruit-list-unidirectional.png)
+![unidirectional approach](../../.gitbook/assets/fruit-list-unidirectional.png)
 
-### Child components
+#### Child components
 
 Now that I know the components I need, the `state` I need, and where everything needs to be, I can start writing some code. First, I'll create the child components. I can use Functional components, since they won't need to hold their own state.
 
@@ -65,14 +62,13 @@ const FruitFilter = props => (
 )
 ```
 
-`FruitList` renders an unordered list (`ul`) which contains an array of `li` elements, each with a single `fruit` string. `FruitList` uses [array map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to convert the array of fruit strings in our data to an array of fruit `li` elements to render. Using `map` to convert data arrays to arrays of UI elements is a common pattern you will use, and see used, in React.
+`FruitList` renders an unordered list \(`ul`\) which contains an array of `li` elements, each with a single `fruit` string. `FruitList` uses [array map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to convert the array of fruit strings in our data to an array of fruit `li` elements to render. Using `map` to convert data arrays to arrays of UI elements is a common pattern you will use, and see used, in React.
 
 `FruitFilter` renders a single input. Its value and onChange callbacks will both be set by the container component.
 
-### Container component
+#### Container component
 
-My container will be a class with a few methods I'll use to initialize and update the state of the two child components.
-In the constructor, I'll initialize the state:
+My container will be a class with a few methods I'll use to initialize and update the state of the two child components. In the constructor, I'll initialize the state:
 
 ```javascript
 constructor(props) {
@@ -162,34 +158,29 @@ class FruitContainer extends Component {
 }
 ```
 
-All of the data is hoisted to the top of the tree in the container, and I pass
-it to the child components.
+All of the data is hoisted to the top of the tree in the container, and I pass it to the child components.
 
-# You do: Also display the fruits that do _not_ match the filter
+## You do: Also display the fruits that do _not_ match the filter
 
-Once you have your data structured well, it's easier to add features to your
-applications or make changes to them. Because all of our data lives at the top
-of the tree, we can send it where we want. The full code for the fruit filter is
-available [at this CodePen](https://codepen.io/SuperTernary/pen/qjQVZM).
+Once you have your data structured well, it's easier to add features to your applications or make changes to them. Because all of our data lives at the top of the tree, we can send it where we want. The full code for the fruit filter is available [at this CodePen](https://codepen.io/SuperTernary/pen/qjQVZM).
 
-Fork
-the CodePen - you're going to add a feature.
+Fork the CodePen - you're going to add a feature.
 
-- Add another child component to the
-`FruitContainer` that displays the fruits that do _not_ match the filter value
-(this should be all the items that are not in the `fruitsToDisplay` list).
+* Add another child component to the
 
-*Hint: Will you need to have a new state?*
+  `FruitContainer` that displays the fruits that do _not_ match the filter value
 
-## Solution - Unmatching Filter
-Solution code: https://codepen.io/SuperTernary/pen/mMWddo
+  \(this should be all the items that are not in the `fruitsToDisplay` list\).
 
-Here's a solution showing the Fruit list with two lists. One list shows fruits
-matching the search term, and below that, the second list shows every other fruit left in
-the list. The solution reuses the `<FruitList>` component to display a list of fruits,
-except it is passed a different list of fruits.
+_Hint: Will you need to have a new state?_
 
-```html
+### Solution - Unmatching Filter
+
+Solution code: [https://codepen.io/SuperTernary/pen/mMWddo](https://codepen.io/SuperTernary/pen/mMWddo)
+
+Here's a solution showing the Fruit list with two lists. One list shows fruits matching the search term, and below that, the second list shows every other fruit left in the list. The solution reuses the `<FruitList>` component to display a list of fruits, except it is passed a different list of fruits.
+
+```markup
 <div>
  <FruitFilter value={this.state.filterValue} onChange={this.handleFilterChange} />
  <p>Matching fruits:</p>
@@ -199,16 +190,19 @@ except it is passed a different list of fruits.
 </div>
 ```
 
-Now the app maintains two lists
-of fruits:
-- `fruitsToDisplay` shows all fruits that match the search
-term.
-- `unmatchedFruits` keeps track of which fruits don't match
-the current search term.
+Now the app maintains two lists of fruits:
+
+* `fruitsToDisplay` shows all fruits that match the search
+
+  term.
+
+* `unmatchedFruits` keeps track of which fruits don't match
+
+  the current search term.
 
 Notice that in the constructor the app initializes the value of `unmatchedFruits` to just an empty list. Within `HandleChange`, we now need to update that list.
 
-```js
+```javascript
 // remove fruits that don't contain the filter value
 const filteredFruitList = props.fruits.filter(fruit =>
   fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
@@ -223,15 +217,16 @@ return {
 }
 ```
 
-## Final Thoughts
+### Final Thoughts
 
-It's important that you think through your applications before you start writing
-code. It's often helpful to sketch out your app, and identify:
-- the **components**
-you will need
-- the **states** you will need
-- where those states need to live
+It's important that you think through your applications before you start writing code. It's often helpful to sketch out your app, and identify:
 
-Use the
-unidirectional data flow pattern - hoist your state toward the top of the
-component tree so it's available to the children that need it.
+* the **components**
+
+  you will need
+
+* the **states** you will need
+* where those states need to live
+
+Use the unidirectional data flow pattern - hoist your state toward the top of the component tree so it's available to the children that need it.
+

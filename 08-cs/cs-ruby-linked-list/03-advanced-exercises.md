@@ -1,20 +1,18 @@
-# Linked List Advanced Exercises
+# Advanced Exercises
 
-Use the Linked List included in this document to implement the following methods.
-These methods are hard! Once you master these exercises you'll be an expert at
-Linked Lists.
+Use the Linked List included in this document to implement the following methods. These methods are hard! Once you master these exercises you'll be an expert at Linked Lists.
 
-####Find center
+## Find center
 
-Finding the center element of a linked list is a classic interview problem. First, try to produce code that can get the right answer (regardless of efficiency). Then, try to get it done in O(n) time. You can assume that the list will be odd in length.
+Finding the center element of a linked list is a classic interview problem. First, try to produce code that can get the right answer \(regardless of efficiency\). Then, try to get it done in O\(n\) time. You can assume that the list will be odd in length.
 
-####Reverse
+## Reverse
 
 If you finish the find center method before we run out of time, try another classic problem, reversing a linked list.
 
-This should be completed in O(n) time and needs to be done in place (shouldn't use any insert commands).
+This should be completed in O\(n\) time and needs to be done in place \(shouldn't use any insert commands\).
 
-```rb
+```ruby
 class Node
   attr_accessor :data, :next
 
@@ -84,3 +82,4 @@ puts list.get_center.data
 list.reverse
 puts list
 ```
+
