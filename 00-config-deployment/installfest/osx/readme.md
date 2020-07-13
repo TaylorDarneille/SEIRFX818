@@ -54,6 +54,20 @@ xcode-select --install
 
 If you need to, you can install Xcode through the App Store. [Link here](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 
+## Install VS Code
+
+Currently the most popular editor according to developer polls. This is Microsoft's free version of Visual Studio.
+
+Download and install VS Code from [here](https://code.visualstudio.com/download)
+
+To be able to open VS Code from any directory, add it to your path inside your ~/.zshrc file:
+
+```bash
+export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+```
+
+Save this file and then fully restart your terminal window (quit and restart.)
+
 ## GIT
 Before we do this process, please make sure you have signed up for an account on [Github](http://www.github.com). We will be installing a version of GIT from home brew and also configuring it.
 
@@ -78,21 +92,6 @@ git config --global credential.helper cache
 You might find your self having to re-authenticate GIT every time you work on your command line. Setup SSH Keys to let Github remember your machine in the future.
 
 * [Github Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys/)
-
-
-## Install VS Code
-
-Currently the most popular editor according to developer polls. This is Microsoft's free version of Visual Studio.
-
-Download and install VS Code from [here](https://code.visualstudio.com/download)
-
-To be able to open VS Code from any directory, add it to your path inside your ~/.zshrc file:
-
-```bash
-export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-```
-
-Save this file and then fully restart your terminal window (quit and restart.)
 
 ---
 
