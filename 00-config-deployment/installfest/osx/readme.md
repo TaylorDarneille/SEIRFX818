@@ -28,9 +28,7 @@ iTerm is a tricked out version of the Terminal app that is the default command l
 
 Oh my ZSH?!!! We will be tricking out commandline with another shell. A shell is an interface into our computer, and we will be using a lot to run commands.
 
-We'll be using a shell and configuration package called [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh)
-
-Visit the [iTerm website] for install instructions. Open iTerm and run the command listed on the site.
+[Install here](https://ohmyz.sh/)
 
 If it prompts you to change your default shell to zsh, select yes! When it asks you for your password, enter your computer user password (it wont show up, but iTerm is keeping track of your keystrokes).
 
