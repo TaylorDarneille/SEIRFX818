@@ -17,6 +17,17 @@ We will be using slack to communicate throughout the course. You should've recei
 
 [Download Slack](https://slack.com/downloads)
 
+## For Catalina users
+
+Catalina is really strict on permissions which will get in the way of installing things from the command line, so let's grant full disk access to iTerm2:
+
+1. go to **System Preferences > Security & Privacy**
+2. Click on the **Privacy** tab, and scroll to **Full Disk Access** (on the left-hand side, represented by a blue folder icon)
+3. In the bottom left corner, click the lock to make changes. This will prompt you for your computer password. type that in and click **Unlock**.
+4. If **iTerm2** is already an option, click the check box next to it. Otherwise, click the **+** button to add a new permitted application, and select **iTerm2** from your applications folder.
+5. Click the **lock** again to close it.
+6. Restart iTerm2 and you're good to go!
+
 ## iTerm
 
 iTerm is a tricked out version of the Terminal app that is the default command line interface for Mac. It will help with the visuals of the command line navigation, especially with ohmyZSH.
