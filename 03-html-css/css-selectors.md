@@ -161,7 +161,7 @@ And let's add some more html to our index.html:
   <head>
     <meta charset="UTF-8">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <p>This is a paragraph element</p>
