@@ -513,6 +513,8 @@ li#not {
 
 Now, all our list items are centered but the top item has a different font than the bottom.
 
+Speaking of fonts, check out [Google Fonts](https://fonts.google.com/) for lots of cool fonts you can add to your websites!
+
 ## Specificity in CSS
 
 One of the most important concepts with CSS is specificity. Imagine you select an element by it's class and give it some style; then, on the next line, you select the same element by it's element name and it's ID - how does the browser know what style to apply? Well, every element gets a score and it's this score that dictates what CSS property is applied.
