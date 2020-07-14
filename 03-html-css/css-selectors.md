@@ -78,7 +78,7 @@ To use inline styles, add the style attribute to the relevant tag. The style att
 
 Open this HTML file in browser and let's see what we have - a red page!
 
-Inline CSS has a lot of downsides, though, so try to avoid using it on your projects and during class.
+Inline CSS has a lot of [downsides](https://www.lifewire.com/avoid-inline-styles-for-css-3466846#:~:text=Inline%20Styles%20Are%20Not%20Best%20Practice&text=The%20styles%20affect%20only%20the,such%20as%20consistency%E2%80%94more%20difficult.), though, so try to avoid using it on your projects and during class.
 
 #### Style Sheets
 
