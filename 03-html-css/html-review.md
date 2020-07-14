@@ -1,5 +1,9 @@
 # HTML
 
+### SEIR 713
+
+Refer to [this deck](https://docs.google.com/presentation/d/1r-P1MeDcuUw8hdazLU6RhyvOFCEOOuFciQNMVZeWBYI/edit?usp=sharing) for the lesson material. Everything below is additional notes for other instances of the class that you're welcome to also use as a resource.
+
 ### Objectives
 
 * Construct an HTML page with common elements and attributes
