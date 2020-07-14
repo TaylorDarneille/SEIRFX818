@@ -129,7 +129,7 @@ mkdir css
 touch css/style.css
 ```
 
-Then we can move the CSS from our internal style sheet to our external style sheet and add the file path \(`href="style.css"`\) to our HTML file:
+Then we can move the CSS from our internal style sheet to our external style sheet and add the file path \(`href="css/style.css"`\) to our HTML file:
 
 ```markup
 <!DOCTYPE html>
@@ -137,7 +137,7 @@ Then we can move the CSS from our internal style sheet to our external style she
   <head>
     <meta charset="UTF-8">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
 
@@ -224,7 +224,7 @@ Watch me add some HTML to our index.html and then style those elements by select
   <head>
     <meta charset="UTF-8">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <p>This is a paragraph element</p>
@@ -287,7 +287,7 @@ How about we try it out? Altering the HTML:
   <head>
     <meta charset="UTF-8">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
     <body>
     <p>This is a paragraph element</p>
@@ -355,7 +355,7 @@ Let's add:
   <head>
     <meta charset="UTF-8">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
@@ -430,7 +430,7 @@ We can even use classes/IDs with elements to select and style HTML. Lets add a s
   <head>
     <meta charset="UTF-8">
     <title>Intro to CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
