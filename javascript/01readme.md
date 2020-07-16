@@ -314,6 +314,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 ```
 
+#### Exercise:
+
+Research a different event listener \(not `click`\) and apply it to one of the `divs`. Share your code in slack when you're done!
+
+
 #### The Callback and the Event Object
 
 The first parameter to `addEventListener` is the name of the event that we are listening for \(e.g. click, change, keydown, etc.\). The second parameter is the **callback function** that we pass in to tell the browser what to do when this event occurs. This callback is allowed to use a very special parameter: the event object \(shown above as the parameter `event` but is frequently abbreviated to `evt` or `e`\).
@@ -326,10 +331,6 @@ This event object is passed into our event listener callback by the JavaScript e
 * `event.stopPropagation()` - a function for disabling the "bubbling" of this event up the DOM. More on this below...
 
 _Note:_ JavaScript's `this` keyword within the listener function will also be set to the DOM element that `addEventListener` was called on, so you can use it instead of `event.target` if you like.
-
-#### Exercise:
-
-Research a different event listener \(not `click`\) and apply it to one of the `divs`. Share your code in slack when you're done!
 
 #### Event Bubbling
 
