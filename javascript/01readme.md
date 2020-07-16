@@ -18,7 +18,7 @@ When the broswer loads a webpage, it takes in all the information about what nee
 
 ### Exercise
 
-Visit [these website](https://taylordarneille.github.io/finished-intro-demo/) and open up the dev tools. Look at the Elements tab. Try expanding the collapsed elements to explore the structure of the document more. Now go to the Console tab and run `document` to see the document object. Notice that this is the same hierarchy from the Elements tab. _**The Elements tab of the console shows us a vertical representation of the DOM**_
+Visit [this website](https://taylordarneille.github.io/finished-intro-demo/) and open up the dev tools. Look at the Elements tab. Try expanding the collapsed elements to explore the structure of the document more. Now go to the Console tab and run `document` to see the document object. Notice that this is the same hierarchy from the Elements tab. _**The Elements tab of the console shows us a vertical representation of the DOM**_
 
 Now draw out a diagram \(tree of nodes\) that represents the DOM that is loaded by this webpage.
 
