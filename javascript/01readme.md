@@ -279,12 +279,14 @@ _**addEventListener\(\[event type\],\[function that you want to run when the eve
 document.addEventListener('DOMContentLoaded', function(){
 
     var helloDiv = document.getElementById("hello")
-
-    helloDiv.addEventListener("click", function(event) {
-        console.log("HOME ICON CLICKED");
-    });
     
-})
+    var alertClick = function() {
+        console.log("HELLO WAS CLICKED")
+    }
+
+    helloDiv.addEventListener("click", alertClick)
+
+}
 ```
 
 #### Removing Event Listeners
@@ -292,13 +294,24 @@ document.addEventListener('DOMContentLoaded', function(){
 It's possible to remove an added event listener, however, only if a named function was used as the callback:
 
 ```javascript
-btn.removeEventListener('click', handleClick);
-```
+document.addEventListener('DOMContentLoaded', function(){
 
-This would remove the 'click' event listener \(`handleClick`\) that was registered on the `btn` element like this:
+    var helloDiv = document.getElementById("hello")
 
-```javascript
-btn.addEventListener('click', handleClick);
+    var goodbyDiv = document.getElementById("gb")
+    
+    var alertClick = function() {
+        console.log("HELLO WAS CLICKED")
+    }
+
+    helloDiv.addEventListener("click", alertClick)
+
+    goodbyDiv.addEventListener("click", function() {
+        console.log("removing event listener!")
+        helloDiv.removeEventListener("click", alertClick)
+    })
+
+})
 ```
 
 #### The Callback and the Event Object
