@@ -26,7 +26,7 @@ Now draw out a diagram \(tree of nodes\) that represents the DOM that is loaded 
 
 ### What is DOM manipulation?
 
-Using Javascript we can read and/or change the DOM, i.e. make the webpage do something interesting.
+Using Javascript, we can read and/or change the DOM, i.e. make the webpage do something interesting. That's the fun part of JS!
 
 **Examples:**
 
@@ -48,7 +48,7 @@ Without DOM manipulation, web pages would just be static visuals with no changes
 
 ### How do we manipulate the dom?:
 
-The _document_ object represents the DOM.
+The _document_ object represents the DOM. It has several methods available to help us grab specific elements!
 
 #### Selecting DOM Elements by HTML
 
@@ -103,7 +103,11 @@ console.log(theDivs[0]);
 console.log(theDivs[1]);
 ```
 
+Try using the `id` to `console.log` the first `div`. What `document` method did you use?
+
 #### Selecting DOM Elements by CSS
+
+`querySelector` methods allow us to use CSS Selector syntax to grab DOM objects.
 
 * document.querySelector
 * document.querySelectorAll
@@ -246,6 +250,17 @@ Lots of events are generated within the browser, for example, when:
 
 Take a gander [here](https://developer.mozilla.org/en-US/docs/Web/Events) at the type and sheer number of events.
 
+
+#### DOMContentLoaded Event
+
+All of the selectors we've been using rely on the use of DOM elements. However, if the JavaScript loads before all the DOM elements load, the selectors won't recognize that some of them exist! To avoid this problem, there's an event called `DOMContentLoaded` that we can encapsulate our code inside. Then, we can guarantee that the DOM elements exist before manipulating them.
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  //code and events go here
+});
+```
+
 #### Event Listeners
 
 An _event listener_ is a function, more specifically, a _callback_ function, that is called when an event fires. You may also hear them referred to as _event handlers_ \(depending upon how they are "registered" with the browser\).
@@ -261,9 +276,15 @@ There are three different approaches for attaching event listeners to elements:
 _**addEventListener\(\[event type\],\[function that you want to run when the event fires\]\)**_
 
 ```javascript
-helloDiv.addEventListener("click", function(event) {
-    console.log("HOME ICON CLICKED");
-});
+document.addEventListener('DOMContentLoaded', function(){
+
+    var helloDiv = document.getElementById("hello")
+
+    helloDiv.addEventListener("click", function(event) {
+        console.log("HOME ICON CLICKED");
+    });
+    
+})
 ```
 
 #### The Callback and the Event Object
@@ -314,16 +335,6 @@ btn.addEventListener('click', handleClick);
 #### Exercise:
 
 Research a different event listener \(not `click`\) and explain what it does to your partner.
-
-#### DOMContentLoaded Event
-
-All of the selectors we've been using rely on the use of DOM elements. However, if the JavaScript loads before all the DOM elements load, the selectors won't recognize that some of them exist! To avoid this problem, there's an event called `DOMContentLoaded` that we can encapsulate our code inside. Then, we can guarantee that the DOM elements exist before manipulating them.
-
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-  //code and events go here
-});
-```
 
 ### References
 
