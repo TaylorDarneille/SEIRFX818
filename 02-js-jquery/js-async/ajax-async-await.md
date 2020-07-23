@@ -166,27 +166,6 @@
 - Log out the returned posts.
 
 ---
-#### Use ES2017's async/await to Handle Promises
-<br>
-
-- Node.js also has `async`/`await`, so you can now work with Mongoose code like this:
-
-	```js
-	async function index(req, res) {
-	  const movies = await Movie.find({});
-	  res.render('movies/index', { title: 'All Movies', movies });
-	}
-	``` 
-	Instead of this:
-	
-	```js
-	function index(req, res) {
-	  Movie.find({}).then(function(movies) {
-	    res.render('movies/index', { title: 'All Movies', movies });
-	  });
-	}
-	```
-
 #### References
 <br>
 
