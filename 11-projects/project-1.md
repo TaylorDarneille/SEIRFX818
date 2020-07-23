@@ -38,16 +38,13 @@ Your app must:
 * **Consult documentation resources** \(MDN, etc.\) to better understand what you'll be getting into.
 * **Don't be afraid to write code that you know you will have to remove later.** Create temporary elements \(buttons, links, etc\) that trigger events if real data is not available. For example, if you're trying to figure out how to change some text when the game is over but you haven't solved the win/lose game logic, you can create a button to simulate that until then.
 
+## [Example Projects](https://tmdarneille.gitbook.io/sei-ga-sea/11-projects/past-projects/project1)
+
 ## Getting Started with a Git Repo
 
 * Create a new git repository on Github \(title can be the name of your project\)
 * Clone your project onto your computer.
 * Start making changes!
-
-## Useful Resources
-
-* [**MDN Javascript Docs**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) _\(a great reference for all things Vanilla Javascript\)_
-* [**Github Pages**](https://pages.github.com) _\(for hosting your game\)_
 
 ## Project Feedback + Evaluation
 
