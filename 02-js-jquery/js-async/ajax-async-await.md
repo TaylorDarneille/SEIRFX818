@@ -7,7 +7,6 @@
 <p>Students Will Be Able To:</p><br>
 
 - Describe the Use Case for AJAX
-- Use the `fetch` API to make AJAX requests to the Puppies API
 - Use ES2017's `async`/`await` to handle promises synchronously
 
 ---
