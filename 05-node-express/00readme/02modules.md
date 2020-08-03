@@ -15,9 +15,7 @@ In Node, `module.exports` is an object that will hold the code to be exported. W
 Add the following code to your `myModule.js` file:
 
 ```javascript
-module.exports.beBasic = function() {
-    return "That's so fetch.";
-}
+module.exports.beBasic = () => "That's so fetch!"
 ```
 
 Now, our module.exports object has a key-value pair where the key is `beBasic` and the value is a function.
@@ -29,7 +27,7 @@ This is where the `require` function, specific to Node, comes into play. This fu
 In the `index.js` file, write the following code:
 
 ```javascript
-var myModule = require('./myModule.js');
+const myModule = require('./myModule.js');
 
 console.log(myModule.beBasic());
 ```
@@ -43,11 +41,9 @@ Voila! You've successfully created and imported a module!
 Let's add some more code to our module. In `myModule.js`, add the following code:
 
 ```javascript
-module.exports.beBasic = function() {
-    console.log("That's so fetch.");
-}
+module.exports.beBasic = () => "That's so fetch!"
 
-var count = function() {
+const count = () => {
     for (var i = 0; i <= 10; i++) {
         console.log(i);
     }
@@ -57,7 +53,7 @@ var count = function() {
 Now call this new count function from `index.js`:
 
 ```javascript
-var myModule = require('./myModule.js');
+const myModule = require('./myModule.js');
 
 myModule.beBasic();
 myModule.count();
@@ -125,11 +121,20 @@ In this excercise, you will make a Hello World app from scratch by using the the
 
 #### Finished Code
 
-index.js  
- var http = require\('http'\)  
+
+<details><summary>Solution</summary>
+<p>
+
+```index.js  
+ const http = require('http')  
   
- http.createServer\(function\(req, res\){  
-   res.write\('Hello, World!'\)  
-   res.end\(\)  
- }\).listen\(8000\)
+ http.createServer((req, res)=>{  
+   res.write('Hello, World!')  
+   res.end()  
+ }).listen(8000)
+ ```
+
+</p>
+</details>
+
 
