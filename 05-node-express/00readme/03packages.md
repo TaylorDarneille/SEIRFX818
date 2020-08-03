@@ -1,6 +1,9 @@
 # Node Package Manager \(NPM\)
 
-There are three types of Node modules: 1. Core Modules \(like `fs`\) 2. Local Modules \(that you create\) 3. Third Party Modules
+There are three types of Node modules: 
+* 1. Core Modules \(like `fs`\) 
+* 2. Local Modules \(that you create\) 
+* 3. Third Party Modules
 
 Core modules are great for gaining quick access to commonly-needed functionality in your program, and local modules allow you the flexibility to build out whatever tools you might possibly need, but third party modules, which fall somewhere in between, are perhaps the most exciting modules of them all!
 
@@ -24,7 +27,7 @@ The NPM CLI installed automatically on your machine when you installed Node. Ver
 
 We will use Nodemon quite a bit, so instead of installing it on each node app we build, we will install it globally. This will make it accessible to all of our node apps.
 
-In the command line, type the following code: `npm install -g nodemon`
+In the command line, type the following code: `npm i -g nodemon`
 
 Since we're installing it globally \(that's where the `-g` flag comes in\), it doesn't matter what directory we're in.
 
@@ -33,11 +36,11 @@ Let's see nodemon in action! Try running your `my-first-node-app` using nodemon.
 Now open up `my-first-node-app` in sublime. Add the following code to `index.js`:
 
 ```javascript
-var i = 0
+let i = 0
 
 var myTimer = setInterval(count, 1000)
 
-function count() {
+count = () => {
     console.log(i)
     i++
 }
@@ -53,7 +56,7 @@ To quit nodemon \(and any program running in the terminal\), press CTRL+C.
 
 _**Congratulations**_, you've just installed and used your first third party node module!
 
-We installed nodemon globally, but most node packages will only be useful for specific projects. In this case, when you run `npm install [package name]` you want to make sure you're inside the directory of the project you want to use the package in, and leave off the `-g` flag.
+We installed nodemon globally, but most node packages will only be useful for specific projects. In this case, when you run `npm i [package name]` you want to make sure you're inside the directory of the project you want to use the package in, and leave off the `-g` flag.
 
 ## Using a Third Party Module
 
@@ -70,7 +73,7 @@ console.log(new Date())
 
 1. Go to your terminal
 2. Make sure you're in the top level of your `my-first-node-app` folder
-3. Type the command `npm install moment`
+3. Type the command `npm i moment`
 4. When the command is finished, go back to your text editor
 5. Make sure there is a folder called `node_modules` in the top level of your `my-first-node-app` folder
 
@@ -99,17 +102,24 @@ Wednesday the 11th of September in the year 1985
 
 * BONUS: Use moment's `.fromNow()` function to print just how many years ago that birthday was!
 
-Solution Code  
- var moment = require\('moment'\)  
+<details><summary>SOLUTION</summary>
+<p>
+
+```js
+ const moment = require('moment')  
   
  // Prints today's date  
- console.log\(moment\(\).format\("MMM Do YYYY"\)\)  
+ console.log(moment().format("MMM Do YYYY"))  
   
  // Prints my birthday  
- console.log\(moment\('09-11-1985', 'MM DD YYYY'\).format\("dddd \[the\] Do \[of\] MMMM \[in the year\] YYYY"\)\)  
+ console.log(moment('09-11-1985', 'MM DD YYYY').format("dddd [the] Do [of] MMMM [in the year] YYYY"))  
   
  // Prints how long ago my birthday was  
- console.log\('Oh boy, that was', moment\('09-11-1985', 'MM DD YYYY'\).fromNow\(\), 'years ago!'\)
+ console.log('Oh boy, that was', moment('09-11-1985', 'MM DD YYYY').fromNow(), 'years ago!')
+```
+
+</p>
+</details>
 
 #### Git Ignore File
 
