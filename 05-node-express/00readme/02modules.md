@@ -119,13 +119,10 @@ In this excercise, you will make a Hello World app from scratch by using the the
 6. Run the server using the command `node index.js`.
 7. Check to see that your program is working by visiting `localhost:8000` in your browser.
 
-#### Finished Code
-
-
-<details><summary>Solution</summary>
+<details><summary>SOLUTION</summary>
 <p>
 
-```index.js  
+```js  
  const http = require('http')  
   
  http.createServer((req, res)=>{  
