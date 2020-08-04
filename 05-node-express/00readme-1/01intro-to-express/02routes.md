@@ -51,14 +51,14 @@ Let's circle back to our home route in our `hello-express` project and break the
 Here we have imported the express module, and created an instance of an express application called _app_. This code comes straight from the express [docs](https://expressjs.com/en/guide/routing.html).
 
 ```javascript
-var express require('express');
-var app = express();
+const express require('express');
+const app = express();
 ```
 
 Next, we created a home route. Here, the HTTP verb is _**get**_, which we indicate using the express method, `get()`. This method takes two parameters, \(1\) a URL Pattern and \(2\), a callback function that tells the app what to do when this route is reached.
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 ```
@@ -72,7 +72,7 @@ _**The combination of the URL Pattern '/' and the HTTP verb 'get' ensures that t
 If you'd like, you could pull out the callback function to get even more visual clarity on what is happening here. \(Run nodemon to convince yourself that this does not change any functionality of the program.\)
 
 ```javascript
-function hello(req, res) {
+const hello = (req, res) => {
   res.send('Hello, World!');
 }
 
@@ -126,7 +126,7 @@ npm init
 #### 3. Install Express
 
 ```bash
-npm install express
+npm i express
 ```
 
 #### 4. Create entry point
@@ -140,8 +140,8 @@ touch index.js
 _**index.js**_
 
 ```javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 ```
 
 #### 6. Establish the base URL
@@ -149,8 +149,8 @@ var app = express();
 _**index.js**_
 
 ```javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.listen(8000);
 ```
@@ -158,10 +158,10 @@ app.listen(8000);
 #### 7. Write a home route
 
 ```javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send("You've reached the home route!");
 });
 
@@ -177,11 +177,11 @@ Run nodemon and visit localhost:8000 to make sure everything is working.
 Now let's try adding another route that has the URL pattern of a string after the root slash:
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send('You've reached the home route!');
 });
 
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
   res.send('This is a practice app to learn about express routes.');
 });
 ```
@@ -195,15 +195,15 @@ This is one of the primary ways in which we organize our site. Every part of our
 We can also pass variables in as part of a URL. By putting a colon before a string in our route, we can create routes with different variables, or **parameters**. These parameters are automatically pulled out for us by Express and can be accessed via the `req.params` object.
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send("You've reached the home route!");
 });
 
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
   res.send('This is a practice app to learn about express routes.');
 });
 
-app.get('/:input', function(req, res) {
+app.get('/:input', (req, res) => {
   res.send("Our parameter is " + req.params.input + ".");
 });
 ```
@@ -213,7 +213,7 @@ We can name them whatever we like. The string we use after the colon will be the
 We can combine parameters and paths.
 
 ```javascript
-app.get("/greet/:name", function(req, res) {
+app.get("/greet/:name", (req, res) => {
   res.send("Hello " + req.params.name + "!");
 });
 ```
@@ -221,15 +221,15 @@ app.get("/greet/:name", function(req, res) {
 And we can have more than one parameter:
 
 ```javascript
-app.get("/greet/:name/:lastname", function(req, res) {
+app.get("/greet/:name/:lastname", (req, res) => {
   res.send("Hello " + req.params.name + " " + req.params.lastname);
 });
 
-app.get("/multiply/:x/:y", function(req, res) {
+app.get("/multiply/:x/:y", (req, res) => {
   res.send("The answer is: " + (req.params.x * req.params.y));
 });
 
-app.get("/add/:x/:y", function(req, res) {
+app.get("/add/:x/:y", (req, res) => {
   res.send("The answer is: " + (req.params.x + req.params.y));
 });
 ```
@@ -237,7 +237,7 @@ app.get("/add/:x/:y", function(req, res) {
 Wait, what happened with that last route?? URL parameters come in as strings, so Javascript just concatonated them instead of treating them as integers and adding them. We can fix that:
 
 ```javascript
-app.get("/add/:x/:y", function(req, res) {
+app.get("/add/:x/:y", (req, res) => {
   res.send("The answer is: " + (parseInt(req.params.x) + parseInt(req.params.y)));
 });
 ```
@@ -255,9 +255,9 @@ app.get("/add/*", function(req, res) {
 Now let's split up the wildcard parameter and sum using _reduce_:
 
 ```javascript
-app.get("/add/*", function(req, res) {
-  var myParams = req.params[0].split("/");
-  var result = myParams.reduce(function(total, num) {
+app.get("/add/*", (req, res) => {
+  let myParams = req.params[0].split("/");
+  let result = myParams.reduce((total, num) => {
     return total + parseInt(num)
   }, 0);
   res.send("The answer is  " + result);
@@ -277,7 +277,7 @@ The query string starts at the question mark \(?\) and goes through the end of t
 Let's add a new route where we can play with this. After all the other routes but before the line that starts the server listening, add a new route:
 
 ```javascript
-app.get("/querystring", function(req, res) {
+app.get("/querystring", (req, res) => {
   let printout = '';
   for (let key in req.query) {
     printout += key + ": " + req.query[key] + "<br />";
