@@ -24,10 +24,10 @@ npm init
 ### 3. Install Express
 
 ```bash
-npm install express
+npm i express
 ```
 
-_**Pause!**_ Open your project file tree in sublime and notice the new files that appear.
+_**Pause!**_ Open your project file tree in your text editor and notice the new files that appear.
 
 #### node\_modules
 
@@ -54,7 +54,7 @@ touch index.js
 _**index.js**_
 
 ```javascript
-var express = require('express');
+const express = require('express');
 ```
 
 ### 6. Create an instance of an express app
@@ -62,8 +62,8 @@ var express = require('express');
 _**index.js**_
 
 ```javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 ```
 
 ### 7. Create a Home Route
@@ -71,8 +71,8 @@ var app = express();
 _**index.js**_
 
 ```javascript
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.get('/', function(req, res) {
     res.send('Hello, World!');
