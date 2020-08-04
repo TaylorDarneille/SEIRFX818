@@ -392,4 +392,4 @@ Creating an ER diagram can be useful if you are designing a DB with lots of tabl
 * [Ultimate Guide To ER Diagrams](http://creately.com/blog/diagrams/er-diagrams-tutorial/) - Not so ultimate, but a good intro.
 
 ## LAB: 
-[Where in the world is Carmen San Diego?](https://github.com/WDI-SEA/sql-carmen-san-diego)
+[Where in the world is Carmen San Diego?](https://github.com/romebell/sql-carmen-san-diego)
