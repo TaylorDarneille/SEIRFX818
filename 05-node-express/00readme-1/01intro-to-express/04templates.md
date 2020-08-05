@@ -146,7 +146,7 @@ In the main directory of your project, create a `partials` folder that includes 
   </head>
   <body>
 
-    <% include ../partials/header.ejs %>
+    <%- include('../partials/header.ejs') %>
 
     <h1>Hello, <%= name %>!</h1>
 .
