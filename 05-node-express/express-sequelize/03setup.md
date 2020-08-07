@@ -17,7 +17,7 @@ Create a new folder and add an index.js and .gitignore and initialize the reposi
 ```text
 mkdir userapp
 cd userapp
-npm init
+npm init -y
 touch index.js
 echo "node_modules" >> .gitignore
 ```
@@ -28,10 +28,9 @@ Add/save dependencies \(sequelize needs pg for Postgres\)
 npm install express ejs pg sequelize
 ```
 
-Create a database and initialize a sequelize project
+Initialize a sequelize project
 
 ```text
-createdb userapp
 sequelize init
 ```
 
@@ -78,6 +77,11 @@ The only thing we are actually changing for database setup, is the **database na
 When we deploy to Heroku, they will provide us a long url that contains password and login that will be secure when deployed. More on this later.
 
 Once this is complete, let's move to the models folder.
+
+## Create a database inside of Postgres
+```text
+sequelize db:create
+```
 
 ## Creating a model and a matching migration
 
