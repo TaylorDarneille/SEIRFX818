@@ -42,7 +42,7 @@ If you used to use Sequelize 3, keep in mind that Sequelize 4 has breaking chang
 
 ### Setup part 3 - config.json, models and migrations:
 
-In sublime we should now see a bunch of new folders. We now have config, migrations and models. This was created for us when we ran `sequelize init`.
+In the text editor we should now see a bunch of new folders. We now have config, migrations and models. This was created for us when we ran `sequelize init`.
 
 Let's start in the config folder and open up the config.json file. This file contains information about the database we are using as well as how to connect.
 
@@ -80,7 +80,7 @@ Once this is complete, let's move to the models folder.
 
 ## Create a database inside of Postgres
 ```text
-sequelize db:create
+sequelize db:create userapp_development
 ```
 
 ## Creating a model and a matching migration
@@ -100,40 +100,40 @@ This will generate the following migration
 **migrations/\*-create-user.js**
 
 ```javascript
-"use strict";
+'use strict';
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    migration.createTable("users", {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       firstName: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       lastName: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       age: {
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       email: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
-    }).done(done);
+    });
   },
-  down: function(migration, DataTypes, done) {
-    migration.dropTable("Users").done(done);
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('users');
   }
 };
 ```
@@ -143,22 +143,30 @@ And a corresponding model:
 **models/user.js**
 
 ```javascript
-"use strict";
-
-module.exports = function(sequelize, DataTypes) {
-  var user = sequelize.define("user", {
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class user extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  };
+  user.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     age: DataTypes.INTEGER,
     email: DataTypes.STRING
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    sequelize,
+    modelName: 'user',
   });
-
   return user;
 };
 ```
@@ -181,3 +189,12 @@ If you need to undo the last migration, this command will undo the last migratio
 sequelize db:migrate:undo
 ```
 
+Use the  `psql` shell to verify that your database and table was created:
+
+```bash
+psql
+\l
+\c userapp_development
+\dt 
+
+```
