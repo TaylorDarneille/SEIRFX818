@@ -1,6 +1,6 @@
 # Using Models
 
-Just like using express, body-parser, and the other modules, your models must be required in order to access them in your app.
+Just like using express and the other modules, your models must be required in order to access them in your app.
 
 ```javascript
 var db = require("./models");
