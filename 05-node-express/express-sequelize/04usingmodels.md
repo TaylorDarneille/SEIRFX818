@@ -3,14 +3,7 @@
 Just like using express and the other modules, your models must be required in order to access them in your app.
 
 ```javascript
-var db = require("./models");
-db.user.create({
-  firstName: 'Brian',
-  lastName: 'Hague',
-  age: 99
-}).then(function(data) {
-  // you can now access the newly created task via the variable data
-});
+const db = require('./models')
 ```
 
 ## CRUD with Sequelize \(Using our User model\)
@@ -19,23 +12,28 @@ db.user.create({
 
 ```javascript
 db.user.create({
-  firstName: 'Brian',
-  lastName: 'Hague',
-  age: 99
-}).then(function(data) {
-  // you can now access the newly created task via the variable data
-});
+    firstName: 'Taylor',
+    lastName: 'Darneille',
+    age: 27
+}).then(createdUser=>{
+    // the create promise returns the
+    // new row of data that has been created
+    // (otherwise it throws an error)
+    console.log(createdUser)
+})
 ```
 
 ### Read One
 
 ```javascript
 db.user.findOne({
-  where: {id: 2}
-}).then(function(user) {
-  // user will be an instance of User and stores the content of the table entry with id 2. if such an entry is not defined you will get null
-});
+    where: {firstName: 'Taylor'}
+}).then(foundUser=>{
+    console.log(foundUser)
+})
 ```
+
+What happens if you include a `where` clause that doesn't match any rows of data? Try it!
 
 ### Find or Create
 
