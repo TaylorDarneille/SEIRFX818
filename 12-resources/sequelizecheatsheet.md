@@ -4,16 +4,18 @@ Sequelize documentation is horrendous, so here's a handy cheat sheet.
 
 ## Sequelize/PostgreSQL commands
 
-### Create a database
-
-```text
-createdb database_name
-```
-
 ### Initialize Sequelize
 
 ```text
 sequelize init
+```
+
+### Update your `config/config.js` file
+
+### Create a database
+
+```text
+sequelize db:create
 ```
 
 ### Create a Sequelize Model
