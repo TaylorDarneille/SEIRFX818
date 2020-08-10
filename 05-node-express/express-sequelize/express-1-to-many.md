@@ -34,17 +34,19 @@ The following lines need to be inserted into the author and post models respecti
 Insert into **models/user.js**, inside the `associate` function
 
 ```javascript
-associate: function(models) {
-  models.user.hasMany(models.pet);
-}
+    static associate(models) {
+      // define association here
+      models.user.hasMany(models.pet)
+    }
 ```
 
 Insert into **models/pet.js**, inside the `associate` function
 
 ```javascript
-associate: function(models) {
-  models.pet.belongsTo(models.user);
-}
+    static associate(models) {
+      // define association here
+      models.pet.belongsTo(models.user)
+    }
 ```
 
 Finally, let's run create all the necessary tables from our models by migrating the database.
@@ -61,16 +63,18 @@ Once the association is set up, we can use the `createModel`, `getModels`, `setM
 
 ### Creating an associated item with `createModel`
 
-We can use the `createPet` method to create a new post associated with an author. Remeber to use the `.then` promise.
+We can use the `createPet` method to create a new pet associated with a user. Remeber to use the `.then` promise.
 
 ```javascript
-db.user.findOne().then(function(user) {
-  user.createPet({
-    name: 'Spot',
-    species: 'Mutt Dog'
-  }).then(function(dog) {
-    console.log(dog.name);
-  });
+db.user.findOne()
+.then(user=>{
+    console.log("adding pet to this user:", user.firstName)
+    user.createPet({
+      name: 'Spot',
+      species: 'Mutt Dog'
+    }).then(dog=>{
+      console.log(dog);
+    });
 });
 ```
 
@@ -79,12 +83,17 @@ db.user.findOne().then(function(user) {
 We can manually get all pets of a user by calling `.getPets()` on a user instance. Remember this query is asynchronous and takes time, so we have to use a `.then()` promise too.
 
 ```javascript
-db.user.findOne().then(function(user) {
-  //load pets for this user
-  user.getPets().then(function(pets) {
-    //do something with pets here
-  });
-});
+db.user.findOne().
+then(user=>{
+    //load pets for this user
+    user.getPets().then(pets=>{
+      //do something with pets here
+      pets.forEach(pet=>{
+          console.log(`${user.firstName}'s pets:`)
+          console.log(pet.name)
+      })
+    })
+})
 ```
 
 ### Other methods
@@ -93,20 +102,21 @@ db.user.findOne().then(function(user) {
 
 ```javascript
 db.pet.findOrCreate({
-  where: {
-    name: 'Simba',
-    species: 'Ginger Cat'
-  },
-  defaults: {
-    description: 'Traumatised by a very jealous toy aussie, Simba is very cute but rarely comes out to play'
-  }
-}).then(function([pet, created]) {
-  db.user.findOne().then(function(user) {
-    //associate previously loaded pet instance
-    user.addPet(pet);
-    console.log('User ' + user.firstName + ' is the owner of ' + pet.name);
-  });
-});
+    where: {
+      name: 'Simba',
+      species: 'Ginger Cat'
+    },
+    defaults: {
+      description: 'Traumatised by a very jealous toy aussie, Simba is very cute but rarely comes out to play'
+    }
+  }).then(([pet, created])=>{
+    db.user.findOne()
+    .then(user=>{
+      //associate previously loaded pet instance
+      user.addPet(pet);
+      console.log('User ' + user.firstName + ' is the owner of ' + pet.name);
+    })
+})
 ```
 
 ## Using `include`
@@ -115,10 +125,15 @@ Sequeize supports "eager loading", meaning it can load all of the pets for us in
 
 ```javascript
 db.user.findAll({
-  include: [db.pet]
-}).then(function(users){
-  // users will have a .pets key with an array of pets
-  console.log(users[0].pets);
-});
+    include: [db.pet]
+}).then(users=>{
+    // users will have a .pets key with an array of pets
+    users.forEach(user=>{
+        console.log(`${user.firstName}'s pets:`)
+        user.pets.forEach(pet=>{
+            console.log(pet.name)
+        })
+    })
+})
 ```
 
