@@ -75,7 +75,8 @@ We can use the `createPet` method to create a new post associated with an author
 db.user.findOne().then(function(user) {
   user.createPet({
     name: 'Spot',
-    species: 'Mutt Dog'
+    species: 'Mutt Dog',
+    description: 'Always Happy'
   }).then(function(dog) {
     console.log(dog.name);
   });
