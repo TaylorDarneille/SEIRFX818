@@ -12,15 +12,15 @@ This second project is your first foray into **building a full-stack application
 
 Your app must:
 
+* **Include sign up/log in functionality**, with hashed passwords & an authorization flow. You will be able to start your app from the auth boilerplate built w/ in-class code-alongs.
 * **Have at** _**least**_ **2 models** \(more if they make sense\) that represents the main functional idea for your app. This doesn't include join tables or the user model which should be part of your class's boilerplate code.
   * Note: If your app idea doesn't really call for more models, let your instructors know and they can suggest ideas for other sufficiently difficult replacements for this requirement.
-* **Include sign up/log in functionality**, with hashed passwords & an authorization flow
-* **Incorporate at least one API.** Examples include Yelp, Tumblr, Facebook, and others on Mashape.
-* **Have complete RESTful routes** for at least one of your resources with GET, POST, PUT, and DELETE
+* **Incorporate at least one third-party API.**
+* **Have complete RESTful routes** for at least one of your resources (models) with GET, POST, PUT, and DELETE
 * **Utilize an ORM to create a database table structure** and interact with your relationally-stored data
-* **Include a readme file** that explains how to use your app
+* **Include a readme file** that explains how to use your app (also how to set up the db, obtain api keys, what environment variables are needed, etc, so anyone can fork and clone your app then run it locally
 * Have **semantically clean HTML, CSS, and back-end code**
-* **Be deployed online** and accessible to the public
+* **Be deployed online** and accessible to the public (we will do a lesson in class on deployment to heroku)
 
 > Note: Much of this functionality should already be included in your boilerplate code!
 
@@ -41,13 +41,13 @@ Your app must:
 * **Don't hesitate to write throwaway code to solve short term problems**
 * **Read the docs for whatever technologies you use.** Most of the time, there is a tutorial that you can follow, but not always, and learning to read documentation is crucial to your success as a developer
 * **Commit early, commit often.** Don't be afraid to break something because you can always go back in time to a previous version.
-* **User stories define what a specific type of user wants to accomplish with your application**. It's tempting to just make them _todo lists_ for what needs to get done, but if you keep them small & focused on what a user cares about from their perspective, it'll help you know what ot build
+* **User stories define what a specific type of user wants to accomplish with your application**. It's tempting to just make them _todo lists_ for what needs to get done, but if you keep them small & focused on what a user cares about from their perspective, it'll help you know what to build
 * **Write pseudocode before you write actual code.** Thinking through the logic of something helps.
 
 ## Useful Resources
 
 * [**Heroku**](http://www.heroku.com) _\(for hosting your back-end\)_
-* [**Writing Good User Stories**](http://www.mariaemerson.com/user-stories/) _\(for a few user story tips\)_
+* [**How to write user stories that don't suck**](https://revelry.co/user-stories-that-dont-suck/) _\(for a few user story tips\)_
 * [**Presenting Information Architecture**](http://webstyleguide.com/wsg3/3-information-architecture/4-presenting-information.html) _\(for more insight into wireframing\)_
 
 ## Project Feedback + Evaluation
