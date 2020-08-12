@@ -91,8 +91,8 @@ Now let's target the `title` attribute:
 
 ```javascript
 request(URL, (error, response, body) => {
-    let $ = cheerio.load(body);
-    let result = $('.search-result-preview > a').attr('title');
+    let $ = cheerio.load(body)
+    let result = $('.search-result-preview').find('a).attr('title');
     console.log(result)
 });
 ```
@@ -102,61 +102,108 @@ Great! Now we know how to find the title of **one** business, but how do we get 
 
 ### Step 4: Traverse the DOM \(scrape!\)
 
-* Cheerio has its own `.map()` function to parse through a cheerio object, but it still returns another cheerio object
+Cheerio actually gives us the option of selecting the *first* or *all* of the elements that match the selector. Let's take a closer look at `('.search-result-preview')` by getting it's `length`:
 
 ```javascript
-    var neighborhoods = $('.info-window-content').map(function(index, element) {
-        // find() docs -> traversing -> find
-        return {
-            name: $(element).find('h4').text(),
-            link: $(element).find('a').attr('href')
-        };
-    });
-    console.log(neighborhoods);
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body)
+    let result = $('.search-result-preview')
+    console.log(result.length)
+})
+```
+It looks like that result object actually contains all of the results on the page! Cheerio has iterators for traversing cheerio objects like this. Let's use the `each` iterator, which functions similarly to the javascript `Array.forEach()`:
+
+```javascript
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body)
+    let results = $('.search-result-preview')
+    results.each((index, element)=>{
+        console.log($(element).find('a').attr('title'))
+    })
+})
+```
+
+Logging to the console is great, but in practice, we'll likely want to store all of these titles in an an array-like cheerio object. We can use the built in `.map()` iterator to pull out *just* the titles and store them in their own cheerio object: 
+
+
+```javascript
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body);
+    let results = $('.search-result-preview')
+    let resultTitles = results.map((index, element)=>{
+        return $(element).find('a').attr('title')
+    })
+    console.log(resultTitles)
+})
 ```
 
 This still gives us a lot of gobbledy-gook we didn't ask for. Use the `.get()` function after `.map()` to see an array of exactly what we asked for \(see docs -&gt; traversing -&gt; get\):
 
 ```javascript
-    // add .get() to just get back what you asked for, instead of an entire cheerio object
-    var neighborhoods = $('.info-window-content').map(function(index, element) {
-        return {
-            name: $(element).find('h4').text(),
-            link: $(element).find('a').attr('href')
-        };
-    }).get();
-    console.log(neighborhoods);
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body)
+    let results = $('.search-result-preview')
+    let resultTitles = results.map((index, element)=>{
+        return $(element).find('a').attr('title')
+    })
+    console.log(resultTitles.get())
+})
 ```
 
-### Final Code
+## Exercise:
 
-[cheerio-scraping-seattle-neighborhoods repo](https://github.com/WDI-SEA/cheerio-scraping-seattle-neighborhoods)
+What if we want more than just the name of the businesses? Let's modify our code to also store the URL for the image associated with the result:
 
 ```javascript
-var request = require('request');
-var cheerio = require('cheerio');
-
-request('http://www.visitseattle.org/things-to-do/neighborhoods/', function(error, response, data) {
-    var $ = cheerio.load(data);
-
-    var neighborhoods = $('.info-window-content').map(function(index, element) {
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body);
+    let results = $('.search-result-preview')
+    let filteredResults = results.map((index, element)=>{
         return {
-            name: $(element).find('h4').text(),
-            link: $(element).find('a').attr('href')
-        };
-    }).get();
-
-    console.log(neighborhoods);
-});
+            title: $(element).find('a').attr('title'),
+            img: [ INSERT YOUR CODE HERE ]
+        }
+    })
+    console.log(filteredResults.get())
+})
 ```
 
-## Exercise
+<details><summary>HINT</summary>
+<p>
 
-Modify your code to scrape the photo and description of each neighboorhood too! Your `console.log` should print out and array of objects that each include a `name`, a `link`, a `photo` \(if there is one\), and a `description`.
+```javascript
+ $(element).find('.image-container').attr('style')
+```
 
-## Scraping multiple sites
+Now you need to modify the string to isolate the url!
 
-By scraping this site, we were able to return an array of neighborhoods, complete with their name and a link to more information. Now, if we want to get neighborhood descriptions, we would need to make many more requests to retrieve additional webpages. Look at the notes for [async](js-async.md) for how to accomplish this task.
+</p>
+</details>
+
+<details><summary>SOLUTION</summary>
+<p>
+
+```javascript
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body);
+    let results = $('.search-result-preview')
+    let filteredResults = results.map((index, element)=>{
+        let imgurl = $(element).find('.image-container').attr('style')
+        imgurl = imgurl.substring(22, imgurl.length-15)
+        return {
+            title: $(element).find('a').attr('title'),
+            img: imgurl
+        }
+    })
+    console.log(filteredResults.get())
+})
+```
+
+Now you need to modify the string to isolate the url!
+
+</p>
+</details>
+
 
 ## Some other resources on scraping
 
