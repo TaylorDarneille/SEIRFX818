@@ -99,13 +99,11 @@ Now let's target the `title` attribute:
 ```javascript
 request(URL, (error, response, body) => {
     let $ = cheerio.load(body)
-    let result = $('.search-result-preview').find('a).attr('title');
+    let result = $('.search-result-preview').find('a').attr('title');
     console.log(result)
 });
 ```
 Great! Now we know how to find the title of **one** business, but how do we get all of them?
-
-# THE REST OF THIS IS TODO!!!
 
 ### Step 4: Traverse the DOM \(scrape!\)
 
