@@ -39,7 +39,7 @@ To get started, create a new folder, and initialize npm. We'll also want to inst
 
 ### Step 1: Get the HTML document
 
-There are multiple ways to get an HTML document, but we'll use the `request` module in this example. To scrape data from the site, we need to request the webpage. In a `gethoods.js` file, import the `request` and `cheerio` modules, then make a request to the Seattle Neigbhborhoods website.
+There are multiple ways to get an HTML document, but we'll use the `request` module in this example. To scrape data from the site, we need to request the webpage. In a `getbusinesses.js` file, import the `request`, then make a request to the Seattle Neigbhborhoods website.
 
 ```javascript
 const request = require('request')
@@ -56,11 +56,22 @@ Look over the [Cheerio Documentation](https://cheerio.js.org/) - for more info a
 
 ### Step 2: Parse the HTML
 
-The request to the seattle neighborhoods url gave us the entire HTML document string - now we need to parse it in order to pick out the specific data we're looking for. This is where Cheerio comes in! Inside the callback function of request, we'll pass the html we got back into the `cheerio.load()` function. We store the result, which is a cheerio object, in the dollar sign variable because cheerio is designed to mimic jQuery selectors \(though technically, we could store it in any variable we'd like\).
+The request to the seattle neighborhoods url gave us the entire HTML document string - now we need to parse it in order to pick out the specific data we're looking for. This is where Cheerio comes in! Install and import Cheerio!
+
+```bash
+npm i cheerio
+```
+
+```javascript
+const cheerio = require('cheerio')
+
+```
+
+Inside the callback function of request, we'll pass the html we got back into the `cheerio.load()` function. We store the result, which is a cheerio object, in the dollar sign variable because cheerio is designed to mimic jQuery selectors \(though technically, we could store it in any variable we'd like\).
 
 ```javascript
 request(URL, (error, response, body) => {
-  var $ = cheerio.load(body);
+  let $ = cheerio.load(body);
   console.log($);
 });
 ```
