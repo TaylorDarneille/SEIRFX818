@@ -52,7 +52,7 @@ request(URL, (error, response, body) => {
 
 Run the program and take a look at your output. What did the request return?
 
-Look over the [Cheerio Documentation](https://github.com/cheeriojs/cheerio) - for more info about our next steps.
+Look over the [Cheerio Documentation](https://cheerio.js.org/) - for more info about our next steps.
 
 ### Step 2: Parse the HTML
 
