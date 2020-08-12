@@ -56,11 +56,7 @@ Look over the [Cheerio Documentation](https://cheerio.js.org/) - for more info a
 
 ### Step 2: Parse the HTML
 
-The request to the seattle neighborhoods url gave us the entire HTML document string - now we need to parse it in order to pick out the specific data we're looking for. This is where Cheerio comes in! Install and import Cheerio!
-
-```bash
-npm i cheerio
-```
+The request to the seattle neighborhoods url gave us the entire HTML document string - now we need to parse it in order to pick out the specific data we're looking for. This is where Cheerio comes in! Import Cheerio to your `getbusinesses.js`:
 
 ```javascript
 const cheerio = require('cheerio')
