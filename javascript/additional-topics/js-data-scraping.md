@@ -67,7 +67,7 @@ request('http://www.visitseattle.org/things-to-do/neighborhoods/', function (err
 
 Run the program and take a look at the `cheerio` object. How might we find the html again? Does the `cheerio` object contain a method for this?
 
-### Step 3: Identify the content you want to scrape.
+### [DEPRECATED: example website isn't working properly anymore] Step 3: Identify the content you want to scrape.
 
 * First you have to identify what content you're looking to scrape and how to access it. Clicking on one of the neighborhoods displays a hidden div with information about that location. Each of these divs have both 1\) the name of the 'hood and 2\) a link to a page detailing the neighborhood. Let's say that we want to grab the name and the link to more info for each of the neighborhoods.
 * Inspect that div- you'll see these hidden divs have a class `info-window-content`.
