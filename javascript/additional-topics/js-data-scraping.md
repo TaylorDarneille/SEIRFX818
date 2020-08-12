@@ -30,23 +30,23 @@ Scraping \(Screen Scraping, Web Data Extraction, Web Harvesting, etc\) refers to
 
 Let's try creating a program that will scrape neighborhood data from this site:
 
-[http://www.visitseattle.org/things-to-do/neighborhoods/](http://www.visitseattle.org/things-to-do/neighborhoods/)
+[https://visitseattle.org/partners/?frm=partners&ptype=visitors-guide&s=&neighborhood=Capitol+Hill](https://visitseattle.org/partners/?frm=partners&ptype=visitors-guide&s=&neighborhood=Capitol+Hill)
 
 To get started, create a new folder, and initialize npm. We'll also want to install two modules:
 
 * `request` - for accessing external resources via HTTP
-* `cheerio` - essentially, this is server side jQuery. We will be using this to traverse the data we get back from our `request`.
+* `cheerio` - essentially, this is server side jQuery. We will be using this to traverse the data we get back from our request.
 
 ### Step 1: Get the HTML document
 
 There are multiple ways to get an HTML document, but we'll use the `request` module in this example. To scrape data from the site, we need to request the webpage. In a `gethoods.js` file, import the `request` and `cheerio` modules, then make a request to the Seattle Neigbhborhoods website.
 
 ```javascript
-var request = require('request');
-var cheerio = require('cheerio');
+const request = require('request')
+const URL = 'https://visitseattle.org/partners/?frm=partners&ptype=visitors-guide&s=&neighborhood=Capitol+Hill'
 
-request('http://www.visitseattle.org/things-to-do/neighborhoods/', function (error, response, body) {
-  console.log(body);
+request(URL, (error, response, body) => {
+    console.log(body);
 });
 ```
 
@@ -59,7 +59,7 @@ Look over the [Cheerio Documentation](https://github.com/cheeriojs/cheerio) - fo
 The request to the seattle neighborhoods url gave us the entire HTML document string - now we need to parse it in order to pick out the specific data we're looking for. This is where Cheerio comes in! Inside the callback function of request, we'll pass the html we got back into the `cheerio.load()` function. We store the result, which is a cheerio object, in the dollar sign variable because cheerio is designed to mimic jQuery selectors \(though technically, we could store it in any variable we'd like\).
 
 ```javascript
-request('http://www.visitseattle.org/things-to-do/neighborhoods/', function (error, response, body) {
+request(URL, (error, response, body) => {
   var $ = cheerio.load(body);
   console.log($);
 });
@@ -67,23 +67,42 @@ request('http://www.visitseattle.org/things-to-do/neighborhoods/', function (err
 
 Run the program and take a look at the `cheerio` object. How might we find the html again? Does the `cheerio` object contain a method for this?
 
-### [DEPRECATED: example website isn't working properly anymore] Step 3: Identify the content you want to scrape.
+### Step 3: Identify the content you want to scrape.
 
-* First you have to identify what content you're looking to scrape and how to access it. Clicking on one of the neighborhoods displays a hidden div with information about that location. Each of these divs have both 1\) the name of the 'hood and 2\) a link to a page detailing the neighborhood. Let's say that we want to grab the name and the link to more info for each of the neighborhoods.
-* Inspect that div- you'll see these hidden divs have a class `info-window-content`.
-* So, we'll select those elements using Cheerio's selector syntax.
+* First you have to identify what content you're looking to scrape and how to access it. Let's aim to scrape the names of all the busineses listed on this page of Capitol Hill businesses. Open the dev tools and inspect the page to see if you can pinpoint the elements that have the relvant information for each result.
+
+Upon some inspection, we can see that the results live inside of a `search-results` `div`, which contains a `search-results-partner` `section` element. Inside *that* there is a `search-result-container` `div` that has a `search-result` `div` for each result.
+
+Let's try to target the name of the first business. Inspect the first `search-result` `div` and identify exactly where the business name lives.
+
+The business name can be found inside the `search-result-preview` `div` as both the `title` of the nested `a` tag, as well as the `h3` child of that anchor. 
+
+First let's grab the first `search-result-preview` element. Cheerio uses [jQuery selectors](https://www.w3schools.com/jquery/jquery_ref_selectors.asp) to identify elements.
 
 ```javascript
-// returns an cheerio object with a whole lot of info
- var neighborhoods = $('.info-window-content');
- console.log(neighborhoods);
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body);
+    let result = $('.search-result-preview').html();
+    console.log(result)
+});
 ```
+
+Now let's target the `title` attribute:
+
+```javascript
+request(URL, (error, response, body) => {
+    let $ = cheerio.load(body);
+    let result = $('.search-result-preview > a').attr('title');
+    console.log(result)
+});
+```
+Great! Now we know how to find the title of **one** business, but how do we get all of them?
+
+# THE REST OF THIS IS TODO!!!
 
 ### Step 4: Traverse the DOM \(scrape!\)
 
 * Cheerio has its own `.map()` function to parse through a cheerio object, but it still returns another cheerio object
-* \(see docs -&gt; traversing -&gt; map\)
-* \(for more on find/text/attr, etc, see docs\)
 
 ```javascript
     var neighborhoods = $('.info-window-content').map(function(index, element) {
