@@ -1,6 +1,6 @@
 # Schedule
 
-{% embed url="https://calendar.google.com/calendar/b/1?cid=Y19vN21qcGhuOWY3bWphZmoxN2I4bmY1OW5kc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t" %}
+{% embed url="https://calendar.google.com/calendar/embed?src=c_o7mjphn9f7mjafj17b8nf59nds%40group.calendar.google.com&ctz=America%2FLos_Angeles" %}
 
 
 
