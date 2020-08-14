@@ -2,7 +2,7 @@
 
 ![](https://res.cloudinary.com/briezh/image/upload/v1539805526/spaceneedle_ga_sea_ykjk40.jpg)
 
-Welcome to GA! This is the notes repository for our Software Engineering Immersive \(formerly known as Web Development Immersive\) FLEX. You can view the content in a more searchable/friendly format on [Gitbook](https://tmdarneille.gitbook.io/sei-ga-sea/)!
+Welcome to GA! This is the notes repository for our Software Engineering Immersive \(formerly known as Web Development Immersive\) FLEX. You can view the content in a more searchable/friendly format on [Gitbook](https://tmdarneille.gitbook.io/seirfx/)!
 
 ![GA Logo](.gitbook/assets/ga_cog.png)
 
