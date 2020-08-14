@@ -2,35 +2,19 @@
 
 ![](https://res.cloudinary.com/briezh/image/upload/v1539805526/spaceneedle_ga_sea_ykjk40.jpg)
 
-Welcome to GA Seattle! This is the notes repository for our Software Engineering Immersive \(formerly known as Web Development Immersive\). You can view the content in a more searchable/friendly format on [Gitbook](https://tmdarneille.gitbook.io/sei-ga-sea/)!
+Welcome to GA! This is the notes repository for our Software Engineering Immersive \(formerly known as Web Development Immersive\) FLEX. You can view the content in a more searchable/friendly format on [Gitbook](https://tmdarneille.gitbook.io/sei-ga-sea/)!
 
 ![GA Logo](.gitbook/assets/ga_cog.png)
 
-## Setting up the Notes locally
-
-This is totally optional. If you choose to do this, please update every 3-6 months to get any additions/updates changes we make to the local Seattle curriculum!
-
-* Fork this repository
-* Clone your fork to your development machine
-* Setup a remote for your fork
-  * On your terminal, run `git remote add upstream git@github.com:TaylorDarneille/SEI713.git`
-* Install the Gitbook CLI tool by running `npm install -g gitbook-cli`
-* Preview the Gitbook by running `gitbook serve`
-
-#### Updating your local repo
-
-* On your terminal, run:
-  * `git fetch upstream master` \(get the changes from us\)
-  * `git merge upstream/master` \(add those changes to your local machine's clone\)
-  * `git push origin master` \(updates your fork on github\)
 
 ## Contributing to the Notes
 
 * All contributions can be done via pull requests
 * Recommended process:
+  * Fork [this repository](https://github.com/TaylorDarneille/SEIRFX818)
   * Make changes in your forked repository \(use a separate branch\)
   * Create a pull request and be sure to be very explicit about the changes you've made
-  * Ask someone on the SEI team to look at your pull request
+  * Ask someone on the instructional team to look at your pull request
 
 ## Schedule
 
@@ -40,7 +24,7 @@ Something to know is that some of the lessons here are more historical and haven
 
 ### Origin of this gitbook
 
-This is a second version of the working notes for the local SEI \(formerly WDI\) class held in person at the Seattle campus. Due to the changing nature of course delivery format in response to COVID-19, this course is only offered remotely at this time, and the student pool spans multiple campuses. This version of the notes is tailored for the SEI 713, offered remotely through the Seattle campus. It will be a working set of documents as SEI instructors continually adapt this originally campus-driven curriculum for the new demands of work-from-home life. The idea is to front-load each day with lessons in the morning, leaving the majority of the afternoon for flexibe workshop/lab time to accomodate screen-lecture attention spans and the unique demands that families and individuals face during a global pandemic and social unrest over racial injustice.
+This is a second version of the working notes for the local SEI \(formerly WDI\) class held in person at the Seattle campus. Due to the changing nature of course delivery format in response to COVID-19, this course is only offered remotely at this time, and the student pool spans multiple campuses. This version of the notes is being continually tailored for the SEI FLEX, offered remotely starting on 08/18/2020. It will be a working set of documents as SEI instructors continually adapt this originally campus-driven curriculum for the new demands of work-from-home life and to accomodate the unique demands that families and individuals face during a global pandemic and social unrest over racial injustice.
 
 ### Future Directions
 
@@ -89,7 +73,7 @@ Additionally, much of the original Python material \(locally\) was developed at 
 * [SEI Prework](https://generalassembly.atlassian.net/wiki/spaces/CONSPRO/pages/838796740/SEI+Pre-Work+Changelog+Q1+2020)
 * [FreeCodeCamp](http://www.freecodecamp.com/)
 
-### Unit: Front End Development
+### Front End Development
 
 | Topic | Labs + Assignments |
 | :--- | :--- |
