@@ -1,5 +1,7 @@
 # Arrays
 
+## [Repl.it](https://repl.it/@tmdarneille/JSArrays#index.js) for the lesson
+
 Unfortunately, strings and numbers are not enough for most programming purposes. What is needed are collections of data that we can use efficiently, Arrays.
 
 Arrays are great for:
