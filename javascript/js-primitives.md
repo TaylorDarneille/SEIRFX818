@@ -26,6 +26,8 @@
 * also used as a backend language, using Node.js
 * working on [ECMAScript 6](https://github.com/lukehoban/es6features)
 
+## [Repl.it](https://repl.it/@tmdarneille/JSPrimitives#index.js) from today's lesson
+
 ## Comments
 
 Comments come in two forms
