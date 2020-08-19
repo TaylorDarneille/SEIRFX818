@@ -24,64 +24,28 @@ Refresh the page, and boom! All your local files are now available on github. No
 
 **3.** From inside your new local repo, run `git remote -v` to see that the local repo already has an origin master of the original remote repo it was cloned from. Now make a change the `readme.md`, stage the changes, make a commit, and run `git push`. Did your changes make it to github?
 
-### If the remote repo is someone else's, clone it:
+### If the remote repo is someone else's, fork & clone it:
 
----
-# TODO
+**1.** First, fork the repo on github. This will create a remote repo under your own github with the same code as the original. Try forking [this repo](https://github.com/TaylorDarneille/pr_practice) now.
 
-## Setup for this section
+**2.** Next, clone your fork! Make sure you're on *your fork* and not on the original repo, then clone it to your local machine just as we did above. Now clone your fork of the repo you just forked!
 
-* Create a new repo on Github \(we'll use `tacos` for ours\)
+Once you've cloned, run `git remote -v`. Notice which github repo is the origin of your new local repo - it's your fork! That means any code you push up will only change your fork, but it will leave the original repo that you forked *from* totally in tact. Test this by making a change to your local repo, then stage the changes, commit, and push. When you're done, check both remote repos to see which ones changed.
 
-## Working with Remote Repositories
+## Pull Requests & Deliverable Submissions
 
-We previously mentioned that git is a **distributed version control system**. Meaning, we can make changes locally, and push them up to a server. We can also pull down changes from a server. Throughout SEI, we'll be working with remote repositories mainly through Github in order to submit deliverables. So let's go through an example.
+### Pull Requests
+If your are collaborating with the owner of the original repo, you will likely want to coordinate with them about merging your changes into their master version. You can do this by making a pull request from your fork.
 
-## `git clone` - clone a repository
+Make a pull request (PR) to the `pr_practice` master repo from your fork of it now. The instructor will walk through what it looks like to merge the PR on their end.
 
-If you have your own repo on Github, you'll likely want to make changes on your local computer. In order to do this, you'll want to **clone** the repository, which creates a copy of a repo. The syntax will require the SSH URL.
+### Submitting Deliverables
 
-```text
-git clone <SSH URL GOES HERE>
-```
+For most deliverables, you will be asked to fork and clone a repo, then make a pull request to submit the homework when you are done. Practice this now:
+* Make a `solution.txt` in your local `command_line_murder_mystery` repo.
+* If you solved the murder and saved a list of commands that led you there, paste them in `solution.txt`. Otherwise, just write a few sentences about how that deliverable was for you.
+* Stage the changes, make a commit, and push this new code to github.
+* Now that your `solution.txt` is on github, make a pull request to submit the homework!
 
-Once this is done, you'll have a copy on your local machine. No need to run `git init` or anything, it's all done for you!
 
-## `git pull` - pull changes from Github
-
-Now that you have a local copy of the repo, if any changes are made on Github, you can pull those changes down by running a pull command.
-
-```text
-git pull
-```
-
-Try making a change on Github using the built-in GUI and run this command! You'll see that the changes will be pulled down.
-
-## `git push` - push changes to Github
-
-Similarly, if we make changes to our local copy of the repo, we can push those changes to Github by running a push command.
-
-```text
-git push
-```
-
-Try making a change locally, add your changes, and commit your changes. Run this command, and you'll see that the changes will be pushed to Github.
-
-## `git remote` - how git knows your remotes
-
-How does `git pull` and `git push` work? Git uses a list of _remotes_ to know where to push and pull from. You can view a list of these remotes by running the remote command:
-
-```text
-git remote -v
-```
-
-By default, cloning your Github repo will create remotes for pushing and pulling, via the SSH URL. We'll be using these in the future for more complex pushing and pulling.
-
-## Forking - Github's way to share and collaborate
-
-When we work on deliverables in WDI and in the software industry, we'll usually be building upon pre-existing scaffolds or projects. In these cases, we'll usually want our own copies to work on, because the project owner won't allow you to make direct changes. Otherwise chaos would ensue!
-
-The solution is to create a **fork** of a repo. It's kinda like a clone, but it's all done on Github and gives you ownership of the copy. You'll then make changes in this fork.
-
-Once you want to officially submit your changes, you'll perform what's called a **pull request**, which we'll demo before your first deliverable.
 
