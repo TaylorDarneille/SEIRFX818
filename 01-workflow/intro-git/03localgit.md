@@ -68,6 +68,8 @@ How do we find out what changed?
 git diff readme.md
 ```
 
+(To exit, type `q`.)
+
 ### Stage and save
 
 When we're ready to save those changes
