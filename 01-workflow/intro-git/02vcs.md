@@ -31,7 +31,7 @@ Together, git on your _local machine_ and git on _Github_ form a **distributed v
 
 In this diagram, we have a project on three different computers, all kept track of under git. Computers A and B are local \(client\) machines that have a copy of the project. The server computer is another machine that allows the clients to pull down any changes that are made to the project.
 
-Throughout WDI, each developer will be pulling down from a server, and that server is **Github!** Once we pull down a copy of the project, we can make changes locally, and eventually push our changes to the server.
+Throughout SEI, each developer will be pulling down from a server, and that server is **Github!** Once we pull down a copy of the project, we can make changes locally, and eventually push our changes to the server.
 
 ## Folder Management
 
