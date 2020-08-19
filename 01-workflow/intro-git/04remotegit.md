@@ -1,6 +1,15 @@
 # Remote Git
 
-In the previous section, we worked with a local git repo. Now, let's try working with a remote repo, and clone it to create a local repo.
+In the previous section, we worked with a local git repo. Now, let's learn how to work with remote repos!
+
+## Putting a local repo on Github
+
+Currently, we have a local repo called `project_git`. Let's create a remote repo for `project_git` and push our current code to it so others can see it, contribute to it, and we have a backup in case our local machine goes down.
+
+**1.** Create a new repo on github (it's a good idea to name it the same as your local repo, though that's not required for it to work)
+**2.** Follow the instructions for "…or push an existing repository from the command line"
+
+Refresh the page, and boom! All your local files are now available on github. Now, after each commit, run `git push` to push the most recent commit to your remote repo so they're both up to date.
 
 ## Setup for this section
 
