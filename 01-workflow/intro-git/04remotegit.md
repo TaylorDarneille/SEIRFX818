@@ -7,9 +7,27 @@ In the previous section, we worked with a local git repo. Now, let's learn how t
 Currently, we have a local repo called `project_git`. Let's create a remote repo for `project_git` and push our current code to it so others can see it, contribute to it, and we have a backup in case our local machine goes down.
 
 **1.** Create a new repo on github (it's a good idea to name it the same as your local repo, though that's not required for it to work)
+
 **2.** Follow the instructions for "…or push an existing repository from the command line"
 
 Refresh the page, and boom! All your local files are now available on github. Now, after each commit, run `git push` to push the most recent commit to your remote repo so they're both up to date.
+
+**Test it out:** make a change to your repo, then stage the changes, commit the changes, and run `git push`. Check to see if the changes made it to your remote repo!
+
+## Creating a local repo from an already existing remote repo.
+
+### If the remote repo is yours, clone it:
+
+**1.** Create a new repo on github called `tacos` and intialize it with a `readme`. (Normally, you will be cloning your own remote repo only if you are working on a new machine that the local version doesn't live on, or if you accidentally deleted your local repo.)
+
+**2.** Clone the repo to your local machine by copying the ssh or https url from the green `code` button on the github repo, then running `git clone <URL>` inside the directory you want to store your new local repo in.
+
+**3.** From inside your new local repo, run `git remote -v` to see that the local repo already has an origin master of the original remote repo it was cloned from. Now make a change the `readme.md`, stage the changes, make a commit, and run `git push`. Did your changes make it to github?
+
+### If the remote repo is someone else's, clone it:
+
+---
+# TODO
 
 ## Setup for this section
 
