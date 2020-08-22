@@ -41,7 +41,7 @@
 * [JavaScript](javascript/README.md)
   * [Primitives](javascript/js-primitives.md)
   * [Arrays](javascript/js-arrays.md)
-  * [Objects]
+  * Objects
     * [Objects Lesson](02-js-jquery/js-objects/lesson.md)
     * [Objects quick guide](02-js-jquery/js-objects/objects-cliff-notes.md)
   * [Control Flow](javascript/js-control-flow/README.md)
