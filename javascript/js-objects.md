@@ -1,4 +1,4 @@
-# Objects
+# Objects Cliff Notes
 
 ## Objects
 
