@@ -41,7 +41,7 @@
 * [JavaScript](javascript/README.md)
   * [Primitives](javascript/js-primitives.md)
   * [Arrays](javascript/js-arrays.md)
-  * [Objects](javascript/js-objects.md)
+  * [Objects](02-js-jquery/js-objects/lesson.md)
   * [Control Flow](javascript/js-control-flow/README.md)
     * [Boolean Expressions](javascript/js-control-flow/02boolean.md)
     * [Conditionals](javascript/js-control-flow/03conditionals.md)
