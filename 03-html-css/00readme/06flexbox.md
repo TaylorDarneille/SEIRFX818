@@ -193,6 +193,7 @@ main {
 
 #### Some Helpful Resources
 
+* [Flexbox in 5 min](https://cvan.io/flexboxin5/)
 * [flexbox.io](https://flexbox.io/)
 * [The Ultimate Flexbox Cheatsheet](http://www.sketchingwithcss.com/samplechapter/cheatsheet.html)
 * [CSS Tricks' Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
