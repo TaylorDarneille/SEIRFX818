@@ -13,16 +13,6 @@ _After this lesson students will be able to:_
 1. Write an arrow function with a return statement
 1. Break a problem down into steps
 
-## Setup
-
-In `student_examples` for today, make a file `functions.js`
-
-Test that a console.log will appear in Terminal when you run the file.
-
-```
-$ node functions.js
-```
-
 ## Describe why we use functions
 
 Using functions is another application of DRY. Don't Repeat Yourself. With a function, you can store code that can be used conveniently as many times as you wish, without having to rewrite the code each time.
