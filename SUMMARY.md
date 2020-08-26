@@ -50,6 +50,7 @@
     * [Loops](javascript/js-control-flow/04loops.md)
     * [Promises](javascript/js-control-flow/05promises.md)
   * [Functions](javascript/01functions/README.md)
+    * [Scope](javascript/js-functions/scope.md) 
     * [Callbacks](javascript/01functions/02callbacks.md)
     * [Timing Functions](javascript/01functions/03timing-functions.md)
     * [Iterators](javascript/01functions/04iterators.md)
