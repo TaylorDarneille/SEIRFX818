@@ -185,7 +185,6 @@
     * [Nested Components](16-react/intro-react/nested.md)
     * [Lab: LotR](16-react/intro-react/lotr.md)
   * [React State](16-react/react-state/README.md)
-    * [Code-Along: Mood Points](16-react/react-state/mood-points.md)
     * [Code-Along: Edit Dino Blog](16-react/react-state/dino-blog-state.md)
     * [Lab: Simple Calc](16-react/react-state/simple-calc-exercise.md)
     * [Lifting State](16-react/react-state/lifting-state.md)
