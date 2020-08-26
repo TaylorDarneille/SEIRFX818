@@ -71,7 +71,7 @@ After this, we can define what's new. What's new for us right now is that when t
 
 We'll start our state with just one key-value pair inside. The key or label will be `moodPoints`, and the initial value for the `moodPoints` key will be 1.
 
-At the top of the `Hello` class in your `src/App.js` file, add the `constructor` function.
+## Old school way of initializing state in React
 
 ```javascript
 class Hello extends Component {
@@ -91,6 +91,32 @@ class Hello extends Component {
   }
 }
 ```
+
+## React Components \(in React v16+\)
+
+```javascript
+import React, { Component } from 'react'
+
+class MoodTracker extends Component {
+  // What should the state be when the component is created?
+  state = {
+      moodPoints: 1 // initialize this.state.moodPoints to be 1
+  }
+
+  // What should the component render?
+  render() {
+    //  ....
+  }
+}
+
+export default MoodTracker;
+```
+
+Even though you may see the `constructor` syntax used in some online resources, the best practices for how to write the initial state for components has changed in recent years. Instead, we can create a component and directly define the starting state without ever having to use a constructor as of React 16.
+
+Much cleaner, right? Throughout the course, we're going to use this newer way to define state, but you may run into the `constructor` syntax during your own research as this was the way it was done prior to the release of React version 16.
+
+---
 
 Now let's make sure we display that information to the user. Still in `App.js`, in your `render` method, we'll let the user know how many mood points they are at by adding in a line:
 
@@ -133,7 +159,19 @@ increaseMood(e) {
 }
 ```
 
-Note that we call `this.setState` to change the state.
+## Increase Mood by Changing State
+
+Changing the value of `this.state` isn't quite as straightforward as something like `this.state.moodPoints++`. Instead, when we want to update a value in React, we will use a method called `this.setState()`. This method helps React update only certain parts of the DOM, resulting in a much faster website!
+
+First, we will create a method to increase the mood. Above the `render()` method, add the method seen here.
+
+```javascript
+increaseMood = () => {
+  this.setState({
+    moodPoints: this.state.moodPoints + 1
+  });
+};
+```
 
 Now we'll create the button to trigger calling this function. The button will be displayed to the user, so we'll add it to the `render` function. When the user clicks it, we'll call the `increaseMood` function.
 
@@ -154,6 +192,33 @@ Now we'll create the button to trigger calling this function. The button will be
 }
 ```
 
+Whenever we run `.setState`, our component calculates the difference or "diff" between the current DOM and the virtual DOM node. Then, it figures out how to update the state of the DOM in as few manipulations as possible; it only replaces the current DOM with parts that have changed.
+
+This is super important! Using React, **we only change parts of the DOM that need to be changed.**
+
+* This has implications for performance.
+* We do not re-render the entire component like we have been so far.
+* This is one of React's core advantages.
+
+### Synthetic Events
+
+**Events** we pass into this `onClick` callback is not quite like the others! 
+
+From the [react docs](https://reactjs.org/docs/events.html#supported-events):
+
+Your event handlers will be passed instances of SyntheticEvent, a cross-browser wrapper around the browser’s native event. It has the same interface as the browser’s native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+
+Take a look at the other synthetic events React supports!
+
+**Event listeners** in React look very similar to adding events through HTML attributes. There are two main differences when working with React's synthetic events:
+* 1. React events are named using camelCase instead of lowercase:
+     * `onClick` \(React\) vs. `onclick` \(HTML\)
+     * `onSubmit` \(React\) vs. `onsubmit` \(HTML\)
+* 1. In JSX, you pass the actual function in as the handler, rather than a string:
+     * `<button onClick={this.doSomething}>Click Me</button>` \(React\)
+     * `<button onclick="doSomething()">Click Me</button>` \(HTML\)
+
+---
 Altogether, your `App.js` file now looks like this:
 
 ```javascript
@@ -203,13 +268,6 @@ export default Hello
 
 > Check it out! If you browse to [http://localhost:3000](http://localhost:3000), your button now changes the state.
 
-Whenever we run `.setState`, our component calculates the difference or "diff" between the current DOM and the virtual DOM node. Then, it figures out how to update the state of the DOM in as few manipulations as possible; it only replaces the current DOM with parts that have changed.
-
-This is super important! Using React, **we only change parts of the DOM that need to be changed.**
-
-* This has implications for performance.
-* We do not re-render the entire component like we have been so far.
-* This is one of React's core advantages.
 
 #### Challenge: Count to 10
 
