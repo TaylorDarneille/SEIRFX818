@@ -84,11 +84,7 @@ Arrow functions were introduced into the JS language for two primary reasons:
 
 Always use **`const`** to declare your functions. It would be a strange day when a function would need to be reassigned.
 
-#### Test it out!
-Take a moment and create the `
-` function in your `.js` file.
-
-The code will not run yet. The function needs to be **invoked**.
+The code for `printBoo()` will not run yet. The function needs to be **invoked**.
 
 ## Invoke a function
 
@@ -136,7 +132,7 @@ const printBoo = () => {
 
 **Extra Reps**
 
-* Write a function `printTriangle` that will print these pound signs to the console (there are 5 console.logs inside the function):
+* Write a function `printTriangle` that will print these pound signs to the console (there are 5 `console.logs` inside the function):
 
 	```
 	#
@@ -146,7 +142,7 @@ const printBoo = () => {
 	#####
 	```
 
-* Make it so that `printTriangle` will print the pound signs using a for loop (there is a for loop and only 1 console.log inside the function).  
+* Make it so that `printTriangle` will print the pound signs using a for loop (there is a `for` loop and only 1 console.log inside the function).  
 
 * Make it so that when you can invoke the function with the number of pound signs to print (not just hardcoded to print 5)
 
@@ -277,11 +273,11 @@ calculateArea(4, 4)
 
 **Extra**
 
-* Write a function `divideThreeNums` that takes **three** parameters and prints the third parameter divided by the result of the second parameter divided by the first.
+* Write a function `multiply` that takes **three** parameters and prints the result of multiplying all three numbers together.
 
 	```javascript
-	divideThreeNums(10, 5, 2)   // 4
-	divideThreeNums(30, 2, 9)   // 135
+	multiply(10, 5, 2)   // 100
+	multiply(3, 2, 9)   // 54
 	```
 
 ## Write an arrow function with a return statement
@@ -329,18 +325,18 @@ The `calculateArea` function has a **return value** of `num1` * `num2`. It does 
 Sometimes a returned value will not appear in your console. This is normal. **A return is not a console.log**. To see the return value of a function, you will want to console.log the invocation:
 
 ```javascript
-console.log(multiply(2, 10));
+console.log(multiply(2, 10, -2));
 ```
 
-> => 20
+> => -40
 
 Since `multiply` **returns** a value, we can use the return value of `multiply` as an argument to an invocation of `multiply`.
 
 ```javascript
-console.log(multiply(multiply(2, 3), multiply(9, 4)));
+console.log(multiply(multiply(2, 2, 2), multiply(1, 4, 0)));
 ```
 
-> => 216
+> => 32
 
 ### return: stopping a function
 
@@ -364,7 +360,7 @@ example("two");     // 1
 
 ## Break a problem down into steps
 
-Write a function that will **return** true if a word is a Palindrome, or will **return** false if not.
+Write a function that will **return** `true` if a word is a Palindrome, or will **return** `false` if not.
 
 * Problem solve one step at a time
 * Each step might require research
