@@ -384,5 +384,7 @@ Determine if each step will require research, and research it.
 * Experiment
 	* What happens if you supply more arguments than there are parameters?
 	* What happens if you supply fewer arguments than there are parameters?
+	
  ---
+ 
  *This lesson was adapted from the [SEIR-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/blob/master/unit_1/w02d3/instructor_notes/1.%20FUNCTIONS.md) repo lesson*
