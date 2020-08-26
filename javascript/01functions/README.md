@@ -1,173 +1,402 @@
 # Functions
 
-## Objectives
+## Lesson objectives
 
-* Describe a situation where you would use:
-  * A function with a return value
-  * A function without a return value
-  * A function with a parameter
-* Describe the difference between printing and returning
-* Write a function with and without a return value
-* Write a function with a parameter
-* Write a function that operates on two or more parameters
-* Identify the scope of variables inside and outside functions
+_After this lesson students will be able to:_
+
+1. Describe why we use functions
+1. Declare a function
+1. Invoke a function
+1. Properly name a function
+1. Write an arrow function with a parameter
+1. Write an arrow function with multiple parameters
+1. Write an arrow function with a return statement
+1. Break a problem down into steps
+
+## Setup
+
+In `student_examples` for today, make a file `functions.js`
+
+Test that a console.log will appear in Terminal when you run the file.
+
+```
+$ node functions.js
+```
+
+## Describe why we use functions
+
+Using functions is another application of DRY. Don't Repeat Yourself. With a function, you can store code that can be used conveniently as many times as you wish, without having to rewrite the code each time.
 
 ## Defining a function
+In Javascript there a few different ways of defining a function. 
 
-A function is a module that can store and invoke code. When writing repetitive code, we can isolate code into **functions** in order to reduce repetition. For example, if we needed to say "Hello World" to the screen multiple times, we can create a function like so.
+* __Function Declaration__
+* __Function Expression__
+
+### Function Declaration
+```javascript
+function sayHello() {
+	console.log('Hello World');
+}
+```
+
+### Function Expression
 
 ```javascript
-var greeting = function() {
-    console.log("Hello World");
-}
-
-greeting();
-```
-
-Note that a function is assigned to a variable, and we can **call** the function by taking the variable name and appending parentheses to the end of the function variable.
-
-**Parts of a function**
-
-```text
-var FUNCTIONNAME = function() {
-    //CODE
+const sayHello = function() {
+	console.log('Hello World');
 }
 ```
 
-We can also create functions that accept **parameters**, and use those parameters as variables in the function.
+Function declarations and function expressions more-or-less do the same example thing, but there’s one subtle yet important difference between them.
 
-## Defining a function with a parameter
+### Hoisting
+Hoisting is a concept in JavaScript that essentialy means that all function delcarations are *hoisted* to the top of the Javascript code by the browser.
+
+You can think of them as being brought to the top of the file. This means that no matter where you write a __function declaration__ in your program, the declaration is known at the start of the program. Due to hoisting, you will be able to call a __function declaration__ before you declare it in your program.  
 
 ```javascript
-var greeting = function(taco) {
-    // anything inside of here will execute when called
-    console.log("Good morning", taco);
+
+sayHello();
+
+function sayHello() {
+	console.log('hello world');
 }
 
-var name = "Josh"
-var name2 = "Brian"
-greeting(name);
-greeting(name2);
 ```
 
-## Defining a function with two parameters
+Other datatypes are also *hoisted* and we will talk about this at a later time. For right now this helps us understand the difference between a function expression and a declaration.
 
-Functions can have multiple parameters, separated by commas.
+The concept of hoisting itself is a bit dated. In general, we won't want to declare functions before we use them. It will make our code more clear to invoke a function after we have declared it!
+
+
+#### When to use a Function Expression or Function Declaration
+
+Knowing when to use a function expression or declaration depends on the code you are writing. If you *had* to call a function before it was declared, this might be a good use case for a function declaration.
+
+However, function expressions are very handy! They allow us to store anonymous functions (functions without a name) inisde of a variable for later use!
+
+In fact, they are so useful that Es6 (one of the latest updates to the JS language) implemented a new kind of function that allows us to leverage the power of function expressions!
+
+### Es6 Arrow Functions
+```javascript
+const printBoo = () => {
+	console.log('======');
+	console.log('Boo!');
+	console.log('======');
+};
+```
+
+Arrow functions were introduced into the JS language for two primary reasons:
+
+* the need for shorter functions
+* the behavior of the `this` keyword (more on this later)
+
+Always use **`const`** to declare your functions. It would be a strange day when a function would need to be reassigned.
+
+#### Test it out!
+Take a moment and create the `
+` function in your `.js` file.
+
+The code will not run yet. The function needs to be **invoked**.
+
+## Invoke a function
+
+Use one line of code to run multiple lines of code
 
 ```javascript
-var greeting = function(taco, stuff) {
-    // anything inside of here will execute when called
-    console.log("Good morning", stuff, taco);
-    console.log("taco:", taco);
-    console.log("stuff:", stuff);
-}
-
-var name = "Josh"
-var name2 = "Brian"
-greeting(name, name2);
-greeting(name2, name);
+printBoo();
 ```
 
-## Printing and returning are different
+Simply use the name of the variable and use **parentheses** to invoke the function.
 
-Note that functions can have **input** via parameters. They can also have **output** as return values. Returning values from a function is denoted by the keyword `return`. Also, return values are optional.
+If the parentheses are not included, the function will not run.
 
-Note that printing something to the screen using `console.log` is not the same as returning values.
+The invocation comes **after** the function definition. If you write it beforehand, it will be trying to invoke something that doesn't yet exist according to the interpreter.
+
+This will work:
 
 ```javascript
-var multiply = function(num1, num2) {
-    console.log("inside the function");
-    // return result = num1 * num2;
-    return num1 * num2
-}
+const printBoo = () => {
+	console.log('======');
+	console.log('Boo!');
+	console.log('======');
+};
 
-var firstNum = 2;
-var secNum = 3;
-var taco = multiply(firstNum,secNum);
-
-console.log(firstNum + " multiplied by " + secNum + " is " + taco )
+printBoo();
 ```
+
+VS
+
+This will not:
 
 ```javascript
-// With a return value
-var returnHello = function (name) {
-    return("Hello, " + name)
-}
+printBoo();
 
-console.log("with a return value:", returnHello("jane") );
-
-// Without a return value
-var returnHello2 = function(name) {
-    console.log("inside returnHello2: Hello, " + name);
-}
-returnHello2("nachos");
-console.log("without a return value:", returnHello2("taco") ); //will show as undefined
+const printBoo = () => {
+	console.log('======');
+	console.log('Boo!');
+	console.log('======');
+};
 ```
 
-## Declaring functions
+### Exercise
 
-There are two different ways to declare a function
+* Write a function `printSum` that will console.log the result of 10 + 10
+
+**Extra Reps**
+
+* Write a function `printTriangle` that will print these pound signs to the console (there are 5 console.logs inside the function):
+
+	```
+	#
+	##
+	###
+	####
+	#####
+	```
+
+* Make it so that `printTriangle` will print the pound signs using a for loop (there is a for loop and only 1 console.log inside the function).  
+
+* Make it so that when you can invoke the function with the number of pound signs to print (not just hardcoded to print 5)
+
+## Properly name a function
+
+The variable you use for a function should contain a **verb**. Functions **do** something, most often:
+
+* getting data
+* setting data
+* checking data
+* printing data
+
+If the purpose of your function is to check data, for example, use the verb `check` in the variable name.
+
+Example function that contains a conditional:
 
 ```javascript
-var multiply = function(a, b) {
-    return a * b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
+const checkInputLength = (input) => {
+	if (input.length > 10) {
+		console.log('input length is greater than 10');
+	} else {
+		console.log('input length is not greater than 10');
+	}
+};
 ```
 
-The difference between these two is that the first one is defined at run-time, meaning that if we try to call the function before it's declared, an error will be thrown:
+Functions should try to do **only one thing**
+
+If a function, called `checkInputLength`, does more than just check input, then it is a poor function.
+
+Takeaway: Think about appropriate **verbs** to use in your function variable names. The verbs should indicate the **one thing** that the function does.
+
+## Write an arrow function with a parameter
+
+The preceding function, `checkInputLength` had a **parameter** called `input`.
+
+Functions can receive input that modify their behavior a bit.  This input is called a **parameter**.
+
+In the below example, the parameter is arbitrarily called `name`. We can call our parameters whatever we want - whatever makes semantic sense.
+
+Using **concatenation** I can put the input into a string:
 
 ```javascript
-multiply(2, 2); // ERROR
-
-var multiply = function(a, b) {
-    return a * b;
+const sayName = (name) => {
+	console.log('Hello! My name is ' + name);
 }
 ```
 
-The second declaration is defined at parse-time, so we can call the function wherever we'd like.
+When we _invoke_ the function, we can specify the value of the parameter, this is called an **argument**:
 
 ```javascript
-multiply(2, 2); // success
+sayName("Frodo");
+```
 
-function multiply(a, b) {
-    return a * b;
+We can continue to invoke the function with whatever **arguments** we want:
+
+```javascript
+sayName("Merry");
+sayName("Pippin");
+sayName("Sam");
+```
+
+Each time, the output of the function will change to reflect the argument.
+
+### Argument vs Parameter
+
+The **argument** is the input, the **parameter** is how the input is represented in the function.
+
+```javascript
+const func = (PARAMETER) => {
+	// some code
+}
+
+func(ARGUMENT);
+```
+
+
+## Write an arrow function with multiple parameters
+
+A function can take any number of parameters.
+
+```javascript
+const calculateArea = (num1, num2) => {
+	console.log(num1 * num2);
 }
 ```
 
-Despite being more flexible, the former declaration that assigns the function to a variable is more common when developing Node applications.
+When you invoke the function, you generally want to supply the right number of arguments.
+
+```javascript
+calculateArea(4, 4)
+
+```
+> => 16
 
 ### Exercises
 
-1. What is the return value of this function when called?
+* Write a function called `minusOne` that takes a parameter `num`. Assuming the argument is a number, print the argument -1.
+
+	```javascript
+	minusOne(10);        // 9
+	minusOne(100);       // 99
+	minusOne(Infinity);  // Infinity
+	```
+
+* Write a function `makeSentence` that takes **three** parameters and **concatenates** them into a fully formed sentence.
+
+	```javascript
+	makeSentence('I', 'want', 'chimichangas');
+	```
+
+	> => 'Oh boy, do I want chimichangas or what?'
+
+**Extra**
+
+* Write a function called `getLastElement` that takes a parameter `arr`.
+* Invoke the function with an **array** as the argument.
+* The function should print the **last element** within the array.
+
+	```javascript
+	getLastElement([1, 2, 3, 4, 5, 6]);       // 6
+	getLastElement(['a', 'b', 'c']);          // 'c'
+	getLastElement([[1, 2, 3], [4, 5, 6]]);   // [4, 5, 6]
+	```
+
+	_Hint:_ `arr[arr.length - 1]`
+
+
+**Extra**
+
+* Write a function `divideThreeNums` that takes **three** parameters and prints the third parameter divided by the result of the second parameter divided by the first.
+
+	```javascript
+	divideThreeNums(10, 5, 2)   // 4
+	divideThreeNums(30, 2, 9)   // 135
+	```
+
+## Write an arrow function with a return statement
+
+Functions can pass information back to whatever line of code invoked them.
+
+A contrived example:
 
 ```javascript
-var lightsabers = function(num) {
-    console.log('I have ' + num + ' lightsabers.');
+const ten = () => {
+	return 10;
 }
 
-lightsabers(2);
+console.log(8 + ten());
 ```
+> => 18
 
-1. How would the function above be modified if the user wanted to pass in an object of lightsabers, like this one?
+Here `ten()` gets replaced with whatever the `return` statement is.
+
+This is the main difference between `return` and `console.log()`. The output value of a function can not come from a console.log.
 
 ```javascript
-var myLightsaberCollection = {
-    blue: 1,
-    green: 3
+const ten = () => {
+	console.log(10);
 }
+console.log(8 + ten());
+```
+> => 10
+> => NaN
 
-var lightsabers = function(lightsaberCollection) {
-    //code here
+This is because it is trying to add 8 to `undefined`.
+
+A function is only **defined** if it has a return value.
+
+```javascript
+const calculateArea = function(num1, num2) {
+	return num1 * num2;
 }
-
-lightsabers(myLightsaberCollection);
-
-// Output
-// I have 1 blue lightsaber
-// I have 3 green lightsabers
 ```
 
+The `calculateArea` function has a **return value** of `num1` * `num2`. It does not just print to the console.
+
+### use the returned value of an invoked function
+
+Sometimes a returned value will not appear in your console. This is normal. **A return is not a console.log**. To see the return value of a function, you will want to console.log the invocation:
+
+```javascript
+console.log(multiply(2, 10));
+```
+
+> => 20
+
+Since `multiply` **returns** a value, we can use the return value of `multiply` as an argument to an invocation of `multiply`.
+
+```javascript
+console.log(multiply(multiply(2, 3), multiply(9, 4)));
+```
+
+> => 216
+
+### return: stopping a function
+
+**RETURN** sends the value of your function immediately. You can use **return** to terminate the function.
+
+Example: will the function return 0 or 1? (It won't return both)
+
+```javascript
+const example = (input) => {
+	if (input == "none"){
+		return 0;
+	}
+	return 1; // if input is "none" this line will not run
+};
+```
+
+```javascript
+example("none")     // 0
+example("two");     // 1
+```
+
+## Break a problem down into steps
+
+Write a function that will **return** true if a word is a Palindrome, or will **return** false if not.
+
+* Problem solve one step at a time
+* Each step might require research
+
+Work in layers, one layer at a time. Don't jump ahead until each piece has been tested and works.
+
+Determine if each step will require research, and research it.
+
+* reverse the word (how?)
+* check if the word is the same as the reverse (how?)
+* return true or false
+
+### Small problems
+
+* Write a function that takes two parameters (strings) and returns `true` (Boolean) if the two strings are identical, `false` if not.
+
+* Write a function that takes three parameters (numbers), sums them, converts the sum into a string and returns the string (eg. `"123"`)
+	* Use your google-fu to research converting a number into a string
+	* Invoke the function a couple of times with different arguments each time
+
+* Experiment
+	* What happens if you supply more arguments than there are parameters?
+	* What happens if you supply fewer arguments than there are parameters?
+ ---
+ *This lesson was adapted from the [SEIR-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/blob/master/unit_1/w02d3/instructor_notes/1.%20FUNCTIONS.md) repo lesson*
