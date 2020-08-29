@@ -10,7 +10,7 @@ Many built in javascript functions take callback functions. For example, `setInt
 * how long to wait \(in milliseconds\) before running that function
 
 ```javascript
-function alarm() {
+const alarm = () => {
     console.log("Wake up!");
 }
 
@@ -23,7 +23,7 @@ setTimeout(alarm, 10000)
 * how often to run the function \(in milliseconds\)
 
 ```javascript
-function annoy() {
+const = annoy => () {
   console.log('Are we there yet?');
 }
 
@@ -33,55 +33,55 @@ setInterval(annoy, 1000);
 You may want to have multiple instances of these timing events going, so you can differentiate between the instances by assigning the functions to variables.
 
 ```javascript
-function alarm() {
+const alarm = () => {
     console.log("Wake up!");
 }
 
-var firstAlarm = setTimeout(alarm, 3000);
-var secondAlarm = setTimeout(alarm, 6000);
+const firstAlarm = setTimeout(alarm, 3000);
+const secondAlarm = setTimeout(alarm, 6000);
 ```
 
 ```javascript
-function annoy() {
+const annoy = () => {
     console.log('Are we there yet?');
 }
 
-function shutDown() {
+const shutDown = () => {
     console.log('No!')
 }
 
-var kids = setInterval(annoy, 1000);
-var parents = setInterval(shutDown, 3200);
+const kids = setInterval(annoy, 1000);
+const parents = setInterval(shutDown, 3200);
 ```
 
 You can disable an interval using `clearInterval`:
 
 ```javascript
-function annoy() {
+const annoy = () => {
     console.log('Are we there yet?');
 }
-function hush() {
+const hush = () => {
     clearInterval(kids);
 }
-var kids = setInterval(annoy, 1000);
+const kids = setInterval(annoy, 1000);
 setTimeout(hush, 10000)
 ```
 
 And you can disable your `setTimeout` before the function fires using `clearTimeout`:
 
 ```javascript
-function alarmRing() {
+const alarmRing = () => {
     console.log('RRRIIINNNGGGGG');
 }
 
-function turnOffSnooze() {
+const turnOffSnooze = () => {
     console.log("turning snooze off now");
     clearTimeout(snoozeAlarm);
 }
 
-var snoozeAlarm = setTimeout(alarmRing, 5000);
+const snoozeAlarm = setTimeout(alarmRing, 5000);
 
-var snoozeOff = setTimeout(turnOffSnooze, 3000)
+const snoozeOff = setTimeout(turnOffSnooze, 3000)
 ```
 
 ### Exercises:
@@ -104,5 +104,5 @@ _**1.**_ Use `setInteral` and `setTimeout` to write a program that prints the fo
 Blast off!
 ```
 
-_**2.**_ How could you mimic the `setInterval` functionality using `setTimeout`? Use `setTimeout` to recreate the `var kids = setInterval(annoy, 1000);` functionality.
+_**2.**_ How could you mimic the `setInterval` functionality using `setTimeout`? Use `setTimeout` to recreate the `const kids = setInterval(annoy, 1000);` functionality.
 
