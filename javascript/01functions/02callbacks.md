@@ -57,3 +57,18 @@ formalGreeting(()=>{
     console.log("Hello, World!");
 })
 ```
+
+**Exercise:** call `testTypes` and pass in a anonymous function that takes one argument and prints that argument using `console.log`.
+
+```javascript
+const testTypes = (someFunc) => {
+	console.log("num input:")
+	someFunc(0)
+	console.log("bool input:")
+	someFunc(true)
+	console.log("str input:")
+	someFunc('some string')
+	console.log("numInput:")
+	someFunc([1,2,'3'])
+}
+```
