@@ -54,7 +54,7 @@
     * [Callbacks](javascript/01functions/02callbacks.md)
     * [Timing Functions](javascript/01functions/03timing-functions.md)
     * [Iterators](javascript/01functions/04iterators.md)
-  * [Javascript in the browser](02-js-jquery/00interactivity.md)
+  * [Javascript in the browser](02-js-jquery/js-dom/00interactivity.md)
     * [DOM and Events](javascript/01readme.md)
     * [DOM Manipulation](javascript/02more-manipulation.md)
   * [HTML5 Canvas](javascript/js-canvas.md)
