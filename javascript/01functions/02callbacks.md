@@ -29,6 +29,8 @@ formalGreeting(greeting)
 
 When we pass a function into another function as a paramenter, we are passing the _function definition_, so it can be called at a later time \(hence the name _callback_\). Notice the different outputs in the below example. First we print the function itself, then we _call_ the function and print the output.
 
+
+
 ```javascript
 const returnRandom = () => {
     return (Math.random()*100).toFixed();
@@ -41,4 +43,3 @@ const yellRandom = (randomNumGenerator) => {
 
 yellRandom(returnRandom)
 ```
-
