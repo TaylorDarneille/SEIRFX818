@@ -15,13 +15,13 @@ If this all seems very strange, you could think of a javascript function as a _j
 Take a look at this example:
 
 ```javascript
-function greeting() {
+const greeting = () => {
     console.log("Hello, World!");
 }
 
-function formalGreeting(informalGreeting) {
-    informalGreeting();
-    console.log("How are you?");
+const formalGreeting = (informalGreeting) => {
+    informalGreeting()
+    console.log("How are you?")
 }
 
 formalGreeting(greeting)
@@ -30,11 +30,11 @@ formalGreeting(greeting)
 When we pass a function into another function as a paramenter, we are passing the _function definition_, so it can be called at a later time \(hence the name _callback_\). Notice the different outputs in the below example. First we print the function itself, then we _call_ the function and print the output.
 
 ```javascript
-function returnRandom() {
+const returnRandom = () => {
     return (Math.random()*100).toFixed();
 }
 
-function yellRandom(randomNumGenerator) {
+const yellRandom = (randomNumGenerator) => {
     console.log("GENERATOR DEFINITION: ", randomNumGenerator)
     console.log("YOUR RANDOM NUMBER IS: "+randomNumGenerator());
 }
