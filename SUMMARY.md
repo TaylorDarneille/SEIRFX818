@@ -44,6 +44,7 @@
   * Objects
     * [Objects Lesson](02-js-jquery/js-objects/lesson.md)
     * [Objects quick guide](02-js-jquery/js-objects/objects-cliff-notes.md)
+    * [Object-ception](02-js-jquery/js-objects/object-ception.md)
   * [Control Flow](javascript/js-control-flow/README.md)
     * [Boolean Expressions](javascript/js-control-flow/02boolean.md)
     * [Conditionals](javascript/js-control-flow/03conditionals.md)
