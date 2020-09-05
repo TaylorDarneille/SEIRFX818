@@ -91,7 +91,7 @@ The electric mixer also _does_ something: it uses the mixer attachment.
 4. Write one more custom attachment for your electric mixer and try it out!
 
 <details><summary>Solution Code</summary>
-<div>```javascript
+```js
 const electricMixer = (attachment) => {
   console.log("This mixer is now: " + attachment());
 }
@@ -110,7 +110,6 @@ const slicerDicer = () => {
 
 electricMixer(slicerDicer);
 ```
-</div>
 </details>
 
 ## setInterval and setTimeout
