@@ -53,6 +53,7 @@
   * [Functions](javascript/01functions/README.md)
     * [Scope](02-js-jquery/js-functions/scope.md) 
     * [Callbacks](javascript/01functions/02callbacks.md)
+    * [Higher Order Functions](02-js-jquery/js-functions/higher-order.md)
     * [Callbacks Review Lab](02-js-jquery/js-functions/callbacks-review-lab.md)
     * [Timing Functions](javascript/01functions/03timing-functions.md)
     * [Iterators](javascript/01functions/04iterators.md)
