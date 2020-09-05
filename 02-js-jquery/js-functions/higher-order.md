@@ -101,3 +101,7 @@ handleWords('I am fine, how are you?', excitedWords)
 // BONUS - what is going on here?
 handleWords(handleWords('omg hi how are you', capitalize), excitedWords)
 ```
+
+---
+
+*This lesson was adaped from [SEI-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/blob/master/unit_1/w04d1/instructor_notes/1.%20Callbacks.md)*
