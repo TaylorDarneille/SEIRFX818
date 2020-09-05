@@ -113,6 +113,10 @@ electricMixer(slicerDicer);
 ```
 </details>
 
+{% hint style="info" %}
+Hello world
+{% endhint %}
+
 ## setInterval and setTimeout
 
 We can still provide multiple arguments to a function even if one of those arguments is a function.
