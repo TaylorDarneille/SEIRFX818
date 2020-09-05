@@ -7,7 +7,7 @@
 
 ## Combine objects, arrays, and functions
 
-### 1
+### 0
 You can create a property for an object that is an array
 
 ```javascript
@@ -17,7 +17,7 @@ const foo = {
 foo.someArray[0]; //1
 ```
 
-### 2
+### 1
 You can create a property for an object that is an object
 
 ```javascript
@@ -29,7 +29,7 @@ const foo = {
 foo.someObject.someProperty; //oh hai!
 ```
 
-### 3
+### 2
 You can create a property for an object that is a function (method)
 
 ```javascript
@@ -42,7 +42,7 @@ const foo = {
 foo.someMethod();//logs 'oh hai!'
 ```
 
-### 4
+### 3
 You can store an object in an array
 
 ```javascript
@@ -51,7 +51,7 @@ const foo = [{someProperty:'weee'}, 2, 3];
 console.log(foo[0].someProperty);
 ```
 
-### 5
+### 4
 You can store an array in an array
 
 ```javascript
@@ -64,7 +64,7 @@ const foo = [
 foo[1][2]; //1,2
 ```
 
-### 6
+### 5
 You can store a function in an array
 
 ```javascript
@@ -79,7 +79,7 @@ const foo = [
 foo[2]();
 ```
 
-### 7
+### 6
 You can loop over an array in an object
 
 ```javascript
@@ -97,7 +97,7 @@ for (var i = 0; i < foo.someArray.length; i++) {
 }
 ```
 
-### 8
+### 7
 You can loop over an array in an array.  Just add an additional [*index*] after the first [*index*]
 
 ```javascript
@@ -123,7 +123,7 @@ for (let i = 0; i < foo.length; i++) {
 
 ## Combine objects, arrays, and functions more than one level deep
 
-### 10
+### 8
 You can create a function that returns an object.  Just add the `.` after the `()` since the return value of the function is an object
 
 ```javascript
@@ -136,7 +136,7 @@ const foo = ()=>{
 foo().someProperty;//hi
 ```
 
-### 11
+### 9
 You can create a function that returns an array.  Just add `[index]` after the `()` since the return value of the function is an array
 
 ```javascript
@@ -147,7 +147,7 @@ const foo = ()=>{
 foo()[1]; //banana
 ```
 
-### 12
+### 10
 You can create a function that returns an object that has an array
 
 ```javascript
@@ -160,7 +160,7 @@ const foo = ()=>{
 foo().someArray[1]; //awesome
 ```
 
-### 13
+### 11
 You can create a function that returns an object that has an object
 
 ```javascript
@@ -175,7 +175,7 @@ const foo = ()=>{
 foo().someObject.someProperty; //some value
 ```
 
-### 14
+### 12
 You can create a function that returns an object that has a method
 
 ```javascript
@@ -190,7 +190,7 @@ const foo = ()=>{
 foo().someMethod(); //logs 'oh hai!'
 ```
 
-### 15
+### 13
 You can create a function that returns a function.  Just add the `()` after the first `()` since the return value of the first function is another function
 
 ```javascript
@@ -203,7 +203,7 @@ const foo = ()=>{
 foo()(); //logs 'whaaaa?'
 ```
 
-### 116
+### 14
 You can create an object that has a method that returns an object
 
 ```javascript
@@ -218,7 +218,7 @@ const foo = {
 foo.someMethod().someProperty;
 ```
 
-### 17
+### 15
 You can create an object that has a method that returns an object that has an array
 
 ```javascript
@@ -233,7 +233,7 @@ const foo = {
 foo.someMethod().someArray[2]; //pear
 ```
 
-### 18
+### 16
 You can create an object that has a method that returns an object that has an object
 
 ```javascript
@@ -250,7 +250,7 @@ const foo = {
 foo.someMethod().someObject.someProperty; //some value
 ```
 
-### 19
+### 17
 You can create an object that has a method that returns an object that has another method
 
 ```javascript
@@ -267,7 +267,7 @@ const foo = {
 foo.someMethod().someMethod(); //logs 'both methods can have the same name!'
 ```
 
-### 20
+### 18
 You can create an object that has a method that returns a function
 
 ```javascript
@@ -281,7 +281,7 @@ const foo = {
 foo.someMethod()();//logs hi
 ```
 
-### 21
+### 19
 You can create an array that has a function that returns an object
 
 ```javascript
@@ -298,7 +298,7 @@ const foo = [
 foo[2]().someProperty; //some value
 ```
 
-### 22
+### 20
 You can create an array that has a function that returns an object that has an array
 
 ```javascript
@@ -315,7 +315,7 @@ const foo = [
 foo[2]().someArray[2]; //baboon
 ```
 
-### 23
+### 21
 You can create an array that has a function that returns an object that has an object
 
 ```javascript
@@ -334,7 +334,7 @@ const foo = [
 foo[2]().someObject.someProperty; //some value
 ```
 
-### 24
+### 22
 You can create an array that has a function that returns an object that has a method
 
 ```javascript
@@ -353,7 +353,7 @@ const foo = [
 foo[2]().someMethod(); //logs fun
 ```
 
-### 26
+### 23
 
 You can create an array that has a function that returns a function
 
