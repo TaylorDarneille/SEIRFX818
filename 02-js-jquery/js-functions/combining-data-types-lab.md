@@ -212,3 +212,5 @@ It's up to you how you model this data and what data structures you use, there's
 ---
 
 *Copyright 2018, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)*
+
+*Adapted from [SEI-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/blob/master/unit_1/w03d3/student_labs/2_combining_datatypes_lab.md)*
