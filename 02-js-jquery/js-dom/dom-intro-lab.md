@@ -18,7 +18,20 @@ At the bottom of the DOM Review notes is an appendix of vanilla DOM commands; us
 
 ## Setup Part 1
 
-1. Make a new directory called `vanilla_dom_practice` that contains two files: `index.html` and `dom_practice.js`
+1. Make a new directory called `vanilla_dom_practice` that contains three files: `index.html`, `dom_practice.js`, and `readme.md`
+
+1. Make `vanilla_dom_practice` a git repo by running `git init` in the terminal **MAKE SURE YOU'RE IN THE CORRECT FOLDER BEFORE RUNNING GIT INIT**. Then to go [github.com](https://github.com/) and create a new remote repository called `vanilla_dom_practice`. Follow the instructions to push your recently created local repo to this new remote repo.
+
+```
+git add . (or git add -A)
+git commit -m "initial commit"
+git remote add origin git@github.com:TaylorDarneille/vanilla_dom_practice.git
+git push -u origin master
+```
+
+*after this last part, you'll always be able to just run `git push` to push committed changes to github (wihtout the -u flag)*
+
+### Throughout this whole lab, make a commit after you complete each step!!! This will allow us to grade it properly.
 
 1. Load your `index.html` file for this lab into the browser and make sure that the proper js file is connected.
 
@@ -55,7 +68,7 @@ Remember: to see it in the **console**, you will need to either log the JS code 
 
 ## Part 1 Draw the DOM tree structure
 - Based on your HTML, draw the tree of your elements, starting with the `document` as the root and branch off from there
-- You can do this on paper and take a photo and upload it to your student_examples directory to have a record (you can keep it on paper too - you don't have to take the time to upload it if it isn't part of the way you keep notes for this class), you can also use a drawing program if you are more comfortable doing that
+- You can do this on paper and take a photo and [upload it to the `readme.md`](https://guides.github.com/features/mastering-markdown/#) to have a record; you can also use a drawing program if you are more comfortable doing that
 - Think about which elements are children, which are siblings, which are 'leaves' or the end of the tree. Can you branch off of text?
 
 <hr>
@@ -126,6 +139,10 @@ Change the style/color of the text of your ALL of your `li` elements to another 
 
 &#x1F535; and remove it from your page using `.remove()`
 - if you would like your element to stay, just comment this line of code out - so you have it as a reference
+
+## Submitting:
+
+Slack your homework grader with the link to the github repo you made for this assignment!
 
 ### Hungry for More
 
