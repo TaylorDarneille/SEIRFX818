@@ -57,7 +57,7 @@
     * [Callbacks Review Lab](02-js-jquery/js-functions/callbacks-review-lab.md)
     * [Timing Functions](javascript/01functions/03timing-functions.md)
     * [Iterators](javascript/01functions/04iterators.md)
-    * [Combinng Data Types](02-js-jquery/js-functions/combining-data-types.md)
+    * [Combining Data Types](02-js-jquery/js-functions/combining-data-types.md)
   * [Javascript in the browser](02-js-jquery/js-dom/00interactivity.md)
     * [DOM and Events](javascript/01readme.md)
     * [DOM Manipulation](javascript/02more-manipulation.md)
