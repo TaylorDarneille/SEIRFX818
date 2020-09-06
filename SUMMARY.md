@@ -312,6 +312,7 @@
   * [Being Successful in WDI](09-other-topics/success-in-wdi.md)
   * [Internet Fundamentals](09-other-topics/internet-fundamentals/README.md)
     * [Internet Lab](09-other-topics/internet-fundamentals/internetlab.md)
+  * [UX/UI](09-other-topics/ux-ui.md)
   * [User Stories and Wireframing](09-other-topics/user-stories-wireframing/README.md)
     * [Wireframing Exercise: Build an Idea](09-other-topics/user-stories-wireframing/exercise.md)
   * [Post WDI](09-other-topics/post-wdi/README.md)
