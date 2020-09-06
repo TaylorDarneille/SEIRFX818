@@ -3,7 +3,7 @@ Title: DOM Magic<br>
 Type: Lab or Homework<br>
 Duration: "4:00"<br>
 Adapted from: jQuery Magic by Karolin Rafalski<br>
-Adapted to vanilla JS by Taylor Darneille<br>
+Adapted to vanilla JS by Taylor Darneille from [SEI-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/tree/master/unit_1/w05d3/homework)<br>
 Competencies: create, append/remove elements in the DOM using jQuery, traverse the DOM, add/remove attributes, html tables <br>
 Prerequisites: JavaScript, HTML, CSS <br>
 
