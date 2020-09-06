@@ -20,4 +20,4 @@
 
 9. *Remember why you are here.* It’s probably because you were looking for a challenge, wanted to learn something new, or understand technology better. Whatever the reason, it’s because of that that you are here now. When you are struggling in this course, ask yourself, if given the chance to forget all that you have learned and pretend that it never happened, would you take it? Hopefully, your answer would be 'no'.
 
-10. *Stay involved in GA.* After the course, you may want to take off for a while and have a rest. That’s fine, but don’t be a stranger. Your peers and fellow GA colleagues are invaluable resources for life. You are only as strong as your network. Come back and visit for happy hours, social events, and keep your peers updated on your progress post-course.
+10. *Stay involved in GA.* After the course, don’t be a stranger! Your peers and fellow GA colleagues are invaluable resources for life. You are only as strong as your network. Come back and visit for happy hours, social events, and keep your peers updated on your progress post-course.
