@@ -311,9 +311,10 @@
   * [Being Successful in SEI](09-other-topics/success-in-wdi.md)
   * [Internet Fundamentals](09-other-topics/internet-fundamentals/README.md)
     * [Internet Lab](09-other-topics/internet-fundamentals/internetlab.md)
-  * [Adjacent Workflow]
+  * Adjacent Workflow
     * [UX/UI](09-other-topics/adjacent-workflow/ux-ui.md)
     * [Wireframing Exercise: Build an Idea](09-other-topics/adjacent-workflow/exercise.md)
+    * [Agile](09-other-topics/adjacent-workflow/agile.md)
   * [Post SEI](09-other-topics/post-wdi/README.md)
     * [Learning Resources](09-other-topics/post-wdi/resources.md)
     * [Deliverables -&gt; Portfolio](09-other-topics/post-wdi/deliverables.md)
