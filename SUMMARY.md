@@ -64,6 +64,7 @@
     * [DOM Manipulation](javascript/02more-manipulation.md)
     * [DOM Review](02-js-jquery/js-dom/intro-to-dom-2.md)
     * [DOM Review Lab](02-js-jquery/js-dom/dom-intro-lab.md)
+    * [Programmatic DOM Manipulation](02-js-jquery/js-dom/programmatic-dom.md)
     * [HP DOM Lab](02-js-jquery/js-dom/hp-dom-lab.md)
   * [HTML5 Canvas](javascript/js-canvas.md)
   * [How To Reduce Redundancy](javascript/js-how-to-reduce-redundancy.md)
