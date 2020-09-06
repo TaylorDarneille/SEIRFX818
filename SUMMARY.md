@@ -313,9 +313,8 @@
     * [Internet Lab](09-other-topics/internet-fundamentals/internetlab.md)
   * [Adjacent Workflow]
     * [UX/UI](09-other-topics/adjacent-workflow/ux-ui.md)
-    * [User Stories and Wireframing](09-other-topics/adjacent-workflow/README.md)
-    * [Wireframing Exercise: Build an Idea](09-other-topics/user-stories-wireframing/exercise.md)
-  * [Post WDI](09-other-topics/post-wdi/README.md)
+    * [Wireframing Exercise: Build an Idea](09-other-topics/adjacent-workflow/exercise.md)
+  * [Post SEI](09-other-topics/post-wdi/README.md)
     * [Learning Resources](09-other-topics/post-wdi/resources.md)
     * [Deliverables -&gt; Portfolio](09-other-topics/post-wdi/deliverables.md)
     * [FAQ](09-other-topics/post-wdi/faq.md)
