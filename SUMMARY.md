@@ -67,6 +67,7 @@
     * [HP DOM Lab](02-js-jquery/js-dom/hp-dom-lab.md)
     * [Programmatic DOM Manipulation](02-js-jquery/js-dom/programmatic-dom.md)
     * [Grids & Pyramids](02-js-jquery/js-dom/grids-pyramids.md)
+    * [DOM & Data](02-js-jquery/js-dom/dom-and-data.md)
   * [HTML5 Canvas](javascript/js-canvas.md)
   * [How To Reduce Redundancy](javascript/js-how-to-reduce-redundancy.md)
   * [\(2019\) JavaScript OOP](javascript/01-js-oop-2019.md)
@@ -308,7 +309,7 @@
 * [Assorted Topics](09-other-topics/README.md)
   * [History of Computer Science](09-other-topics/history-of-cs.md)
   * [Regular Expressions](09-other-topics/regular-expressions.md)
-  * [Being Successful in SEI](09-other-topics/success-in-wdi.md)
+  * [Being Successful in SEI](09-other-topics/success-in-sei.md)
   * [Internet Fundamentals](09-other-topics/internet-fundamentals/README.md)
     * [Internet Lab](09-other-topics/internet-fundamentals/internetlab.md)
   * Adjacent Workflow
