@@ -70,6 +70,7 @@
     * [DOM & Data](02-js-jquery/js-dom/dom-and-data.md)
     * [DOM Events](02-js-jquery/js-dom/dom-events.md)
     * [Color Palette Picker](02-js-jquery/js-dom/color-palette-picker.md)
+    * [Sketchpad](02-js-jquery/js-dom/sketchpad.md)
   * [HTML5 Canvas](javascript/js-canvas.md)
   * [How To Reduce Redundancy](javascript/js-how-to-reduce-redundancy.md)
   * [\(2019\) JavaScript OOP](javascript/01-js-oop-2019.md)
