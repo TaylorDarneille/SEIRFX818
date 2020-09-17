@@ -302,7 +302,7 @@
     * [Django Auth](python/python-catcollector/06-django-auth.md)
   * [Django Cheatsheet](python/python-django-cheatsheet.md)
   * [Django Auth](python/python-django-auth.md)
-  * [Django Polls App Tutorial](https://docs.djangoproject.com/en/1.10/intro/tutorial01/)
+  * [Django Polls App Tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
   * [Django School Tool Tutorial](python/python-django-school-tool.md)
   * [Django 1:M Relationships](python/python-django-one-to-many.md)
   * [Custom Admin Views](python/python-django-admin.md)
