@@ -33,7 +33,7 @@ An object literal that has the following attributes
 
 ## Letter()
 
-Letter is a constructor function(ES5) or class(ES6). In order to play Hangman, you will need information about each letter - what is its value? Is it hidden? You will also need a way to change its state (from hidden to not hidden), depending if the player has guessed the letter. 
+Letter is a class. In order to play Hangman, you will need information about each letter - what is its value? Is it hidden? You will also need a way to change its state (from hidden to not hidden), depending if the player has guessed the letter. 
 
 #### Object Attributes
 
