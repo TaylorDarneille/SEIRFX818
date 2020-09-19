@@ -80,7 +80,7 @@
     * [OOP Inheritance Lab](02-js-jquery/js-objects/oop-inheritance-lab.md)
     * [Tomagotchi Lab](02-js-jquery/js-objects/oop-dom-tomagotchi.md)
     * [OOP Space Battle](02-js-jquery/js-objects/oop-space-battle.md)
-    * [OOP Hangman](02-js-jquery/js-objects/oop-hangman.md)
+    * [OOP Snowman](02-js-jquery/js-objects/oop-snowman.md)
     * [\(2019\) JavaScript OOP](javascript/01-js-oop-2019.md)
     * [\(2016\) OOP with Classes](javascript/js-classes.md)
     * [\(1995\) OOP with Prototypes](javascript/01readme-1/README.md)

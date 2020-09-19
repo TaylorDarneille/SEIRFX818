@@ -1,7 +1,7 @@
-![Hangman](http://www.roomrecess.com/Pictures/HangmanTitle.png)
-# HANGMAN
+![Snowman](https://www.goldencarers.com/photos/201905001-snowman.jpg)
+# Snowman
 
-You will be creating the popular game of Hangman as a JavaScript console game!
+You will be creating the popular game of Snowman as a JavaScript console game!
 
 Make sure you break the problem down and timebox. You are encouraged to base your solution on the functions/objects below (You don't have to write the objects/functions in order , but make a plan on how to tackle this project in small steps and commit often)
 
@@ -33,7 +33,7 @@ An object literal that has the following attributes
 
 ## Letter()
 
-Letter is a class. In order to play Hangman, you will need information about each letter - what is its value? Is it hidden? You will also need a way to change its state (from hidden to not hidden), depending if the player has guessed the letter. 
+Letter is a class. In order to play Snowman, you will need information about each letter - what is its value? Is it hidden? You will also need a way to change its state (from hidden to not hidden), depending if the player has guessed the letter. 
 
 #### Object Attributes
 
@@ -103,17 +103,13 @@ Suggested functionality:
 * Hook it up to the DOM
 * Improve user experience - allow users to enter upperletters or lowercase letters, let a user know they entered an invalid character (number, symbol), let a user know they entered more than one character, add more informative prompts/alerts and more!
 * Switch from prompt/alert in the browser to an input field  and display the game progress in the browser (render guessed word, show played letters, number of guesses left). We will be covering how to do this in class next week. But if you are excited to research and implement this on your own- go for it!
-* Implement ascii graphic which shows more of a hangman for each wrong guess [hint hint](https://www.npmjs.com/package/ascii-art) :
+* Implement ascii graphic which shows more of a snowman for each wrong guess [hint hint](https://www.npmjs.com/package/ascii-art) :
 ```
-------|
-|      O
-|     /|\
-|     / \
------------
-W_DE__A_D
+    _[]_
+  W (")
+  |-(:')-<
+  |('  )
 ```
-0
-
 ---
 
-*Adapted from [SEI-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/blob/master/unit_1/w04d3/student_labs/afternoon_super_bonus_lab.md)*
+*Adapted from [SEI-MAE](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-MAE-INSTRUCTORS/blob/master/unit_1/w04d3/student_labs/afternoon_super_bonus_lab.md) and modified to Snowman by Taylor Darneille for SEIFX818*
