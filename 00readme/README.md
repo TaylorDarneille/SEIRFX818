@@ -44,7 +44,7 @@ In the case above, a Yelp server is making an API request to a _third party_ ser
 
 ## Looking at API response data
 
-Your browser can also make API requests directly, but remember that a browser is only equipped to render HTML. Since HTTP requests can only send text back and forth, response data general comes in JSON format \(or similar\).
+Your browser can also make API requests directly, but remember that a browser is only equipped to render HTML. Since HTTP requests can only send text back and forth, response data generally comes in JSON format \(or similar\). (Back in the day, data was sent via XML format, hence the *X* in *AJAX* - more on that [here](https://tmdarneille.gitbook.io/seirfx/00readme/ajax-fetch).)
 
 It is important to spend time reading the documentation for an API, which will tell you the base URL for the request, and how to format endpoints to get the data you want. The documentation will also \(usually\) show you examples of the data you will receive so you are prepared to navigate that data.
 
