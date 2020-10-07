@@ -128,3 +128,64 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 Add to the above code so that we see a photo for reach random user too!
 
+### Building query from user input
+
+Let's let the app user determine how many random people they want to display.
+
+Add a form to the html:
+```html
+<body>
+    <h1>People</h1>
+    <form id="form">
+        <input id="input" type="number" min=1 value=1>
+        <input type="submit">
+    </form>
+    <ul id="peopleList"></ul>
+    <script src="app.js"></script>
+</body>
+```
+
+Now add an event listener to the form that listens for the form submission event and prints the user's input:
+```javascript
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        console.log("user input is:", input.value)
+    })
+```
+
+Great! Now that we have the user input, once the form is submitted, let's move our fetch call *into* the form submission event listener, so random users are only added to the list when the form is submitted. How do you need to modify the `requestUrl` and fetch call to make this happen?
+
+```javascript
+const requestUrl = "https://randomuser.me/api/?results=";
+
+document.addEventListener("DOMContentLoaded", ()=>{
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        fetch(requestUrl+input.value)
+        .then((responseData)=>{
+            return responseData.json();
+        })
+        .then((jsonData)=>{
+            // console.log(jsonData);
+            // console.log(jsonData.results)
+            let people = jsonData.results;
+            people.forEach(addPerson);
+        })
+        .catch((error)=>{
+            console.log("error!!!:", error);
+        });
+    })
+
+    const addPerson = (person)=>{
+        let li = document.createElement("li");
+        li.textContent = person.name.first, person.name.last;
+        peopleList.appendChild(li);
+    }
+
+});
+```
+
+### Bonus Exercises:
+* Clear the original list each time the form is submitted (that way it's not just creating a longer and longer list each time)
+* Refactor this code so the fetch call happens in a function called `fetchPeople` that takes an `endpoint` argument.
