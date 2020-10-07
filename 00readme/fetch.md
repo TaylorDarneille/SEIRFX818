@@ -94,13 +94,12 @@ Write an `addPerson` function that takes a `person` argument (a single random us
 ```javascript
 document.addEventListener("DOMContentLoaded", ()=>{
 
-    const ul = document.getElementById("peopleList");
     const requestUrl = "https://randomuser.me/api/?results=10";
 
     const addPerson = (person)=>{
         let li = document.createElement("li");
         li.textContent = person.name.first, person.name.last;
-        ul.appendChild(li);
+        peopleList.appendChild(li);
     }
 
     fetch(requestUrl)
