@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 Add to the above code so that we see a photo for reach random user too!
 
-### Building query from user input
+## Building query from user input
 
 Let's let the app user determine how many random people they want to display.
 
