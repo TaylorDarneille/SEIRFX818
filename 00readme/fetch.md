@@ -54,14 +54,19 @@ In this example, we'll display a list of random people using fetch and the [Rand
 
 ```markup
 <h1>People</h1>
-<ul id="people"></ul>
+<ul id="peopleList"></ul>
 ```
 
-### First let's look at our data in the console
+### First let's set up our fetch call and look at our data in the console
+
+Look through the documentation and experiment in your browser to see if you can find the proper endpoint that returns data about one random user.
 
 **script.js**
 
 ```javascript
+
+const requestUrl = 'https://randomuser.me/api/'
+
 fetch(requestUrl)
     .then((responseData)=>{
         return responseData.json();
@@ -78,14 +83,18 @@ fetch(requestUrl)
     });
 ```
 
+Now look through the documentation again and figure out which endpoint you need to ping to get 10 random users back, instead of just one! Change the `requestUrl` accordingly.
+
 ### Now let's get some of this data rendering on the page!
+
+Write an `addPerson` function that takes a `person` argument (a single random user from the API data), creates a new list item that contains the person's first and last name, then adds that list item to the existing unordered `peopleList` list.
 
 **script.js**
 
 ```javascript
 document.addEventListener("DOMContentLoaded", ()=>{
 
-    const ul = document.getElementById("people");
+    const ul = document.getElementById("peopleList");
     const requestUrl = "https://randomuser.me/api/?results=10";
 
     addPerson(person)=>{
@@ -118,5 +127,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 ### Exercise
 
-Add to the above code so that we see a photo along with the random user.
+Add to the above code so that we see a photo for reach random user too!
 
