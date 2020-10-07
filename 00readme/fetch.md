@@ -6,12 +6,12 @@ The basic syntax for `fetch` is as follows:
 
 ```javascript
 fetch(requestURL)
-    .then(function(responseData){
+    .then((responseData)=>{
         // Fetch will package the response into an object with some methods that allow us to do some useful things with the response.
         // Use the .json() method to return the data in JSON format
             return responseData.json();
     })
-    .then(function(jsonData){
+    .then((jsonData)=>{
         // whatever we return in the first .then promise will be passed into this callback function
         // do some stuff with the jsonData here
     })
@@ -21,7 +21,32 @@ fetch(requestURL)
     })
 ```
 
-## Example
+## Fetching from Reddit
+
+Let's use fetch to see how we could get the kittens search query data from reddit inside of our javascript. This will allow us to retrieve that data and then do whatever we want with it without disturbing the user experience of our web-page.
+
+* Create a basic Hello World app called `fetch practice` using html, css, and javascript.
+* Once your app is up and running, add the following fetch call to the javascript:
+
+```javascript
+console.log('Script is running');
+
+fetch('https://www.reddit.com/search.json?q=kittens') 
+  .then((responseData)=>{
+    return responseData.json();
+  })
+  .then((jsonData)=>{
+    console.log("Here is the data:", jsonData);
+  })
+
+console.log('Just fired AJAX request!');
+```
+
+What order will the `console.log`s appear in? Why?
+
+This is all fine and dandy, but why would we do this? How do we incorporate API data into our webpage, once we have it? DOM Manipulation, of course! Let's look at another example.
+
+## Random User Example: Displaying data to the page
 
 In this example, we'll display a list of random people using fetch and the [Random User API](https://randomuser.me/)
 
@@ -38,16 +63,16 @@ In this example, we'll display a list of random people using fetch and the [Rand
 
 ```javascript
 fetch(requestUrl)
-    .then(function(responseData){
+    .then((responseData)=>{
         return responseData.json();
     })
-    .then(function(jsonData){
+    .then((jsonData)=>{
         // the above .then passed our returned data into this callback
         console.log(jsonData);
         // now we can see that the data we want is nested under an inner 'results'
         console.log(jsonData.results)
     })
-    .catch(function(error){
+    .catch((error)=>{
         // If any error is sent back, you will have access to it here.
         console.log("error!!!:", error);
     });
@@ -58,24 +83,24 @@ fetch(requestUrl)
 **script.js**
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", ()=>{
 
     const ul = document.getElementById("people");
     const requestUrl = "https://randomuser.me/api/?results=10";
 
-    function addPerson(person) {
+    addPerson(person)=>{
         let li = document.createElement("li");
         li.textContent = person.name.first, person.name.last;
         ul.appendChild(li);
     }
 
     fetch(requestUrl)
-        .then(function(responseData){
+        .then((responseData)=>{
             // Fetch will package the response into an object with some methods that allow us to do some useful things with the response.
             // Use the .json method to return the data in JSON format
             return responseData.json();
         })
-        .then(function(jsonData){
+        .then((jsonData)=>{
             // the above .then passed our returned data into this callback
             console.log(jsonData);
             // now we can see that the data we want is nested under an inner 'results'
@@ -84,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function(){
             let people = jsonData.results;
             people.forEach(addPerson);
         })
-        .catch(function(error){
+        .catch((error)=>{
             // If any error is sent bac, you will have access to it here.
             console.log("error!!!:", error);
         });
