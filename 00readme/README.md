@@ -6,7 +6,13 @@ This term, _API_ is thrown around quite a bit in talk about web applications, bu
 
 ## Real-world Analogy
 
+Let's say you get one of those pesky *sorry we missed you* delivery attempt slips from USPS on your door.
+
+![Image of delivery attempt slip on door](https://preview.redd.it/pwz2lwn179q21.jpg?auto=webp&s=e629a0318c609fa6826ccfc00de6077810ebeef1)
+
 Think of the API as the postal service worker you interact with when you go to the post office to pick up a package. You're the client, the server is that big room full of unclaimed packages.
+
+![Image of person picking up a package from USPS](https://i0.wp.com/www.uspsinfo.com/wp-content/uploads/2017/09/USPS-Pickup-Package.jpg?resize=630%2C350)
 
 **The Request**: You hand the paper with the package information on it to the postal worker \(the API\).
 
