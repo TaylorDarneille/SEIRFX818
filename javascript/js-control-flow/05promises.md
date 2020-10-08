@@ -25,7 +25,7 @@ That is a promise. A promise has 3 states. They are:
 When you create a new promise, you have to tell it what it's job is. Do this by giving it a callback function.
 
 ```javascript
-var myPromise = new Promise(myCallback)
+const myPromise = new Promise(myCallback)
 ```
 So, in our phone example:
 ```javascript
