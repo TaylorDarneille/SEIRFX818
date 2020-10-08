@@ -8,7 +8,7 @@ A promise is an Javascript object that has a job: go get a particular value. A p
 
 ### Analogy
 
-Imagine you are stuck at home with a sprained ankle, so you send your friend to the market to buy some pain medication. Your friend is the **promise**. Once your friend has left for the market, the promise is **pending**. If your friend returns from the market with medication, the promise is **fulfilled**. If your friend returns from the market _without_ medication, the promise is **rejected**.
+Imagine you are stuck at home with a sprained ankle, so you send your friend to the market to buy some pain medication. Your friend makes a  **promise** to return with some pain medication for you. Once your friend has left for the market, the promise is **pending**. If your friend returns from the market with medication, the promise is **fulfilled**. If your friend returns from the market _without_ medication, the promise is **rejected**.
 
 ## Creating a Promise
 
@@ -21,7 +21,7 @@ var myPromise = new Promise(myCallback)
 The promise will pass 2 arguments into the callback: **1.** a function to run if the value is successfully retrieved **2.** a function to run if the value is not successfully retrieved
 
 ```javascript
-function myCallback(resolve, reject) {
+const myCallback = (resolve, reject)=>{
   console.log('pending...');
   if(valueToRetrieve) {
     resolve(valueToRetrieve);
@@ -30,8 +30,8 @@ function myCallback(resolve, reject) {
   }
 }
 
-var valueToRetrieve = "!!!";
-var myPromise = new Promise(myCallback);
+let valueToRetrieve = "";
+let myPromise = new Promise(myCallback);
 ```
 
 Once a promise is fulfilled, then the promise will represent the value it was sent to retrieve.
@@ -39,6 +39,8 @@ Once a promise is fulfilled, then the promise will represent the value it was se
 ```javascript
 console.log(myPromise);
 ```
+
+Try changing `valueToRetrieve` to a falsey value - what changes?
 
 ## Consuming the Promise
 
@@ -53,18 +55,27 @@ Promises are generally _consumed_ by attaching a `.then().catch()`. **.then\(\)*
 * handles the error
 
 ```javascript
-function consumePromise(){
-    myPromise
-        .then(function(retrievedValue){ // will run if resolve() is called
-            console.log("fulfilled! retrievedValue is:", retrievedValue);
-        }).catch(function(err){ // will run if reject() is called
-            console.log("wah wah :( Error:", err);
-        })
+const myCallback = (resolve, reject)=>{
+  console.log('pending...');
+  if(valueToRetrieve) {
+    setTimeout(()=>{resolve(valueToRetrieve)}, 2000);
+  } else {
+    setTimeout(()=>{reject('valueToRetrieve is falsey')}, 3000);
+  }
 }
 
-var valueToRetrieve = "!!!";
-var myPromise = new Promise(myCallback);
-consumePromise();
+const consumePromise = () => {
+    myPromise
+    .then((retrievedValue)=>{ // will run if resolve() is called
+        console.log("fulfilled! retrievedValue is:", retrievedValue);
+    }).catch((err) =>{ // will run if reject() is called
+        console.log("wah wah :( Error:", err);
+    })
+}
+
+let valueToRetrieve = "!!!";
+let myPromise = new Promise(myCallback);
+consumePromise()
 ```
 
 Run this code to see the `.then()` callback run. Change `valueToRetrieve` to a falsey value to see the `.catch()` in action!
@@ -74,28 +85,29 @@ Run this code to see the `.then()` callback run. Change `valueToRetrieve` to a f
 You can chain multiple promises together using the `.then()` function. In the callback function of the `.then()`, just return the next promise you want to run:
 
 ```javascript
-function consumeTwoPromises(){
+const consumeTwoPromises = () => {
     myPromise
-        .then(function(firstRetrievedValue){
-            return new Promise(function(resolve, reject){
-                console.log("first retrived value: "+firstRetrievedValue);
-                if(firstRetrievedValue){
-                    resolve(firstRetrievedValue+"???")
-                } else {
-                    reject("firstRetrievedValue is falsey");
-                }
-            })
-        })
-        .then(function(secondRetrievedValue){ // will run if resolve() is called
-            console.log("second retrieved value is:", secondRetrievedValue);
-        }).catch(function(err){ // will run if reject() is called
-            console.log("wah wah :( Error:", err);
-        })
+    .then((firstRetrievedValue)=>{
+      return new Promise((resolve, reject)=>{
+          console.log("first retrived value: "+firstRetrievedValue);
+          if(firstRetrievedValue){
+            resolve(firstRetrievedValue+"???")
+          } else {
+            reject("firstRetrievedValue is falsey");
+          }
+      })
+    })
+    .then((secondRetrievedValue)=>{ // will run if resolve() is called
+        console.log("second retrieved value is:", secondRetrievedValue);
+    })
+    .catch((err)=>{ // will run if reject() is called
+        console.log("wah wah :( Error:", err);
+    })
 }
 
-var valueToRetrieve = "!!!";
-var myPromise = new Promise(myCallback);
-consumeTwoPromises();
+let valueToRetrieve = "!!!";
+let myPromise = new Promise(myCallback);
+consumeTwoPromises()
 ```
 
 ## Asyncronicity
@@ -103,25 +115,26 @@ consumeTwoPromises();
 Note that promises are asynchronous. If we add the following `console.log()` statements, they wont necessarily run in the order we'd expect. Try it out!
 
 ```javascript
-function consumeTwoPromises(){
-    console.log("before promises")
+const consumeTwoPromises = () => {
+    console.log("this is the console.log before promises")
     myPromise
-        .then(function(firstRetrievedValue){
-            return new Promise(function(resolve, reject){
-                console.log("first retrived value: "+firstRetrievedValue);
-                if(firstRetrievedValue){
-                    resolve(firstRetrievedValue+"???")
-                } else {
-                    reject("firstRetrievedValue is falsey");
-                }
-            })
-        })
-        .then(function(secondRetrievedValue){ // will run if resolve() is called
-            console.log("second retrieved value is:", secondRetrievedValue);
-        }).catch(function(err){ // will run if reject() is called
-            console.log("wah wah :( Error:", err);
-        })
-    console.log("after promises");
+    .then((firstRetrievedValue)=>{
+      return new Promise((resolve, reject)=>{
+          console.log("first retrived value: "+firstRetrievedValue);
+          if(firstRetrievedValue){
+            resolve(firstRetrievedValue+"???")
+          } else {
+            reject("firstRetrievedValue is falsey");
+          }
+      })
+    })
+    .then((secondRetrievedValue)=>{ // will run if resolve() is called
+        console.log("second retrieved value is:", secondRetrievedValue);
+    })
+    .catch((err)=>{ // will run if reject() is called
+        console.log("wah wah :( Error:", err);
+    })
+    console.log("this is the console.log written after promises")
 }
 ```
 
