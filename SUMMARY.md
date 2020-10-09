@@ -3,6 +3,13 @@
 * [Introduction](readme.md)
 * [About These Notes](readme%20%281%29.md)
 * [Schedule](calendar.md)
+* [Unit 2]
+  * [Node](unit-2/node/readme.md)
+    * [Internet Fundamentals](unit-2/node/internet-fundamentals.md)
+    * [Full-Stack Fundamentals](https://docs.google.com/presentation/d/1qlTcmXNVMtinorzdL9G2lGDENDJdkUd8-LuSNUsqtiU/edit?usp=sharing)
+    * [Intro to Node](unit-2/node/intro-to-node.md)
+    * [Node Modules](unit-2/node/node-modules.md)
+    * [Node Packages](unit-2/node/node-packages.md)
 * [Development Workflow](01-workflow/README.md)
   * [Command Line](01-workflow/01readme/README.md)
     * [The Terminal](01-workflow/01readme/02intro-terminal.md)
