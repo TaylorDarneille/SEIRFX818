@@ -38,12 +38,12 @@ Now open up `my-first-node-app` in sublime. Add the following code to `index.js`
 ```javascript
 let i = 0
 
-var myTimer = setInterval(count, 1000)
-
-count = () => {
+const count = () => {
     console.log(i)
     i++
 }
+
+const myTimer = setInterval(count, 1000)
 ```
 
 Make sure to save the file and check out what's happening in your terminal!
