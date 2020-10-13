@@ -83,7 +83,7 @@ By design, the express `get()` function will pass two arguments into the callbac
 
 ## The Request and Response Objects
 
-Our callback functions for our routes \(which are sometimes referred to as **Controllers**\) receive two very special objects from Express. They are provided to our function very much like the `e` object holding all the event data is passed into our event listeners, or like each item in an array is passed into our `forEach()` callback.
+Our callback functions for our routes receive two very special objects from Express. They are provided to our function very much like the `event` object holding all the event data is passed into our event listener callbacks, or like each item in an array is passed into our `forEach()` callback.
 
 ### request
 
@@ -105,6 +105,8 @@ The Response object, or `res` for short, is what we use to send something back t
 * `res.json()` - used to send object data back as JSON. Very common when writing a backend API. Much more on this later.
 
 You'll get more comfortable with all of this as we do more examples.
+
+---
 
 ## 2nd Express App: Fun With Routes
 
@@ -204,6 +206,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/:input', (req, res) => {
+  console.log("req.params: ", req.params)
   res.send("Our parameter is " + req.params.input + ".");
 });
 ```
