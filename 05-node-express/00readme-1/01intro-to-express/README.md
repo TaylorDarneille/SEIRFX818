@@ -21,17 +21,18 @@ cd hello-express
 npm init
 ```
 
-### 3. Install Express
+### 3. Create the entry point file
+```bash
+touch index.js
+```
+
+### 4. Install Express
 
 ```bash
 npm i express
 ```
 
 _**Pause!**_ Open your project file tree in your text editor and notice the new files that appear.
-
-#### node\_modules
-
-Each time you use npm to install a new package, this folder will populate with the package you installed, _along with all the dependencies of that package_. That's why you'll see several files that look like they have nothing to do with the package you were trying to install. They are helper packages for the one you're going to use! More on this folder [here](https://docs.npmjs.com/files/folders).
 
 #### package-lock.json
 
@@ -43,13 +44,19 @@ _No need to mess with any of these automatically generated files! NPM takes care
 
 Revisit the package.json file. Notice that express and the version number now shows up in the dependencies field. All third party modules will be listed here automatically when you use npm to install them \(but the dependencies of _those_ files will not be listed here\).
 
-### 4. Create your entry point file.
+#### node\_modules
+
+Each time you use npm to install a new package, this folder will populate with the package you installed, _along with all the dependencies of that package_. That's why you'll see several files that look like they have nothing to do with the package you were trying to install. They are helper packages for the one you're going to use! More on this folder [here](https://docs.npmjs.com/files/folders).
+
+### 5. gitignore your node modules
+
+It's not necessary to upload the whole `node_modules` folder to github, because anyone who forks/clones your code will be able to install all the necessary dependencies simply by running `npm i` inside the cloned folder. This will download all the dependencies indicated in the `package.json` file. To tell git to ignore the node modules folder, create a `.gitignore` file in the root directory, and add `node_modules` to it.
 
 ```bash
-touch index.js
+echo "node_modules" >> .gitignore
 ```
-
-### 5. Import the Express module
+ 
+### 6. Import the Express module
 
 _**index.js**_
 
@@ -57,24 +64,24 @@ _**index.js**_
 const express = require('express');
 ```
 
-### 6. Create an instance of an express app
-
-_**index.js**_
-
-```javascript
-const express = require('express');
-const app = express();
-```
-
-### 7. Create a Home Route
+### 7. Create an instance of an express app
 
 _**index.js**_
 
 ```javascript
 const express = require('express');
 const app = express();
+```
 
-app.get('/', function(req, res) {
+### 8. Create a Home Route
+
+_**index.js**_
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
@@ -83,7 +90,7 @@ app.listen(8000);
 
 We'll learn more about this code in the next lesson. For now, just copy it down.
 
-### 8. Run nodemon
+### 9. Run nodemon
 
 ```bash
 nodemon
