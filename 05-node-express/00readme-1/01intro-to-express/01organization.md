@@ -168,41 +168,51 @@ _**layout.ejs**_
 
 ## Controllers & Express Router
 
-Controllers become important organizational tools when you start making apps with several views, so let's organize the routs/views we have into two sections.
+Controllers become important organizational tools when you start making apps with several views, so let's organize the routs/views we have into two sections: `love-it` and `leave-it`.
 
-_**1.**_ Inside the `views` folder, create a `love-it` folder and move your `foods.ejs` and `animals.ejs` files into it.
+_**1.**_ Change your routes to have the following url patterns:
 
-_**2.**_ Inside the `views` folder, create a `hates` folder that also contains a `foods.ejs` file and an `animals.ejs` file, but design these views to display your least favorite foods and animals.
+* `/loveit/food`
+* `/loveit/animals`
+* `/leaveit/movies`
+* `/leaveit/products`
+
+Now check that these new url patterns render the expected html, and fix your nav bar to have the correct links.
+
+_***.2***_ 
+Inside the `views` folder, create a `love-it` folder and move your `foods.ejs` and `animals.ejs` files into it.
 
 _**We have been placing all routes into `index.js` when creating a Node/Express app, but this can get cumbersome when dealing with many routes. The solution is to group related routes and separate these groups into separate files. These files will go into a `controllers` folder.**_
 
-_**3.**_ Create a `controllers` folder inside the root directory that will contain all routes except for the home route.
+_**2.**_ Create a `controllers` folder inside the root directory that will contain all routes except for the home route.
 
-_**4.**_ Inside the `controllers` folder, create a file called `faves.js` with the following routes:
+_**4.**_ Inside the `controllers` folder, create a file called `loveit.js`, and copy your two `loveit` routes into this file.
+
+with the following routes:
 
 ```javascript
-app.get('/foods', function(req, res) {
-  res.render('faves/foods', {title: 'Favorite Foods', foods: ['coconut', 'avocado']});
+app.get('/lovit/foods', (req, res) => {
+  res.render('foods', {foods: ['coconut', 'avocado']});
 });
 
-app.get('/animals', function(req, res) {
-  res.render('faves/animals', {title: 'Favorite Animals', animals: ['sand crab', 'corny joke dog']})
+app.get('/loveit/animals', (req, res) => {
+  res.render('animals', {animals: ['sand crab', 'corny joke dog']})
 });
 ```
 
 But wait! `app` doesn't exist in this file! Express has a `Router()` function that will help us wrap these routes into a module that we'll export back into our main server file.
 
-_**5.**_ Add these wrapper lines of code to `faves.js`, and replace `app` with `router`.
+_**5.**_ Add these wrapper lines of code to `loveit.js`, and replace `app` with `router`.
 
 ```javascript
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-router.get('/foods', function(req, res) {
+router.get('/loveit/foods', (req, res) => {
   res.render('faves/foods', {title: 'Favorite Foods', foods: ['coconut', 'avocado']});
 });
 
-router.get('/animals', function(req, res) {
+router.get('/loveit/animals', (req, res) => {
   res.render('faves/animals', {title: 'Favorite Animals', animals: ['sand crab', 'corny joke dog']})
 });
 
@@ -214,12 +224,28 @@ _**6.**_ Now back in `index.js`, we just need to add some middleware to get thes
 **index.js**
 
 ```javascript
-app.use('/faves', require('./controllers/faves'));
+app.use('/loveit', require('./controllers/loveit'));
+```
+This middelware says *"Dear Express, if you get a request for a url pattern that starts with `/loveit`, please to to the `loveit` controller file to find the relevant routes."* SO, by the time express is looking in the right controller file, it already has processed the `/loveit` part of the url pattern, thus, we can now remove that part from the routes in `controllers/loveit.js`:
+
+```javascript
+const express = require('express');
+const router = express.Router();
+
+router.get('/foods', (req, res) => {
+  res.render('faves/foods', {title: 'Favorite Foods', foods: ['coconut', 'avocado']});
+});
+
+router.get('/animals', (req, res) => {
+  res.render('faves/animals', {title: 'Favorite Animals', animals: ['sand crab', 'corny joke dog']})
+});
+
+module.exports = router;
 ```
 
-Note that we defined the routes _relative_ to the definition in `app.use`. In other words, take note that our URL patterns in `faves.js` don't inclued `'/faves'`, because that is taken care of by the middleware.
+Note that we defined the routes _relative_ to the definition in `app.use`. In other words, take note that our URL patterns in `loveit.js` don't inclued `'/loveit'`, because that is taken care of by the middleware.
 
-Check that these routes are working by visiting `http://localhost/faves/foods` and `http://localhost/faves/animals`.
+Check that these routes are working by visiting `http://localhost/loveit/foods` and `http://localhost/loveit/animals`.
 
-Now finish the lab off by doing the same for your hates pages!
+Now finish the lab off by doing the same for your leave-it pages!
 
