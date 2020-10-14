@@ -17,16 +17,17 @@ There are several javascript template engines for express, one of the most popul
 Add EJS to your personal website project using npm:
 
 ```bash
-npm install ejs
+npm i ejs
 ```
 
 #### Set the view engine to EJS
 
-Above your routes, add an `app.set(name, value)` statement [docs](https://expressjs.com/en/api.html#app.set) where the name is the `view engine` property and the value is `ejs`.
+Above your routes, add `app.set(name, value)` ([docs](https://expressjs.com/en/api.html#app.set)) where the name is `view engine`  and the value is `ejs`.
 
 ```javascript
 app.set('view engine', 'ejs');
 ```
+This tells express that we'll be using ejs as our view engine.
 
 #### Adapt your routes to ejs
 
@@ -39,10 +40,20 @@ _**3.**_ Ejs assumes a lot about the path to the template files, so as long as t
 Your home route should look like this:
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res)=>{
   res.render('index.ejs');
 });
 ```
+
+Note: you can even leave off the `.ejs` because express knows to look for ejs files.
+
+```javascript
+app.get('/', (req, res)=>{
+  res.render('index');
+});
+```
+
+---
 
 ### The Cool Part: Templating with Variables
 
@@ -84,7 +95,8 @@ The _any JavaScript_ can be embedded using the `<% %>` tags. The addition of the
   </head>
   <body>
     <h1>Hello, <%= name %>!</h1>
-    <h2>You are <%= age*7 %> in dog years.</h2>
+    <% let dogAge = age*7 %>
+    <h2>You are <%= dogAge %> in dog years.</h2>
   </body>
 </html>
 ```
@@ -101,9 +113,9 @@ This doesn't only apply to primitive variables. We can even include variable dec
   </head>
   <body>
     <h1>Hello, <%= name %>!</h1>
-    <% var dogAge = age*7 %>
+    <% let dogAge = age*7 %>
     <h2>You are <%= dogAge %> in dog years.</h2>
-    <% var status %>
+    <% let status %>
     <%if (dogAge<100) {%>
       <% status = 'young' %>
     <%} else {%>
@@ -114,9 +126,13 @@ This doesn't only apply to primitive variables. We can even include variable dec
 </html>
 ```
 
+Notice that ejs requires ejs tags (`<% %>`, also called *alligators*) around *each line* of the javascript.
+
 #### Exercise
 
 Pass an array of your 3 or more of your favorite things to the _about_ view and display them in an unordered list using a forEach loop. _\(Hint: this will require a combination of `<%%>`, `<%=%>`, and html.\)_
+
+---
 
 ### Partials
 
