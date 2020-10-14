@@ -12,7 +12,7 @@ Express gives us a lot of flexibility out of the box \(configuration over conven
 
 ### Set Up a new Express App
 
-Before we do anything else, let's set up a new basic Express app called `faves-hates-app`.
+Before we do anything else, let's set up a new basic Express app called `love-it-or-leave-it`.
 
 #### 1. Create a new project
 
@@ -48,7 +48,7 @@ EJS layouts is a node package that allows us to create a boilerplate \(aka a _la
 Install `express-ejs-layouts` via npm
 
 ```text
-npm install express-ejs-layouts
+npm i express-ejs-layouts
 ```
 
 #### Step 2: Set up EJS layouts
@@ -74,7 +74,7 @@ How are you supposed to know that ejs layouts requires middleware? [The docs.](h
 
 #### Step 3: Create a Layout
 
-In the root of the views folder, add a layout called `layout.ejs`. It _must_ be called `layout.ejs`, as mandated by `express-ejs-layouts`.
+In the root of the `views` folder, add a layout called `layout.ejs`. It _must_ be called `layout.ejs`, as mandated by `express-ejs-layouts`.
 
 **layout.ejs**
 
@@ -82,7 +82,7 @@ In the root of the views folder, add a layout called `layout.ejs`. It _must_ be 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Faves&Hates</title>
+  <title>Love It or Leave It</title>
 </head>
 <body>
   <%- body %>
@@ -105,7 +105,7 @@ _**home.ejs**_
 Now create a home route in `index.js` below the middleware:
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.render('home');
 });
 ```
@@ -117,17 +117,17 @@ Ejs will assume that `home` means `home.ejs`. Now starte nodemon and check that 
 _**index.js**_
 
 ```javascript
-app.get('/animals', function(req, res) {
-  res.render('animals', {title: 'Favorite Animals', animals: ['sand crab', 'corny joke dog']})
+app.get('/animals', (req, res) => {
+  res.render('animals', {animals: ['sand crab', 'corny joke dog']})
 });
 ```
 
 _**animals.ejs**_
 
 ```markup
-<h1><%= title %></h1>
+<h1>Favorite Animals</h1>
 <ul>
-  <% animals.forEach(function(animal) { %>
+  <% animals.forEach((animal) => { %>
     <li><%= animal %></li>
   <% }) %>
 </ul>
@@ -135,11 +135,16 @@ _**animals.ejs**_
 
 Visit `localhost:3000/animals` to make sure that all is well.
 
-Now create a `foods` view/route that displays your favorite foods, just like you did with animals.
+#### Exercise
+
+* Create a `foods` route and view that displays your favorite foods, just like you did with animals.
+* Create a `movies` route and view that displays your *least* favorite movies.
+* Create a `products` route and view that displays your *least* favorite products.
+
 
 #### Bonus: Add Navigation
 
-Add a simple navigation list to the to of the layout page so there's a link to every page from every page:
+Add a simple navigation list to the top of the layout page so there's a link to every page from every page:
 
 _**layout.ejs**_
 
@@ -147,12 +152,14 @@ _**layout.ejs**_
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Faves&Hates</title>
+  <title>Love It or Leave It</title>
 </head>
 <body>
   <ul>
     <li><a href='/foods'>Favorite Foods</a></li>
     <li><a href='/animals'>Favorite Animals</a></li>
+    <li><a href='/movies'>Worst Movies</a></li>
+    <li><a href='/products'>Worst Products</a></li>
   </ul>
   <%- body %>
 </body>
@@ -161,9 +168,9 @@ _**layout.ejs**_
 
 ## Controllers & Express Router
 
-Controllers become important organizational tools when you start making apps with several views, so let's create a few more views.
+Controllers become important organizational tools when you start making apps with several views, so let's organize the routs/views we have into two sections.
 
-_**1.**_ Inside the `views` folder, create a `faves` folder and move your `foods.ejs` and `animals.ejs` files into it.
+_**1.**_ Inside the `views` folder, create a `love-it` folder and move your `foods.ejs` and `animals.ejs` files into it.
 
 _**2.**_ Inside the `views` folder, create a `hates` folder that also contains a `foods.ejs` file and an `animals.ejs` file, but design these views to display your least favorite foods and animals.
 
