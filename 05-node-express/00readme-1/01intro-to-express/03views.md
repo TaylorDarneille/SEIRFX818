@@ -35,7 +35,7 @@ Make sure the message displays on the page when you navigate to the appropriate 
 
 Writing text to a web page using `res.send()` gives us something to look at, but isn't very pretty. Instead of sending plain text, let's start serving HTML files. Since each page will display different HTML, we'll have several HTML files, or _views_.
 
-_**1.**_ Create a views folder inside your project directory. Inside this folder, create three HTML files:
+_**1.**_ Create a `views` folder inside your project directory. Inside this folder, create three HTML files:
 
 * index.html \(this is the standard filename for the view associated with the base URL\)
 * about.html
@@ -50,7 +50,7 @@ _**3.**_ In your routes, replace the `res.send(<message>)` with `res.sendFile(<a
 Your home route should look like this:
 
 ```javascript
-app.get('/', function(req, res) {
+app.get('/', (req, res) {
   res.sendFile(__dirname+'/views/index.html');
 });
 ```
