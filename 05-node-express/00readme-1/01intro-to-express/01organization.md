@@ -209,11 +209,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/loveit/foods', (req, res) => {
-  res.render('faves/foods', {foods: ['coconut', 'avocado']});
+  res.render('foods', {foods: ['coconut', 'avocado']});
 });
 
 router.get('/loveit/animals', (req, res) => {
-  res.render('faves/animals', {animals: ['sand crab', 'corny joke dog']})
+  res.render('animals', {animals: ['sand crab', 'corny joke dog']})
 });
 
 module.exports = router;
@@ -233,11 +233,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/foods', (req, res) => {
-  res.render('faves/foods', {foods: ['coconut', 'avocado']});
+  res.render('foods', {foods: ['coconut', 'avocado']});
 });
 
 router.get('/animals', (req, res) => {
-  res.render('faves/animals', {animals: ['sand crab', 'corny joke dog']})
+  res.render('animals', {animals: ['sand crab', 'corny joke dog']})
 });
 
 module.exports = router;
@@ -247,5 +247,24 @@ Note that we defined the routes _relative_ to the definition in `app.use`. In ot
 
 Check that these routes are working by visiting `http://localhost/loveit/foods` and `http://localhost/loveit/animals`.
 
-Now finish the lab off by doing the same for your leave-it pages!
+Finally, it is standard to organize your views the same way you organize your routes. This means we should create a subdirectory inside of `views` called `loveit` and move our `animals.ejs` and `food.ejs` files into it. 
+
+We also need ot update our `res.render()` lines accordingly:
+
+```javascript
+const express = require('express');
+const router = express.Router();
+
+router.get('/foods', (req, res) => {
+  res.render('loveit/foods', {foods: ['coconut', 'avocado']});
+});
+
+router.get('/animals', (req, res) => {
+  res.render('loveit/animals', {animals: ['sand crab', 'corny joke dog']})
+});
+
+module.exports = router;
+```
+
+Now finish the lab off by doing the same for your leave-it routes/pages!
 
