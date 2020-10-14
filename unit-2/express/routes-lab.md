@@ -6,10 +6,10 @@
 1. be sure to have `control c` your previous app if you were running one before starting this new activity
 
 ### Basic Express App
-1. Create a new directory inside your labs dir called "frasier"
+1. Create a new directory called "frasier"
 1. `cd` into `frasier`
-1. perform an npm init, specify `server.js` as your entry
-1. install express, tell npm to save express as a dependency in package.json
+1. perform an npm init, specify `server.js` as your entry point (HINT: you'll either have to do this in the initial `npm init` process, or make a change to the default settings in the `package.json`.
+1. install `express`
 1. create a `server.js` file
 1. inside `server.js`, require express and save it to a variable named `express`
 1. create a variable named app, and set it equal to `express()`
