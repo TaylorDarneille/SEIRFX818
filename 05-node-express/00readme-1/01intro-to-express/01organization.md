@@ -179,9 +179,6 @@ _**1.**_ Change your routes to have the following url patterns:
 
 Now check that these new url patterns render the expected html, and fix your nav bar to have the correct links.
 
-_***.2***_ 
-Inside the `views` folder, create a `loveit` folder and move your `foods.ejs` and `animals.ejs` files into it.
-
 _**We have been placing all routes into `index.js` when creating a Node/Express app, but this can get cumbersome when dealing with many routes. The solution is to group related routes and separate these groups into separate files. These files will go into a `controllers` folder.**_
 
 _**2.**_ Create a `controllers` folder inside the root directory that will contain all routes except for the home route.
