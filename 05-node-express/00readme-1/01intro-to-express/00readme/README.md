@@ -6,14 +6,22 @@
 
 ## Review CRUD
 
+[Formal definition on wiki](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
 Recall CRUD from the SQL database lessons. Most sites you interact with on the internet are CRUD sites. Almost everything you do on the web is a CRUD action. For example:
 
-* _**Create**_ a youtubeuser, a video, a comment, etc.
+* _**Create**_ a youtube user, a video, a comment, etc.
 * _**Read**_ comments, view videos, etc.
 * _**Update**_ your profile, edit a video title, etc.
 * _**Delete**_ a video, comment, or an entire channel!
 
-[Formal definition on wiki](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+Come up with at four user interactions for each of the following apps that correspond to the CRUD actions:
+
+* gmail
+* tinder
+* iOS clock (the built-in app that comes with the iPhone, skip if you're unfamiliar with it)
+* craigslist
+
 
 ## RESTful Routing
 
