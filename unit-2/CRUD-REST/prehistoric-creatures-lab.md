@@ -5,7 +5,7 @@
 * CRUD/RESTful Routing in Express Lesson
 * GET & POST lesson/code-along
 --- 
-For this lab, you're going to add a prehistoric creatures section to the `crud_dinosaurs` app.
+For this lab, you're going to add a prehistoric creatures section to the `RESTful-creatures` app.
 ---
 
 ## 1. Add a `prehistoric_creatures.json` file to your `RESTful-creatures` directory. Give it the following data:
