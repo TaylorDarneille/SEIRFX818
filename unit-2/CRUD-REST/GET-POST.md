@@ -6,7 +6,7 @@ So far, we've only been rendering views, which is why we've been using GET for a
 
 * Implement `GET` and `POST` routes in `express`.
 
-### 1. Set up a new express app called `RESTful-creatures`.
+### 1. Set up a new express app called `RESTful_creatures`.
 
 Incorporate `express-ejs-layouts`.
 
