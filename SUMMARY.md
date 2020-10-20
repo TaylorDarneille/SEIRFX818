@@ -20,7 +20,7 @@
   * [CRUD & REST](unit-2/CRUD-REST/readme.md)
     * [GET & POST](unit-2/CRUD-REST/GET-POST.md)
     * [GET & POST Lab](unit-2/CRUD-REST/prehistoric-creatures-lab.md)
-    * [PUT & DELETE](unit-2/CRUD-REST/PUT-DELETE.md)
+    * [PUT & DELETE](unit-2/CRUD-REST/PUT-DELETE.MD)
 * [Development Workflow](01-workflow/README.md)
   * [Command Line](01-workflow/01readme/README.md)
     * [The Terminal](01-workflow/01readme/02intro-terminal.md)
