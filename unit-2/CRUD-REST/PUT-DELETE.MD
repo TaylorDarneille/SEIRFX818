@@ -26,7 +26,7 @@ In the previous half of this lesson, we implemented the first four routes. Here 
 
 `method-override` is a node package that allows us to catch incoming requests to the back-end and change the method from `POST` to `DELETE` or `PUT`. We'll use the `method-override` middleware that looks for a `_method=DELETE` or `_method=PUT` query string in the request URL and swap out the method accordingly.
 
-_By default, `method-override` will only override `POST` methods, because having a `DELETE` or `PUT` route accessible via a `GET` request "may introduce security issues and cause weird behavior when requests travel through caches"\(see the `options.methods` section of the `method-override` docs for on this\)_
+_By default, `method-override` will only override `POST` methods, because having a `DELETE` or `PUT` route accessible via a `GET` request "may introduce security issues and cause weird behavior when requests travel through caches"\(see the `options.methods` section of the `method-override` docs for more on this\)_
 
 #### Setup:
 
