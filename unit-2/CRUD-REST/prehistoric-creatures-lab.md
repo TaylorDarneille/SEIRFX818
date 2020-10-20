@@ -39,7 +39,6 @@ For this lab, you're going to add a prehistoric creatures section to the `RESTfu
 | GET | /prehistoric_creatures/1 | Show (Read) | displays the type and photo of a particular prehistoric creature (id = 1) |
 | GET | /prehistoric_creatures/new | New (Read) | shows a form for adding a new prehistoric creature |
 | POST | /prehistoric_creatures | Create | creates an prehistoric creature with the POST payload data |
-| GET | /prehistoric_creatures/edit/1 | Show(Read) | form for editting a specific prehistoric creature (id = 1)|
 
 **Hint:** You will need to have two folders inside your `views` directory, one for `dinosaurs` and one for `prehistoric_creatures`. Make sure to change your `res.render()` statements accordingly! (Refer to the `love-it-or-leave-it` app from the Layouts and Controllers lesson.)
 
