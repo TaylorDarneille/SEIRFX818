@@ -72,32 +72,70 @@ Let's change the config.json so it looks like this.
 }
 ```
 
-The only thing we are actually changing for database setup, is the **database name**. 
-
-**NOTE: If you have a username and password for your Postgres server, you must include those as well.**
+* If the dialects defaults to mySql, change them to postgres
+* change the database names
+* f you have a username and password for your Postgres server, you must include those as well
 
 When we deploy to Heroku, they will provide us a long url that contains password and login that will be secure when deployed. More on this later.
 
 Once this is complete, let's move to the models folder.
 
 ### Create a database inside of Postgres
+
+The sequelize CLI has an equivalent command to `createdb`. You can use either, they do the same thing!
+
 ```text
 sequelize db:create userapp_development
 ```
 
 ### Create a model and a matching migration
 
-In order to create a model, we start with `sequelize model:create` and then specify the name of the model using the `--name` flag. Make sure your models are **always** singular \(table name in plural, model name in singular\). After passing in the `--name` flag followed by the name of your model, you can then add an `--attributes` flag and pass in data about your model. Generating the model also generates a corresponding migration. You only need to do this once for your model.
+In order to create a model, we start with `sequelize model:create` and then specify the name of the model using the `--name` flag. Make sure your models are **always** singular \(table name in plural, model name in singular\). See the Table Name Inference section of [these docs](https://sequelize.org/master/manual/model-basics.html#:~:text=Models%20are%20the%20essence%20of,(and%20their%20data%20types)for more. After passing in the `--name` flag followed by the name of your model, you can then add an `--attributes` flag and pass in data about your model. Generating the model also generates a corresponding migration. You only need to do this once for your model.
 
 ```bash
 sequelize model:create --name user --attributes firstName:string,lastName:string,age:integer,email:string
 ```
 
-If you want to make changes to your model after generating it - all you have to do is make a change and save it before running the migrate command.
-
 > Make sure you do **not** have any spaces between each of the attributes and their data types. Convention matters!
 
-This will generate the following migration
+This will generate the following model:
+
+
+
+**models/user.js**
+
+```javascript
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class user extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  };
+  user.init({
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    email: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'user',
+  });
+  return user;
+};
+```
+
+If you want to make changes to your model after generating it - all you have to do is make a change in this file and save it **before** running the migrate command.
+
+And a corresponding migration:
 
 **migrations/\*-create-user.js**
 
@@ -137,39 +175,6 @@ module.exports = {
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('users');
   }
-};
-```
-
-And a corresponding model:
-
-**models/user.js**
-
-```javascript
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class user extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  };
-  user.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    age: DataTypes.INTEGER,
-    email: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'user',
-  });
-  return user;
 };
 ```
 
