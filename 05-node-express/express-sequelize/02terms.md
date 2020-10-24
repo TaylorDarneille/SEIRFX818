@@ -19,9 +19,11 @@ From the Sequelize docs "To put it in a nutshell, it's an ORM \(Object-Relationa
 
 ## Model
 
-A model is a javascript object that maps to a data relation \(table\). You can think of a model as the blueprint for what each row of data is going to contain. Each instance of your model represents one row of data. The ORM allows you perform CRUD on instances of your models which will then map to the equivalent changes in your database.
+A model is a javascript class that maps to a database table. You can think of a model as the blueprint for what each row of data is going to contain. Each instance of your model is a javascript object that represents one row of data. The ORM allows you perform CRUD on instances of your models which will then map to the equivalent changes in your database.
+
+Read more about Sequelize models [here](https://sequelize.org/master/manual/model-basics.html#:~:text=Models%20are%20the%20essence%20of,(and%20their%20data%20types).)
 
 ## Migration
 
-Migrations \(also known as 'schema evolution' or 'mutations'\) are a way of changing your database schema from one version into another. A migration lays out a plan to change your _model_. When the migration is _run_, it changes your model _and_ uses your ORM to map those changes into your database so your database is alterred accordingly.
+Migrations \(also known as 'schema evolution' or 'mutations'\) are a way of changing your models from one version into another. A migration file lays out a plan to change your _model_. When the migration is _run_, it changes your model _and_ uses your ORM to map those changes into your database so your database is alterred accordingly.
 
