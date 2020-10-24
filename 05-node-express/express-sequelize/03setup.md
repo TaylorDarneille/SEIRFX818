@@ -8,7 +8,7 @@ We need install a generator so we can use sequelize. Much like our other termina
 npm install -g sequelize-cli
 ```
 
-### Setup part 2 - starting a new node project
+## Setup part 2 - starting a new node project
 
 Let's build our first app using Sequelize! First we need to create a node app and include our dependencies. **All in terminal**:
 
@@ -40,7 +40,7 @@ sequelize init
 
 If you used to use Sequelize 3, keep in mind that Sequelize 4 has breaking changes! If you need to upgrade your app, refer to these [docs](http://docs.sequelizejs.com/manual/tutorial/upgrade-to-v4.html#breaking-changes), which guide you in the update process.
 
-### Setup part 3 - config.json, models and migrations:
+## Setup part 3 - config.json, models and migrations:
 
 In the text editor we should now see a bunch of new folders. We now have config, migrations and models. This was created for us when we ran `sequelize init`.
 
@@ -72,18 +72,20 @@ Let's change the config.json so it looks like this.
 }
 ```
 
-The only thing we are actually changing for database setup, is the **database name**. If you have a username and password for your Postgres server, you'd include those as well.
+The only thing we are actually changing for database setup, is the **database name**. 
+
+**NOTE: If you have a username and password for your Postgres server, you must include those as well.**
 
 When we deploy to Heroku, they will provide us a long url that contains password and login that will be secure when deployed. More on this later.
 
 Once this is complete, let's move to the models folder.
 
-## Create a database inside of Postgres
+### Create a database inside of Postgres
 ```text
 sequelize db:create userapp_development
 ```
 
-## Creating a model and a matching migration
+### Create a model and a matching migration
 
 In order to create a model, we start with `sequelize model:create` and then specify the name of the model using the `--name` flag. Make sure your models are **always** singular \(table name in plural, model name in singular\). After passing in the `--name` flag followed by the name of your model, you can then add an `--attributes` flag and pass in data about your model. Generating the model also generates a corresponding migration. You only need to do this once for your model.
 
