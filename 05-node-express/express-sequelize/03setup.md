@@ -25,7 +25,7 @@ echo "node_modules" >> .gitignore
 Add/save dependencies \(sequelize needs pg for Postgres\)
 
 ```text
-npm install express ejs pg sequelize
+npm install pg sequelize
 ```
 
 Initialize a sequelize project
