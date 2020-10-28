@@ -13,7 +13,7 @@ Enter join tables! These tables have a one to many relationship with each of the
 
 ![An er diagram featuring a many to many relationship with students and classes and a join table called enrollments](https://fmhelp.filemaker.com/help/18/fmp/en/FMP_Help/images/relational.07.06.1.png)
 
-Often, the naming convention is to have the join table have the names of both tables. For examples if you have products and orders, the join table will often be called `products_orders`.
+Often, the naming convention is to have the join table have the names of both tables. For examples if you have products and orders, the join table will often be called `ProductOrders` or `product_orders`.
 
 ## Sequelize models
 
@@ -24,12 +24,14 @@ We will be expanding our data model in `userapp` to include toys for our pets.
 ```text
 sequelize model:create --name toy --attributes type:string,color:string
 
-sequelize model:create --name petsToys --attributes petId:integer,toyId:integer
+sequelize model:create --name PetToy --attributes petId:integer,toyId:integer
 ```
 
 ## Update your Associations
 
 In order to associate pets to toys in a many to many fashion, you will need to update the associations on the pets and toys.
+
+Many to many associations use the `belongsToMany` sequelize method, which takes a second options pargument. Use the `through` option to indicate the name of the join model (in this case, `PetToy`).
 
 ### pet.js
 
@@ -37,7 +39,7 @@ In order to associate pets to toys in a many to many fashion, you will need to u
  pet.associate = function(models) {
    // associations can be defined here
    models.pet.belongsTo(models.user);
-   models.pet.belongsToMany(models.toy, {through: "petsToys"})
+   models.pet.belongsToMany(models.toy, {through: "PetToy"})
  };
 ```
 
@@ -45,7 +47,7 @@ In order to associate pets to toys in a many to many fashion, you will need to u
 
 ```javascript
 toys.associate = function(models) {
-   models.toy.belongsToMany(models.pet, {through: "petsToys"})
+   models.toy.belongsToMany(models.pet, {through: "PetToy"})
  };
 ```
 
