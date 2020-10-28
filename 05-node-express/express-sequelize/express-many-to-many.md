@@ -19,13 +19,13 @@ Often, the naming convention is to have the join table have the names of both ta
 
 We will be expanding our data model in `userapp` to include toys for our pets.
 
-> **Very Important** Name - your models `singular`, but your join model will be plural.
-
 ```text
 sequelize model:create --name toy --attributes type:string,color:string
 
 sequelize model:create --name PetToy --attributes petId:integer,toyId:integer
 ```
+
+Check out the [Sequelize BelongsToMany docs](https://sequelize.readthedocs.io/en/v3/docs/associations/#belongs-to-many-associations) for more on all of the code and conventions covered in this lesson!
 
 ## Update your Associations
 
