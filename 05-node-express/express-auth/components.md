@@ -7,7 +7,7 @@ We'll be breaking up into groups. Each group will be assigned a component to res
 * What is bcrypt?
 * How does bcrypt work?
 * How do we use bcrypt in node?
-* **Try it!** Implement code to use bcrypt to encrypt a plain text string AND then use `.compare()` to check it. This can be done in a **stand alone .js file** in a node app.
+* **Try it!** Implement code to use bcrypt to hash a plain text string AND then use `.compare()` to check it. This can be done in a **stand alone .js file** in a node app.
 
 ## Sequelize Validations
 
