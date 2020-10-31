@@ -21,7 +21,7 @@
     * [GET & POST](unit-2/CRUD-REST/GET-POST.md)
     * [GET & POST Lab](unit-2/CRUD-REST/prehistoric-creatures-lab.md)
     * [PUT & DELETE](unit-2/CRUD-REST/PUT-DELETE.MD)
-  * [API in Express]
+  * API Calls in Express
     * [Axios](05-node-express/00readme-1/03apis-axios.md)
     * [Request (no longer maintained)](05-node-express/00readme-1/02apis.md)
   * [Sequelize](05-node-express/express-sequelize/README.md)
