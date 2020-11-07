@@ -44,61 +44,62 @@ Flash messages can be sent by calling `req.flash()` within a route, and passing 
 **controllers/auth.js**
 
 ```javascript
-var express = require('express');
-var db = require('../models');
-var passport = require('../config/ppConfig');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
+const db = require('../models')
+const passport = require('../config/ppConfig.js')
 
-router.get('/signup', function(req, res) {
-  res.render('auth/signup');
-});
+router.get('/signup', (req, res)=>{
+    res.render('auth/signup')
+})
 
-router.post('/signup', (req, res) => {
-  db.user.findOrCreate({
-    where: { email: req.body.email },
-    defaults: {
-      name: req.body.name,
-      password: req.body.password
-    }
-  }).then(([user, created]) => {
-    if (created) {
-      // FLASH
-      passport.authenticate('local', {
-        successRedirect: '/',
-        successFlash: 'Account created and logged in'
-      })(req, res);
-    } else {
-      // FLASH
-      req.flash('error', 'Email already exists');
-      res.redirect('/auth/signup');
-    }
-  }).catch(error => {
-    // FLASH
-    req.flash('error', error.message);
-    res.redirect('/auth/signup');
-  });
-});
+router.post('/signup', (req, res)=>{
+    db.user.findOrCreate({
+        where: {email: req.body.email},
+        defaults: {
+            name: req.body.name,
+            password: req.body.password
+        }
+    })
+    .then(([createdUser, wasCreated])=>{
+        if(wasCreated){
+            console.log(`just created the following user:`, createdUser)
+            // res.send('POST form data from signup.ejs, then redirect')
+            passport.authenticate('local', {
+                successRedirect: '/', // !-> FLASH <-!
+                successFlash: 'Account created and logged in!'
+            })(req, res) // why does this need to be an IIFE???
+        } else { // !-> FLASH <-!
+            req.flash('error', 'email already exists, try logging in') 
+            // console.log('An account associated with that email address already exists! Did you mean to login?')
+            res.redirect('/auth/login')
+        }
+    })
+    .catch(err =>{ // !-> FLASH <-!
+        req.flash('error', error.message) 
+        res.redirect('/auth/signup')
+    })
+})
 
-router.get('/login', (req, res) => {
-  res.render('auth/login');
-});
+router.get('/login', (req, res)=>{
+    res.render('auth/login')
+})
 
-// FLASH
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/auth/login',
-  failureFlash: 'Invalid username and/or password',
-  successFlash: 'You have logged in'
-}));
+        failureRedirect: '/auth/login',
+        successRedirect: '/', // !-> FLASH <-!
+        failureFlash: 'Invalid username and/or password.',
+        successFlash: 'You are now logged in.'
+    })
+)
 
-router.get('/logout', (req, res) => {
-  req.logout();
-  // FLASH
-  req.flash('success', 'You have logged out');
-  res.redirect('/');
-});
+router.get('/logout', (req, res)=>{
+    req.logout() // !-> FLASH <-!
+    req.flash('Success! You\'re logged out.')
+    res.redirect('/')
+})
 
-module.exports = router;
+module.exports = router
 ```
 
 ### Retrieve the messages in the view
@@ -115,11 +116,11 @@ Instead, we can create middleware to make the messages accessible in every view.
 
 ```javascript
 app.use((req, res, next) => {
-  // before every route, attach the flash messages and current user to res.locals
-  res.locals.alerts = req.flash();
-  res.locals.currentUser = req.user;
-  next();
-});
+    // before every route, attach the flash messages and current user to res.locals
+    res.locals.alerts = req.flash();
+    res.locals.currentUser = req.user;
+    next()
+})
 ```
 
 ### Display messages and current user
@@ -132,14 +133,14 @@ In order to display the alerts, we can make a partial that renders on every page
 
 ```markup
 <% if (alerts.error) { %>
-  <% alerts.error.forEach(msg => { %>
-    <div class="alert alert-error"><%= msg %></div>
-  <% }); %>
+    <% alerts.error.forEach(msg => { %>
+      <%= msg %>
+    <% }) %>
 <% } %>
 <% if (alerts.success) { %>
-  <% alerts.success.forEach(msg => { %>
-    <div class="alert alert-success"><%= msg %></div>
-  <% }); %>
+    <% alerts.success.forEach(msg => { %>
+        <%= msg %>
+    <% }) %>
 <% } %>
 ```
 
@@ -148,7 +149,7 @@ Rendering the partial and the current user:
 **views/layout.ejs**
 
 ```markup
-<% include partials/alerts %>
+<%- include('partials/alerts') %>
 ```
 
 While we're on the layout, let's add some conditional rendering for the nav bar. We added `req.flash()` messages to `res.locals` but we also added a `currentUser`. That means that we will have access to that variable from any of our EJS pages. The value will be truthy if there is a user logged in and falsy if not.
