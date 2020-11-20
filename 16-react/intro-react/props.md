@@ -206,4 +206,3 @@ If you check the page now, you'll see React prints the entire array, as that's w
 Check it out!
 
 [_Read more about using props in JSX, if you'd like!_](https://facebook.github.io/react/docs/jsx-in-depth.html) _This link is also in the Further Reading page at the end of the React module, under the Facebook documentation._
-
