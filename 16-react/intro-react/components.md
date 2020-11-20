@@ -196,3 +196,7 @@ Your `Hello` component's `render` method:
     )
   }
 ```
+
+#### Investigate!
+
+Try both of these versions (with a div and with a frament) and use the dev tools to inspect each one. What's the difference between wrapping the lines in a div and wrapping them in a fragment? How does this choice effect the dom tree?
