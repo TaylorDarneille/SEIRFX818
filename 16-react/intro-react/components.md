@@ -166,10 +166,33 @@ Your `Hello` component's `render` method:
 
 > React can be written without JSX. We won't be doing this, but if you want to learn more, [check out this blog post](http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/) \(note: open in new tab!\).
 
-### Challenge: Greet the day!
+### Greet the day!
 
 * Change your `Hello` component to return multiple lines.
-  * Add a line below the "Hello World!" heading that will display `"It is time for tea."` in an `h3`.
+  * Add a line below the "Hello World!" heading that will display `"It is time for tea."` in an `h3`. What happens?
 
-> Hint: Remember, the return statement in `render` can only return one DOM element. You can, however, place multiple elements within a parent `div` element.\*
-
+* The return statement in `render` can only return one DOM element! There are two optional fixes:
+  * Wrap your lines in a semantic block container like `div` or `main`
+ 
+```javascript
+ render(){
+    return(
+      <div class="hello-world">
+        <h1>Hello, World!</h1>
+        <h3>It is time for tea!</h3>
+      </div>
+    )
+  }
+```
+  
+  * Wrap your lines in a [React Fragment](https://reactjs.org/docs/fragments.html)
+```javascript
+  render(){
+    return(
+      <>
+        <h1>Hello, World!</h1>
+        <h3>It is time for tea!</h3>
+      </>
+    )
+  }
+```
