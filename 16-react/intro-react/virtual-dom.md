@@ -36,9 +36,7 @@ The last difference is that `ReactDOM.render( <App />,` has turned into `ReactDO
 
 > This changes the `ReactDOM.render()` call to explicitly say "Render whatever the component `Hello` returns."
 
-## Hello World exercise - You do!
-
-### Code along: Calling our `Hello` component explicitly
+## You do!
 
 Update your `index.js` file to have the three changes listed above:
 
