@@ -200,3 +200,14 @@ Your `Hello` component's `render` method:
 #### Investigate!
 
 Try both of these versions (with a div and with a frament) and use the dev tools to inspect each one. What's the difference between wrapping the lines in a div and wrapping them in a fragment? How does this choice effect the dom tree?
+
+
+### Nesting components:
+
+#### We Do: Create a kitten component
+
+Create a component that returns a placekitten image. Import it into `App.js` and render it under the `h3` in the `Hello` component.
+
+#### You Do: Create a quote component
+
+Create a component that returns a quote. Import it into `App.js` and render it under the kitten component.
