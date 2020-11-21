@@ -128,7 +128,7 @@ If we have many props, it might get difficult to keep track when we're passing e
 Currently, in `index.js`, we put Nick's name and age directly into the `ReactDOM.render` call. Instead, we'll create an object that holds Nick's name and age, making it clearer for other developers and easier to change in the future. In your `index.js file`, below the `import` statements, add this object definition:
 
 ```javascript
-var person = {
+const person = {
   personName: "Nick",
   personAge: 24
 }
@@ -159,7 +159,7 @@ Since we're just pulling props out of an object, we can use any object we want. 
 Let's say our user has some favorite animals. Update your object to include an array:
 
 ```javascript
-var person = {
+const person = {
   personName: "Nick",
   personAge: 24,
   favorites: [
