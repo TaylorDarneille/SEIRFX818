@@ -186,21 +186,21 @@ ReactDOM.render(
 If you check your application now, nothing has changed. Remember, a component class will just ignore any props it receives that it doesn't use. But, we want to use the favorite animals! So, second, update your `Hello` class `render` method in `App.js`:
 
 ```markup
-<div>
-  <h1>Hello {this.props.name}!</h1>
-  <p>You are {this.props.age} years old.</p>
-  <p>You love: {this.props.animals}</p>
-</div>
+      <>
+        <h1>Hello, {this.props.name}!</h1>
+        <p>You are {this.props.age} years old.</p>
+        <p>You love: {this.props.animals}</p>
+      </>
 ```
 
 If you check the page now, you'll see React prints the entire array, as that's what was passed in. If we wanted to include all the animals clearly, we could fix the spacing. Instead, to review some syntax, let's just modify the code to render the first value.
 
 ```markup
-<div>
+<>
   <h1>Hello {this.props.name}!</h1>
   <p>You are {this.props.age} years old.</p>
   <p>You love: {this.props.animals[0]}</p>
-</div>
+</>
 ```
 
 Check it out!
