@@ -181,6 +181,7 @@ class App extends Component {
 Now when we click each button we should see the name updating from Mateen to Billie.
 Extra practice.
 Try using the id prop to toggle the buttons color based on the buttons id.
-extra links
+
+## extra links
 https://reactjs.org/docs/lifting-state-up.html
 
