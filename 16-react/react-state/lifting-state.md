@@ -17,228 +17,168 @@ In React applications, data usually flows from the top down. Why do we care? How
 
 When several components in a view need to share `state`, you lift, or **hoist**, the `state` so that it's available to all the components that need it. Define the state in the highest component you can, so that you can pass it to any components which will need it. Let's look at a search filter as an example. This app will have two basic components - one that displays a list of data, and one that captures user input to filter the data.
 
-### We do: Build a fruit filter
-
-Our data will be simple - a list of fruits. The app will end up looking something like this:
-
-![Fruit filter app](../../.gitbook/assets/filter-example.png)
-
-When building a React app, it's important to take time to define the app's structure before you start writing code. I'm going to define the **components** and the **state** I need before I write the code.
-
-#### Components
-
-This app needs two components: 
-* 1. A `List` component to display the list of fruit. 
-    * This component needs one piece of data: the array of fruits to display.
-* 2. An `Input` to capture the filter value from the user.
-    * This component needs one piece of data: the current value of the filter.
-
-#### State
-
-This app needs to keep track of changes in two items: 
-* 1. The filtered list of fruits 
-* 2. The value of the filter
-
-#### Component hierarchy
-
-I have two sibling components \(components at the same level of the tree/app\) that need to be aware of each other's data. Specifically, the `List` component needs to only show the fruits that match the filter value. So I need to get data from one sibling to another. Something like this:
-
-![basic data flow needed](../../.gitbook/assets/fruit-filter-data.png)
-
-How to achieve this, though? Using unidrectional data flow, of course! If I create a container component to hold both the filter value and the filtered list, I can hoist the `state` to the container so it's available to all the children. It will then be simple to display the `state` in the child components. The data will flow like this:
-
-![unidirectional approach](../../.gitbook/assets/fruit-list-unidirectional.png)
-
-Now that I know the components I need, the `state` I need, and where everything needs to be, I can start writing some code.
-
-## Child Components
-
-```javascript
-import React from 'react';
-
-class List extends Component {
-    render(){
-        return (
-            <ul>
-                {/* list will go here */}
-            </ul>
-        )
-    }
+Download Mateens react simple starter :
+`git clone https://github.com/MateenCode/Simple-React-Starter`
+and `cd` into `Simple-React-Starter`
+`run code . to open vs code and `npm i` followed by `npm start` to get the sever started`
+We will  be working with functional components. Lets remove reference to Class based components.
+Lets update our App.js to look like this.
+```
+import React, { Component } from "react";
+// Components imports
+import FunctionalComponent from "./components/FunctionalComponent";
+// CSS imports
+import "./css/App.css";
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <FunctionalComponent />
+      </div>
+    );
+  }
 }
-
-export default List;
+export default App;
 ```
-
-```jsx
-import React from 'react';
-
-class Input extends Component {
-    render(){
-        return (
-            <div>
-                <label htmlFor="fruit-filter">Filter these Fruits: </label>
-                <input type="text" name="fruit-filter" />
-            </div>
-        )
-    }
+and lets delete the ClassComponent in the /src/components folder.
+Now lets add some state to app at the inside of out app component app.js
+`  state = { selectedPlayer: [0, 0], playerName: "YOUR NAME" };`
+Lets also display that name under out Functional component.
+Our App component should now look like this
+```
+class App extends Component {
+  state = {
+    playerName: "Billie"
+  }
+  render() {
+    return (
+      <div className="App">
+        <FunctionalComponent />
+        {this.state.playerName}
+      </div>
+    );
+  }
 }
-
-export default Input;
 ```
-
-#### Container component
-
-My container will be a class with a few methods I'll use to initialize and update the state of the two child components. In the constructor, I'll initialize the state:
-
-```jsx
-    state = {
-      // initialize the fruit list to the full list passed in props
-      fruitsToDisplay: this.props.fruits,
-      // intialize the filter value to an empty string
-      filterValue: ''
-    }
+Now lets make our first component.
+in your components folder lets make a file name PlayerDetails.js
+(You can check which directory you are in by running `pwd`)
+`touch src/components/PlayerDetails.js`
+Lets open this file and define a functional component. It will take props ( a name ) and return that name in a div.
+Should looke like this.
 ```
-
-I'll need a method to update the `state` when the filter value changes. This method will store the filter `state`, and filter the list of fruits to display. I'll pass this change handler to the filter component to react to user input.
-
-```jsx
-    handleFilterChange = (e) => {
-      e.preventDefault()
-      const filterValue = e.target.value;
-      // remove fruits that don't contain the filter value
-      const filteredFruitList = this.props.fruits.filter(fruit => {
-        return fruit.toLowerCase().includes(filterValue.toLowerCase())
-      })
-      this.setState({
-          fruitsToDisplay: filteredFruitList,
-          filterValue,
-      })
-    }
-```
-
-Finally, I need to render my child components.
-
-```jsx
-render() {
+import React from 'react'
+const PlayerDetails = ({name}) => {
     return (
         <div>
-          <Input value={this.state.filterValue} onChange={this.handleFilterChange} />
-          <List fruits={this.state.fruitsToDisplay} />
+            {name}
         </div>
     )
-  }
+}
+export default PlayerDetails
 ```
-
-The full container component looks like this:
-
-```javascript
-import React, {Component} from 'react';
-import Input from './Input'
-import List from './List'
-
-class FruitContainer extends Component {
-    state = {
-      // initialize the fruit list to the full list passed in props
-      fruitsToDisplay: this.props.fruits,
-      // intialize the filter value to an empty string
-      filterValue: ''
-    }
-  
-    handleFilterChange = (e) => {
-      e.preventDefault()
-      const filterValue = e.target.value;
-      // remove fruits that don't contain the filter value
-      const filteredFruitList = this.props.fruits.filter(fruit => {
-        return fruit.toLowerCase().includes(filterValue.toLowerCase())
-      })
-      this.setState({
-          fruitsToDisplay: filteredFruitList,
-          filterValue,
-      })
-    }
-  
-    render() {
-      return (
+Now lets import this into out App.js and pass the name from state into our new PlayerDetail component
+Your updated App component should look like this
+```
+class App extends Component {
+  state = {
+    playerName: "Billie"
+  }
+  render() {
+    return (
+      <div className="App">
+        <FunctionalComponent />
+        <PlayerDetails playerName={this.state.playerName}/>
+      </div>
+    );
+  }
+}
+```
+Now lets make two components to display buttons to toggle Which Player to display.
+Just like the PlayerDetails components, int he src/components folder lets make a new file named `PlayerContent.js`
+in this file lets define a functional component which takes props ( an id and a playerName ). This component will contain a button which displays the playerName. and a onclick handler which for now will alert which player we clicked.
+It should look like this.
+```
+const PlayerConent = ({playerName, id}) => {
+    return (
         <div>
-          <Input value={this.state.filterValue} onChange={this.handleFilterChange} />
-          <List fruits={this.state.fruitsToDisplay} />
+            <button
+                onClick={()=>{
+                    alert(playerName)
+                }}
+            >
+                {playerName}
+            </button>
         </div>
-      )
-    }
-  
+    )
+}
+export default PlayerConent
+```
+Lets import this into our app.js and have two instances of this component and lets pass a playerName and an id for each box.
+App.js should look like this.
+```
+class App extends Component {
+  state = {
+    playerName: "Billie"
   }
-
-
-export default FruitContainer
-```
-All of the data is hoisted to the top of the tree in the container, and I pass it to the child components.
-
-Now I need to return to the children components and add the functionality to handle the data it's receiving!
-
-## Finished Children components:
-
-```jsx
-import React, {Component} from 'react';
-
-class Input extends Component {
-    render(){
-        return (
-            <div>
-                <label htmlFor="fruit-filter">Filter these Fruits: </label>
-                <input type="text" value={this.props.value} onChange={this.props.onChange} name="fruit-filter" />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="App">
+        <FunctionalComponent />
+        <PlayerContent
+          playerName="Billie"
+          id={0}
+        />
+        <PlayerContent
+          playerName="Mateen"
+          id={1}
+        />
+        <PlayerDetails playerName={this.state.playerName}/>
+      </div>
+    );
+  }
 }
-
-export default Input;
-
 ```
-
-```jsx
-import React, {Component} from 'react';
-
-class List extends Component {
-    render(){
-        const fruitItems = this.props.fruits.map((f)=>{
-            return <li>{f}</li>
-        })
-        return (
-            <ul>
-                {fruitItems}
-            </ul>
-        )
-    }
+Now, If we want to update the name being displayed how would we do that?
+===============================================================
+take a answer or two.
+===============================================================
+In our App.js Lets make handler which will take id and name and set the state based params id, and playerName.
+and lets now pass that to our Player Content components through the clickHandler
+Should looke something like this
+```
+class App extends Component {
+  state = {
+    playerName: "Billie"
+  }
+  updateSelectedPlayer = (playerName,id) => {
+    this.setState({
+      playerName: playerName,
+    });
+  };
+  render() {
+    return (
+      <div className="App">
+        <FunctionalComponent />
+        <PlayerContent
+          updateSelectedPlayer={this.updateSelectedPlayer}
+          playerName="Billie"
+          id={0}
+        />
+        <PlayerContent
+          updateSelectedPlayer={this.updateSelectedPlayer}
+          playerName="Mateen"
+          id={1}
+        />
+        <PlayerDetails playerName={this.state.playerName}/>
+      </div>
+    );
+  }
 }
-
-export default List;
-
 ```
+Now when we click each button we should see the name updating from Mateen to Billie.
+Extra practice.
+Try using the id prop to toggle the buttons color based on the buttons id.
 
-## You do: Also display the fruits that do _not_ match the filter
-
-* Add another child component to the
-
-  `FruitContainer` that displays the fruits that do _not_ match the filter value
-
-  \(this should be all the items that are not in the `fruitsToDisplay` list\).
-
-_Hint: Will you need to have a new state?_
-
-### Solution - Unmatching Filter
-
-Coming Soon!
-
-### Final Thoughts
-
-It's important that you think through your applications before you start writing code. It's often helpful to sketch out your app, and identify:
-
-* the **components**
-
-  you will need
-
-* the **states** you will need
-* where those states need to live
-
-Use the unidirectional data flow pattern - hoist your state toward the top of the component tree so it's available to the children that need it.
-
+## extra links
+https://reactjs.org/docs/lifting-state-up.html
