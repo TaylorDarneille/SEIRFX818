@@ -20,7 +20,7 @@ When several components in a view need to share `state`, you lift, or **hoist**,
 Download Mateens react simple starter :
 `git clone https://github.com/MateenCode/Simple-React-Starter`
 and `cd` into `Simple-React-Starter`
-`run code . to open vs code and `npm i` followed by `npm start` to get the sever started`
+run `code .` to open vs code and `npm i` followed by `npm start` to get the sever started
 We will  be working with functional components. Lets remove reference to Class based components.
 Lets update our App.js to look like this.
 ```
@@ -42,7 +42,7 @@ export default App;
 ```
 and lets delete the ClassComponent in the /src/components folder.
 Now lets add some state to app at the inside of out app component app.js
-`  state = { selectedPlayer: [0, 0], playerName: "YOUR NAME" };`
+`  state = { playerName: "YOUR NAME" };`
 Lets also display that name under out Functional component.
 Our App component should now look like this
 ```
@@ -68,10 +68,10 @@ Lets open this file and define a functional component. It will take props ( a na
 Should looke like this.
 ```
 import React from 'react'
-const PlayerDetails = ({name}) => {
+const PlayerDetails = ({playerName}) => {
     return (
         <div>
-            {name}
+            {playerName}
         </div>
     )
 }
@@ -95,7 +95,7 @@ class App extends Component {
 }
 ```
 Now lets make two components to display buttons to toggle Which Player to display.
-Just like the PlayerDetails components, int he src/components folder lets make a new file named `PlayerContent.js`
+Just like the PlayerDetails components, in the src/components folder lets make a new file named `PlayerContent.js`
 in this file lets define a functional component which takes props ( an id and a playerName ). This component will contain a button which displays the playerName. and a onclick handler which for now will alert which player we clicked.
 It should look like this.
 ```
@@ -141,8 +141,8 @@ class App extends Component {
 ```
 Now, If we want to update the name being displayed how would we do that?
 ===============================================================
-take a answer or two.
-===============================================================
+
+
 In our App.js Lets make handler which will take id and name and set the state based params id, and playerName.
 and lets now pass that to our Player Content components through the clickHandler
 Should looke something like this
@@ -151,7 +151,7 @@ class App extends Component {
   state = {
     playerName: "Billie"
   }
-  updateSelectedPlayer = (playerName,id) => {
+  updateSelectedPlayer = (playerName) => {
     this.setState({
       playerName: playerName,
     });
@@ -176,9 +176,31 @@ class App extends Component {
   }
 }
 ```
+Now last lets pass updateSelectedPlayer to our PlayerContent and call is with playerName.
+
+Our updated PlayerContent should looke like this
+```
+const PlayerContent = ({playerName, id, updateSelectedPlayer}) => {
+    return (
+        <div>
+            <button
+                onClick={()=>{
+                    updateSelectedPlayer(playerName)
+                }
+            }
+            >
+                {playerName + id}
+            </button>
+        </div>
+    )
+}
+```
+
 Now when we click each button we should see the name updating from Mateen to Billie.
+
 Extra practice.
 Try using the id prop to toggle the buttons color based on the buttons id.
+
 
 ## extra links
 https://reactjs.org/docs/lifting-state-up.html
