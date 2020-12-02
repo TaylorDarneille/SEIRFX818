@@ -151,6 +151,9 @@ class App extends Component {
   state = {
     playerName: "Billie"
   }
+  
+   // set state takes a key (playerName) and a value(playerName ( can be anything)) and 
+  // look in state for the key, to update the value
   updateSelectedPlayer = (playerName) => {
     this.setState({
       playerName: playerName,
