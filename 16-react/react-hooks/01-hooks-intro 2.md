@@ -7,6 +7,8 @@
 * Use the `useState` hook to access and set state
 * Use the `useEffect` hook to handle post-render effects
 
+![hooks](http://gph.is/142lhax)
+
 ## What are React Hooks?
 
 So far we have learned about two ways to create React components: function-based and class-based. We know that if we make a component that extends the React.Component class, it will be able to use state, lifecycle hooks, refs - the whole kit and kaboodle. In contrast, a function-based component has access to none of that. It is basically just a render function that draws some JSX.
