@@ -15,7 +15,7 @@ Let's start with [a video explaining this concept.](https://generalassembly.wist
 
 In React applications, data usually flows from the top down. Why do we care? How does this apply?
 
-When several components in a view need to share `state`, you lift, or **hoist**, the `state` so that it's available to all the components that need it. Define the state in the highest component you can, so that you can pass it to any components which will need it. Let's look at a search filter as an example. This app will have two basic components - one that displays a list of data, and one that captures user input to filter the data.
+When several components in a view need to share `state`, you lift, or **hoist**, the `state` so that it's available to all the components that need it. Define the state in the highest component you can, so that you can pass it to any components which will need it. Lets build a quick app to show how to pass we pass and **hoist** state.
 
 Download Mateens react simple starter :
 `git clone https://github.com/MateenCode/Simple-React-Starter`
