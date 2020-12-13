@@ -90,7 +90,13 @@ Currently the most popular editor according to developer polls. This is Microsof
 
 Download and install VS Code from [here](https://code.visualstudio.com/download)
 
-To be able to open VS Code from any directory, add it to your path inside your ~/.zshrc file:
+You're all good to go now, but for ease of use, let's make it so we cna automatically open up any file or project in VS Code, from our command line. The following instructions are taken from [these docs](https://code.visualstudio.com/docs/setup/mac). If you're on a windows or linux, see the left-side menu to switch to the instructions for your machine.
+
+To be able to open VS Code from any directory, open the Command Palette (Shift+⌘+P) and type 'shell command' to find the Shell Command: Install 'code' command in PATH command (it will be the first one that comes up).
+
+Restart the terminal for the new $PATH value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.
+
+Alternatively, you can achieve this functionality by adding VS Code to your path inside your ~/.zshrc file:
 
 ```bash
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
