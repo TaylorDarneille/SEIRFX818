@@ -42,12 +42,14 @@ To get started, create a new folder, and initialize npm. We'll also want to inst
 There are multiple ways to get an HTML document, but we'll use the `request` module in this example. To scrape data from the site, we need to request the webpage. In a `getbusinesses.js` file, import the `request`, then make a request to the Seattle Neigbhborhoods website.
 
 ```javascript
-const request = require('request')
-const URL = 'https://visitseattle.org/partners/?frm=partners&ptype=visitors-guide&s=&neighborhood=Capitol+Hill'
+const axios = require('axios')
+const URL = 'https://visitseattle.org/partners/?frm=partners&ptype=visitors-guide&s=&neighborhood=Capitol+Hill';
 
-request(URL, (error, response, body) => {
-    console.log(body);
-});
+
+axios.get(URL)
+.then((response) => {
+    console.log(response)
+})
 ```
 
 Run the program and take a look at your output. What did the request return?
@@ -66,10 +68,11 @@ const cheerio = require('cheerio')
 Inside the callback function of request, we'll pass the html we got back into the `cheerio.load()` function. We store the result, which is a cheerio object, in the dollar sign variable because cheerio is designed to mimic jQuery selectors \(though technically, we could store it in any variable we'd like\).
 
 ```javascript
-request(URL, (error, response, body) => {
-  let $ = cheerio.load(body);
-  console.log($);
-});
+axios.get(URL)
+.then((response) => {
+    let $ = cheerio.load(response.data)
+    console.log($)
+})
 ```
 
 Run the program and take a look at the `cheerio` object. How might we find the html again? Does the `cheerio` object contain a method for this?
@@ -87,21 +90,23 @@ The business name can be found inside the `search-result-preview` `div` as both 
 First let's grab the first `search-result-preview` element. Cheerio uses [jQuery selectors](https://www.w3schools.com/jquery/jquery_ref_selectors.asp) to identify elements.
 
 ```javascript
-request(URL, (error, response, body) => {
-    let $ = cheerio.load(body);
+axios.get(URL)
+.then((response) => {
+    let $ = cheerio.load(response.data)
     let result = $('.search-result-preview').html();
     console.log(result)
-});
+})
 ```
 
 Now let's target the `title` attribute:
 
 ```javascript
-request(URL, (error, response, body) => {
-    let $ = cheerio.load(body)
-    let result = $('.search-result-preview').find('a').attr('title');
+axios.get(URL)
+.then((response) => {
+    let $ = cheerio.load(response.data)
+    let result = $('.search-result-preview').find('a').attr('title')
     console.log(result)
-});
+})
 ```
 Great! Now we know how to find the title of **one** business, but how do we get all of them?
 
