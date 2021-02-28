@@ -1,7 +1,8 @@
-# Lab - Classes
+# Pets Lab
 
 ## Prereqs:
-* OOP classes and inheritance
+* classes
+* inheritance
 
 ## Create the following objects
 
